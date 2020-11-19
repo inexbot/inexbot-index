@@ -8,6 +8,7 @@ const locales = {
   "zh-CN": require("../locales/zh-CN.json"),
   null: require("../locales/zh-CN.json"),
 };
+
 function App(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
   const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
@@ -21,21 +22,8 @@ function App(props) {
   window.onresize = function(){
     setBannerWidth(document.body.clientWidth)
     // setBannerHeight(document.body.clientHeight)
+
   };
-  const loadLocales = () => {
-    // react-intl-universal 是单例模式, 只应该实例化一次
-    intl
-      .init({
-        currentLocale: localStorage.getItem("lang") || "zh-CN", // TODO: determine locale here
-        locales,
-      })
-      .then(() => {
-        setInitDone(true);
-      });
-  };
-  useEffect(()=>{
-    loadLocales()
-  },[])
 
   return (
     initDone && (
@@ -46,12 +34,8 @@ function App(props) {
         </div>
         {/* 中间内容 */}
         <div className="content">{props.children}</div>
-        {/* {React.Children.map(props.children, child => {
-           return React.cloneElement(child, { BannerWidth:BannerWidth,BannerHeight:BannerHeight })
-          })}     */}
       </div>
-    )
-  );
+   ));
 }
 
 export default App;
