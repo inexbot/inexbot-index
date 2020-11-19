@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Carousel,Button } from "antd";
-import API from "API/api";
+import API from "components/API/api";
 import style from "./index.module.less";
 import {LeftOutlined , RightOutlined } from "@ant-design/icons"
 import banner1 from "images/banner1.jpg";
@@ -9,13 +9,13 @@ import banner3 from "images/banner3.jpg";
 
 function Banner(props){
   const [CarouselRef,setCarouselRef ] = useState(null);
+  
   // 初始获取图片上的文字
   useEffect(()=>{
     API.getBannerTxt().then(res=>{
       console.log(res)
     })
   },[])
-
   return(
     <div className={style.banner} style={{ width:`${props.BannerWidth}px`,height:`${props.BannerHeight}px` }}>
       <Carousel
