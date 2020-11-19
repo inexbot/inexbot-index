@@ -4,14 +4,13 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  dva:{},
-  history:{
-    type:'hash'
+  history: {
+    type: 'hash',
   },
+  dynamicImport: {},
   alias: {
     components: '@/components',
     API: '@/components/API',
     images: '@/images',
   },
-  
 });
