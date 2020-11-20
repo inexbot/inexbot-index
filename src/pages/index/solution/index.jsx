@@ -8,7 +8,7 @@ import { ApiFilled } from "@ant-design/icons";
 
 function Solution(props){
   const [dataList, setDataList] = useState([]);
-
+  console.log(props,"这里是解决方案模块")
   useEffect(()=>{
     API.getSolutionType().then(res=>{
       res.list.splice(2,1)

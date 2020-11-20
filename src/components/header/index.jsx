@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "components/API/api";
 import style from "./index.module.less";
 import {SearchOutlined , } from "@ant-design/icons"
-import { Button, Popconfirm} from "antd";
+import { Button, Popconfirm, Layout} from "antd";
 import intl from "react-intl-universal";
 
 function Header(props){

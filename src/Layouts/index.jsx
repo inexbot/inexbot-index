@@ -1,7 +1,8 @@
 
-import React, { useState, useEffect } from "react";
-import Header from "components/header/index.jsx";
-import style from  "./index.module.less";
+import React, { useState, useEffect } from 'react';
+import Header from 'components/header/index.jsx';
+import style from './index.module.less';
+
 
 function App(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
@@ -20,7 +21,6 @@ function App(props) {
       {/* 中间内容 */}
       <div className="content">{props.children}</div>
     </div>
-
   );
 }
 
