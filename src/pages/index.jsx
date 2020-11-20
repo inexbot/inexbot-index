@@ -4,7 +4,6 @@ import API from 'components/API/api';
 // import style from "./index.module.less";
 import Banner from './index/banner/index.jsx';
 import Solution from './index/solution/index.jsx';
-import { Footer } from '../components/footer/index.jsx';
 
 function Connect(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
@@ -28,9 +27,6 @@ function Connect(props) {
       {/* 解决方案 */}
       <div className="solution">
         <Solution BannerHeight={BannerHeight} BannerWidth={BannerWidth} />
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );

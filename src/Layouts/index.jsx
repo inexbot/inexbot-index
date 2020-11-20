@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from 'components/header/index.jsx';
+import { Footer } from 'components/footer/index.jsx';
 import style from './index.module.less';
-
 
 function App(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
@@ -16,10 +15,13 @@ function App(props) {
     <div className="App">
       {/* 主页头部,Header组件*/}
       <div className={style.Header}>
-        <Header BannerWidth={BannerWidth} />
+        {/* <Header BannerWidth={BannerWidth} /> */}
       </div>
       {/* 中间内容 */}
-      <div className="content">{props.children}</div>
+      {/* <div className="content">{props.children}</div> */}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
