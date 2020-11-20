@@ -5,7 +5,9 @@ import style from './index.module.less';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 function Banner(props) {
+
   let carousel = useRef(null);
+
   // 初始获取图片上的文字
   let banner1 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner1.jpg';
@@ -14,21 +16,21 @@ function Banner(props) {
   let banner3 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner3.jpg';
   return (
-    <div className={style.banner} style={{ boxSizing: 'border-box' }}>
+    <div className={style.banner} style={{ boxSizing: 'border-box',height:document.body.clientHeight }}>
       <Carousel
         // autoplay
         ref={carousel}
         dots={false}
       >
         <div>
-          {/* <div className={style.banner1}  style={{ background: `url(${banner1}) no-repeat ${-( 1919 - props.BannerWidth )/2}px `,height:props.BannerHeight  }}> */}
-          <div
+          <div className={style.banner1}  style={{ background: `url(${banner1}) no-repeat ${-( 1919 - props.BannerWidth )/2}px `,height:document.body.clientHeight  }}>
+          {/* <div
             className={style.banner1}
             style={{
               background: `url(${banner1}) no-repeat 50% `,
               height: props.BannerHeight,
             }}
-          >
+          > */}
             <LeftOutlined
               onClick={() => {
                 carousel.current.prev();
@@ -58,9 +60,8 @@ function Banner(props) {
           <div
             className={style.banner2}
             style={{
-              background: `url(${banner2}) no-repeat ${-(
-                1919 - props.BannerWidth
-              ) / 2}px`,
+              background: `url(${banner2}) no-repeat 50% `,
+              height: props.BannerHeight,
             }}
           >
             <LeftOutlined
@@ -92,9 +93,8 @@ function Banner(props) {
           <div
             className={style.banner3}
             style={{
-              background: `url(${banner3}) no-repeat ${-(
-                1919 - props.BannerWidth
-              ) / 2}px`,
+              background: `url(${banner3}) no-repeat 50% `,
+              height: props.BannerHeight,
             }}
           >
             <LeftOutlined

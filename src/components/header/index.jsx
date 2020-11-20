@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
-import API from "components/API/api";
 import style from "./index.module.less";
 import {SearchOutlined , } from "@ant-design/icons"
-import { Button, Popconfirm, Layout} from "antd";
-import intl from "react-intl-universal";
 
 function Header(props){
-  const [headerList, setHeaderList] = useState([]);
-  const [headerIndex, setHeaderIndex]= useState(0);
-  const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
-  const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
+  const [TypeList, setTypeList] = useState(props.TypeList)
 
-  window.onresize = function(){
-    setBannerWidth(document.body.clientWidth)
-    setBannerHeight(document.body.clientHeight)
-  };
+  useEffect(()=>{
+    if( props.TypeList !== null ){
+      props.TypeList.splice(8)
+    }
+    setTypeList(props.TypeList)
+  },[props.TypeList])
   return (
-    <div className={style.header} style={{ width:BannerWidth, padding:`0 ${(BannerWidth-1280)/2}px` }}>
+    <div className={style.header} style={{ width:props.BannerWidth, padding:`0 ${(props.BannerWidth-1280)/2}px` }}>
       <h1>
         <a>
           <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/logo.png" ></img>
@@ -24,13 +20,22 @@ function Header(props){
         </a>
       </h1>
       <ul className={style.header_list}>
-        {/* { props.headerList.map((item,Index)=>{
-          return(
-            <li key={Index} >
-              <a  >{item.typename} <span></span></a>
-            </li>
-          )
-        })} */}
+        { TypeList === null? " " :
+          TypeList.map((Item,Index)=>{
+            return (
+              <li key={Index} >
+                <a  >{Item.typename} <span></span></a>
+                <ul>
+                {Item.sublist.map((item,index)=>{
+                  return(
+                    <li key={index}><a > {item.typename}<span></span> </a> </li>
+                  )
+                })}
+                </ul>
+              </li>
+            )
+          })
+        }
       </ul>
       <div className={style.header_txt}>
         <a style={{fontSize: "15px",color:"white"}}> 中文 </a>

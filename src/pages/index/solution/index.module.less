@@ -2,10 +2,10 @@
   width:100%;
   background:white;
   overflow: hidden;
+  margin-bottom: 150px;
   .solution_top{
     width:100%;
     position: relative;
-    
     p:nth-child(1){
       position: absolute;
       color:#41aeff;
@@ -13,7 +13,7 @@
       display: flex;
       text-align: center;
       justify-content: center;
-      z-index: 10;
+      z-index: 1;
       font-weight: 600;
       left:44.6%;
       padding: 100px 0;
@@ -43,45 +43,59 @@
     justify-content: space-between;
     margin-top: 60px;
     >div{
+      transition:all 1s;
       margin-top: 0.5%;
       position: relative;
-      border-radius: 4px;
+      border-radius: 9px;
       .solution_btm_txt{
         font-size: 20px;
         color:white;
         font-weight: 600;
         position: absolute;
         bottom: 3%;
-        left:3%
+        left:3%;
+        transition:all .6s;
+      }
+      .solution_btn_opc{
+        opacity: 0;
+        width:100%;
+        height:99%;
+        background:black;
+        border-radius: 9px;
+        transition:all .6s;
+        img{
+          width: 23%;
+          margin-left: 38%;
+          margin-top: 16%;
+        };
+        p{
+          margin:0;
+          color:white;
+          padding:0 10%;
+          margin-top: 5%;
+          text-indent: 30px;
+        }
+        span{
+          text-indent: 0;
+          line-height: 20px;
+          display: block;
+          color:white;
+          padding:0 10%;
+          width: 242px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
     }
-    .solution_btn_opc{
-      width:100%;
-      height:100%;
-      background:black;
-    //   opacity: ;
-      img{
-        width: 23%;
-        margin-left: 38%;
-        margin-top: 16%;
-      };
-      p{
-        color:white;
-        padding:0 10%;
-        margin-top: 5%;
-        text-indent: 30px;
-        // width: 100%;
-        // text-indent: 23px;
-        // overflow: hidden;
-        // white-space: nowrap;
-        // -webkit-line-clamp: 2;
-        // text-overflow: ellipsis;
+    >div:hover{
+      .solution_btm_txt{
+        opacity:0 ;
       }
-      span{
-        color:white;
-        padding:0 10%;
-        margin-top: 5%;
+      .solution_btn_opc{
+        opacity: .5;
       }
     }
+
   }
 }

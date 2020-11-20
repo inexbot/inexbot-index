@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {Carousel,Button } from "antd";
 import API from "components/API/api";
 import style from "./index.module.less";
 import banner3 from "images/banner3.jpg";
-import { ApiFilled } from "@ant-design/icons";
 
 
 function Solution(props){
   const [dataList, setDataList] = useState([]);
-  console.log(props,"这里是解决方案模块")
   useEffect(()=>{
     API.getSolutionType().then(res=>{
       res.list.splice(2,1)
       res.list.splice(6,1)
       setDataList(res.list)
-      console.log(res.list)
     })
   },[])
   return(
@@ -31,9 +27,9 @@ function Solution(props){
                 <span className={style.solution_btm_txt}> {item.typename} </span>
                 <div className={style.solution_btn_opc}>
                   <img src={require(`images/icon${index+1}.png`)} alt=""/>
-                  <p > {item.description.slice(0,22)} </p>
-                  { item.description.length <22? "":
-                    <span> {item.description.slice(22)} </span>
+                  <p > {item.description.slice(0,21)} </p>
+                  { item.description.length <21? "":
+                    <span> {item.description.slice(21)} </span>
                   }
                 </div>
               </div>
