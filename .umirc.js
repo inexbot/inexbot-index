@@ -12,5 +12,6 @@ export default defineConfig({
     components: '@/components',
     API: '@/components/API',
     images: '@/images',
+    page: '@/page',
   },
 });
