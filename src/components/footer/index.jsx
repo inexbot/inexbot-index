@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './index.module.less';
+import API from 'components/API/api';
 
 export function Footer(props) {
+  useEffect(() => {
+    API.getTypeList().then(res => {
+      console.log(res);
+    });
+  }, []);
   return (
     <div className={style.footer}>
       <div className={style.footer_information}>
@@ -13,7 +19,7 @@ export function Footer(props) {
             <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/qrcode.jpg" />
           </div>
         </div>
-        <div className={style.footer_list}></div>
+        <div className={style.footer_list}>{}</div>
       </div>
       <div className={style.footer_copyright}>
         Copyright© 2015-2020 纳博特南京科技有限公司 备案号：
