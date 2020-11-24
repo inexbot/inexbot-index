@@ -13,7 +13,7 @@ export function Footer(props) {
           value.sublist.forEach(_value => {
             _ll.push(
               <dd key={_value.typename}>
-                <a href={getLink(_value.sitepath)}>{_value.typename}</a>
+                <a href={getLink(_value.typedir)}>{_value.typename}</a>
               </dd>,
             );
           });
