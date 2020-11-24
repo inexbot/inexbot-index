@@ -18,7 +18,6 @@ function App(props) {
       setBannerWidth(document.body.clientWidth)
       setBannerHeight(document.body.clientHeight)
     };
-
   },[])
 
   useEffect(()=>{

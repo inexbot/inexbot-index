@@ -3,6 +3,8 @@ import API from "components/API/api";
 import Banner from './index/banner/index.jsx';
 import Solution from './index/solution/index.jsx';
 import Product from "./index/product/index.jsx";
+import InexbotIntroduce from "./index/inexbotIntroduce/index.jsx";
+import ServiceSupport from "./index/serviceSupport/index.jsx";
 import "./index.css"
 
 function Connect(props) {
@@ -42,7 +44,14 @@ function Connect(props) {
       <div className="product">
         <Product BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} productList={productList} />
       </div>
-
+      {/* 产品介绍 */}
+      <div className="InexbotIntroduce">
+        <InexbotIntroduce BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} />
+      </div>
+      {/* 服务支持 */}
+      <div className="ServiceSupport">
+        <ServiceSupport BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ function Product(props){
   const [productHedList, setProductHedList] = useState(null);
   const [productList, setProductList] = useState(null);
   const [productNum, setProductNum] = useState(0);
-  const [productData, setProductData] = useState([[],[],[],[],[]]);
+  const [productData] = useState([[],[],[],[],[]]);
 
   useEffect(()=>{
     // 更新产品中心的标签页
@@ -51,9 +51,7 @@ function Product(props){
           productData[4].push(productList[i])
         }
       }
-      console.log(productData)
     }
-    console.log(productNum)
   },[productNum,productList])
 
   // 产品介绍数据
@@ -64,7 +62,7 @@ function Product(props){
   },[])
 
   return(
-    <div className={style.productAll} style={{padding:`0 ${(props.BannerWidth-1280)/2}px`}}>
+    <div className={style.productAll} style={{padding:`0 ${(props.BannerWidth-1280)/2}px  200px ${(props.BannerWidth-1280)/2}px`}}>
       <div className={style.product_top}>
         <p> 产品中心 </p>
         <p> PRODUCT </p>
@@ -75,54 +73,38 @@ function Product(props){
            productHedList.sublist.map((item,index)=>{
             return(
               <li key={index} >
-                <a className={productNum === index? style.hoverproductTbs:style.productTbs} onClick={()=>{setProductNum(index);console.log(index+1)}} >{item.typename} <span></span></a>
+                <a className={productNum === index? style.hoverproductTbs:style.productTbs} onClick={()=>{setProductNum(index)}} >{item.typename} <span></span></a>
               </li>
             )
-        })}
+        })}  
       </div>
       <div className={style.product_center}>
       <div className={style.product_center_list} >
-        { productList === null? "" : productData[productNum].map((item,index)=>{
-          return(
-            <div key={index}>
-              <div className={style.product__center_l}
-              //  dangerouslySetInnerHTML={{ __html:productList }}
-               >
+        { productData[0][0] === undefined? "" : productData[productNum].map((item,index)=>{
+          if( (index+3)%3 === 0  ){
+            return(
+              <div key={index} className={style.product__center_l} style={index === 0 ?{}:{marginTop:"10px"}}>
                 <p> {item.description} </p>
-                <img src={item.litpic} alt=""/>
-                {/* <span>NRC系列工业机器人控制系统采用EtherCAT总线技术，兼容IEC61131-3标准，支持各类EtherCAT模块;基于X86 IPC+RTOS设计，采用自主研发控制算法，支持六关节自由度机器人、SCARA机器人、五轴机器人、连杆码垛机机器人、四轴多关节机器人、DELTA机器人、直角坐标机器人、多轴专用机器人等多种机器人的控制。</span> */}
+                <img src={`${item.litpic}`} alt=""/>
               </div>
-              { index === 1 || (index - 1)%3=== 0 ?
-                <div className={style.product__center_l}
-                //  dangerouslySetInnerHTML={{ __html:productList }}
-                 >
-                  <p> {item.description} </p>
-                  <img src={item.litpic} alt=""/>
-                  {/* <span>NRC系列工业机器人控制系统采用EtherCAT总线技术，兼容IEC61131-3标准，支持各类EtherCAT模块;基于X86 IPC+RTOS设计，采用自主研发控制算法，支持六关节自由度机器人、SCARA机器人、五轴机器人、连杆码垛机机器人、四轴多关节机器人、DELTA机器人、直角坐标机器人、多轴专用机器人等多种机器人的控制。</span> */}
-                </div>
-                : index%2 === 0?
-                <div className={style.product__center_rt}>
-                <img src={item.litpic} alt=""/>
-                  <p>{item.description}</p>
-                </div>
-                :
-                <div className={style.product__center_rb}>
-                <img src={item.litpic} alt=""/>
-                  <p>{item.description}</p>
-                </div>
-               }
-              {/* <div className={style.product__center_r}>
-                <div className={style.product__center_rt}>
-                <img src={item.litpic} alt=""/>
-                  <p>{item.description}</p>
-                </div>
-                <div className={style.product__center_rb}>
-                <img src={item.litpic} alt=""/>
-                  <p>{item.description}</p>
-                </div>
-              </div> */}
-            </div>
-          )
+            )
+          }else if(  (index+2)%3 === 0){
+            return(
+              <div key={index} className={style.product__center_rt} style={index === 1 ?{}:{marginTop:"10px"}}>
+                <img src={`${item.litpic}`} alt=""/>
+                <p style={item.description.length>20?{width:"242px",overflow: "hidden",whiteSpace: "nowrap",textOverflow:"ellipsis"}
+                :{ width:"100%",display:"flex",justifyContent:"center"}} >{item.description}</p>
+              </div>
+            )
+          }else if( (index+1)%3 === 0 ){
+            return(
+              <div key={index} className={style.product__center_rb}>
+                <img src={`${item.litpic}`} alt=""/>
+                <p style={item.description.length>20?{width:"97%",overflow: "hidden",whiteSpace: "nowrap",textOverflow:"ellipsis",textIndent:"10px"}
+                :{ width:"100%",display:"flex",justifyContent:"center"}} >{item.description}</p>
+              </div>
+            )
+          }
         }) }
         </div>
       </div>
