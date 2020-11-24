@@ -23,6 +23,7 @@ function post(model, params, order, logic = 'and') {
     .catch(res => {
       console.log(res);
     });
+    
 }
 
 export default {
@@ -48,18 +49,9 @@ export default {
       },
     );
   },
-  // 获取首页头部导航列表
-  getHeaderList() {
-    return post(
-      'dede_arctype',
-      `[["id", "=", "14"],["id","=","25"]]`,
-      '["sortrank ASC"]',
-      'or',
-    );
-  },
-  // 获取新闻列表
+  // 获取新闻列表和产品中心列表
   getNewslist() {
-    return post('dede_archives', `[["typeid","=","8"]]`, ['id DESC']);
+    return post('dede_archives', `[["id",">","0"]]`, ['typeid ASC']);
   },
   // 获取banner图上的文字
   getBannerTxt() {
@@ -69,4 +61,9 @@ export default {
   getSolutionType() {
     return post('dede_arctype', `[["reid","=","25"]]`, ['sortrank ASC']);
   },
+  // 获取产品中心模块的产品简介
+  getProductIntroduce() {
+    return post('dede_addonimages', `[["aid",">","0"]]`,['typeid ASC']);
+  },
+
 };

@@ -23,7 +23,7 @@ function App(props) {
 
   useEffect(()=>{
     window.addEventListener('scroll', function(e){
-      if( e.srcElement.documentElement.scrollTop > BannerHeight ){
+      if( e.srcElement.documentElement.scrollTop+60 > BannerHeight ){
         setHeaderBgc("#1c3e5a")
       }else{
         setHeaderBgc("")
