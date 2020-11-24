@@ -5,7 +5,6 @@ import style from './index.module.less';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 function Banner(props) {
-
   let carousel = useRef(null);
 
   // 初始获取图片上的文字
@@ -16,15 +15,22 @@ function Banner(props) {
   let banner3 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner3.jpg';
   return (
-    <div className={style.banner} style={{ boxSizing: 'border-box',height:document.body.clientHeight }}>
-      <Carousel
-        // autoplay
-        ref={carousel}
-        dots={false}
-      >
+    <div
+      className={style.banner}
+      style={{ boxSizing: 'border-box', height: document.body.clientHeight }}
+    >
+      <Carousel autoplay ref={carousel} dots={false}>
         <div>
-          <div className={style.banner1}  style={{ background: `url(${banner1}) no-repeat ${-( 1919 - props.BannerWidth )/2}px `,height:document.body.clientHeight  }}>
-          {/* <div
+          <div
+            className={style.banner1}
+            style={{
+              background: `url(${banner1}) no-repeat ${-(
+                1919 - props.BannerWidth
+              ) / 2}px `,
+              height: document.body.clientHeight,
+            }}
+          >
+            {/* <div
             className={style.banner1}
             style={{
               background: `url(${banner1}) no-repeat 50% `,

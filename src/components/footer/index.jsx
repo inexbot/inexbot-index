@@ -5,30 +5,31 @@ import API from 'components/API/api';
 export function Footer(props) {
   const [footerList, setFooterList] = useState([]);
   useEffect(() => {
-    API.getTypeList().then(res => {
-      let _l = [];
-      res.forEach(value => {
-        if (value.sublist.length !== 0) {
-          let _ll = [];
-          value.sublist.forEach(_value => {
-            _ll.push(
-              <dd key={_value.typename}>
-                <a href={getLink(_value.typedir)}>{_value.typename}</a>
-              </dd>,
-            );
-          });
-          _l.push(
-            <dl key={value.typename}>
-              <dt>{value.typename}</dt>
-              {_ll}
-            </dl>,
+    if (props.typeList === null) {
+      return;
+    }
+    let _l = [];
+    props.typeList.forEach(value => {
+      if (value.sublist.length !== 0) {
+        let _ll = [];
+        value.sublist.forEach(_value => {
+          _ll.push(
+            <dd key={_value.typename}>
+              <a href={getLink(_value.typedir)}>{_value.typename}</a>
+            </dd>,
           );
-        }
-      });
-      setFooterList(_l);
-      // dth();
+        });
+        _l.push(
+          <dl key={value.typename}>
+            <dt>{value.typename}</dt>
+            {_ll}
+          </dl>,
+        );
+      }
     });
-  }, []);
+    setFooterList(_l);
+    // dth();
+  }, [props.typeList]);
   function getLink(link) {
     let _cms = '{cmspath}';
     if (link.match(_cms)) {
