@@ -5,6 +5,8 @@ import Solution from './index/solution/index.jsx';
 import Product from "./index/product/index.jsx";
 import InexbotIntroduce from "./index/inexbotIntroduce/index.jsx";
 import ServiceSupport from "./index/serviceSupport/index.jsx";
+import Patner from "./index/partner/index.jsx";
+import NewsInformation from "./index/newsInformation/index.jsx";
 import "./index.css"
 
 function Connect(props) {
@@ -24,10 +26,9 @@ function Connect(props) {
     setTTyoeList(props.TypeList)
   },[props.TypeList])
 
-  // 获取新闻列表和产品中心列表
+  // 获取新闻列表,合作伙伴和产品中心列表
   useEffect(()=>{
     API.getNewslist().then(res=>{
-      console.log(res)
       setProductList(res)
     })
   },[])
@@ -51,6 +52,14 @@ function Connect(props) {
       {/* 服务支持 */}
       <div className="ServiceSupport">
         <ServiceSupport BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} />
+      </div>
+      {/* 合作伙伴 */}
+      <div className="partner">
+        <Patner BannerHeight={BannerHeight} BannerWidth={BannerWidth} productList={productList} />
+      </div>
+      {/* 新闻资讯 */}
+      <div className="newsInformation">
+        <NewsInformation BannerHeight={BannerHeight} BannerWidth={BannerWidth} inpormation={productList} />
       </div>
     </div>
   );

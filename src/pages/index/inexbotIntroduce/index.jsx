@@ -19,7 +19,7 @@ function inexbotIntroduce(props){
   },[props.TypeList])
 //   
   return(
-    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1280)/2}px`}}>
+    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
       <div className="inexbot_lf">
         <div className="header_Txt">
           <span>智能</span>
@@ -42,7 +42,7 @@ function inexbotIntroduce(props){
       <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls 
         autoPlay
        >
-        <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/>
+        {/* <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/> */}
       </video>
     <Button style={{ display:videoShow,position:"fixed",top:"0",right:"0",zIndex:"10001" }} onClick={()=>{
       setVideoShow("none")

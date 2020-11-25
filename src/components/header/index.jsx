@@ -24,7 +24,7 @@ function Header(props) {
       className={style.header}
       style={{
         width: props.BannerWidth,
-        padding: `0 ${(props.BannerWidth - 1280) / 2}px`,
+        padding: `0 ${(props.BannerWidth - 1280) / 2.6}px`,
       }}
     >
       <h1>

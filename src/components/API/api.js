@@ -49,7 +49,7 @@ export default {
       },
     );
   },
-  // 获取新闻列表和产品中心列表
+  // 获取新闻列表，合作伙伴和产品中心列表
   getNewslist() {
     return post('dede_archives', `[["id",">","0"]]`, ['typeid ASC']);
   },

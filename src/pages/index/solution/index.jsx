@@ -14,7 +14,7 @@ function Solution(props){
     })
   },[])
   return(
-    <div className={style.solution} style={{padding:`0 ${(props.BannerWidth-1280)/2}px`}}>
+    <div className={style.solution} style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
       <div className={style.solution_top}>
         <p> 解决方案 </p>
         <p> SOLUTION </p>
@@ -23,7 +23,7 @@ function Solution(props){
       <div className={style.solution_btm}>
         { dataList.map((item,index)=>{
             return (
-              <div key={index} style={{ width:"33%",height:"238px",background:`url(${banner3}) no-repeat`,backgroundSize:"100%"}} >
+              <div key={index} style={{ width:"33%",height:"282px",background:`url(${banner3}) no-repeat`,backgroundSize:"533px"}} >
                 <span className={style.solution_btm_txt}> {item.typename} </span>
                 <div className={style.solution_btn_opc}>
                   <img src={require(`images/icon${index+1}.png`)} alt=""/>

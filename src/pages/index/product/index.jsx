@@ -62,7 +62,7 @@ function Product(props){
   },[])
 
   return(
-    <div className={style.productAll} style={{padding:`0 ${(props.BannerWidth-1280)/2}px  200px ${(props.BannerWidth-1280)/2}px`}}>
+    <div className={style.productAll} style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px  200px ${(props.BannerWidth-1280)/2.6}px`}}>
       <div className={style.product_top}>
         <p> 产品中心 </p>
         <p> PRODUCT </p>

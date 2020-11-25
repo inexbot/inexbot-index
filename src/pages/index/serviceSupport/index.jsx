@@ -4,19 +4,43 @@ import  "./index.module.less";
 
 
 function serviceSupport(props){
-  const [contentList, setContentList] = useState(props.TypeList);
+  const [contentList, setContentList] = useState(null);
 
   useEffect(()=>{
-    
+    if( props.TypeList === null ){
+      return;
+    }
+    for(let i=0; i<props.TypeList.length; i++){
+      if(props.TypeList[i].id === 34){
+        setContentList(props.TypeList[i])
+        console.log(props.TypeList[i].sublist)
+      }
+    }
   },[props.TypeList])
 
   return(
-    <div className="serviceSupport" style={{padding:`0 ${(props.BannerWidth-1280)/2}px`}}>
-      <div className="serviceSupport_top">
-        <p> 服务支持 </p>
-        <p> SERVICESUPPORT </p>
-      </div>
-      <p> 我们期待，未来每一台机器人的背后，都有纳博特的技术 </p>
+    <div style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
+      {contentList === null ? "" : 
+        <div  className="serviceSupport">
+          <div className="serviceSupport_top">
+            <p> {contentList.typename} </p>
+            <p> SERVICESUPPORT </p>
+          </div>
+          <p > {contentList.content.slice(0,25)} </p>
+          <div className="serviceSupport_content">
+            { contentList.sublist.map((item,index)=>{
+              return (
+                <div key={index}>
+                  <p>{item.typename}</p>
+                  {/* <div  dangerouslySetInnerHTML={ index=== 1?{__html:"<div> </div>"}:index=== 3?{__html:"<div> </div>"}:{__html:item.content}}>
+
+                  </div> */}
+                </div>
+              )
+            }) }
+          </div>
+        </div>
+      }
     </div>
   )
 }
