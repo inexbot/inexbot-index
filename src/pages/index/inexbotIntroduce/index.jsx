@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import API from "components/API/api";
 import {Button} from "antd"
 import "./index.module.less";
+import bg_1 from "images/bg-1.jpg";
 
 
 function inexbotIntroduce(props){
@@ -19,14 +19,13 @@ function inexbotIntroduce(props){
   },[props.TypeList])
 //   
   return(
-    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
+    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`,background:`url(${bg_1}) no-repeat`}}>
       <div className="inexbot_lf">
         <div className="header_Txt">
           <span>智能</span>
           <span>简单</span>
           <span>互联</span>
         </div>
-  
         <div dangerouslySetInnerHTML={inexbotTxtl===null? {__html:"<div> </div>"}:{__html:inexbotTxtl}}>
   
         </div>
@@ -37,12 +36,10 @@ function inexbotIntroduce(props){
         let video = document.getElementById('movie');
         video.play()
       }}>
-        <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.jpg" alt=""/>
+        <img src={require(`images/video.jpg`)} alt=""/>
       </div>
-      <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls 
-        autoPlay
-       >
-        {/* <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/> */}
+      <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls >
+        <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/>
       </video>
     <Button style={{ display:videoShow,position:"fixed",top:"0",right:"0",zIndex:"10001" }} onClick={()=>{
       setVideoShow("none")

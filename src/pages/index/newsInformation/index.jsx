@@ -16,7 +16,6 @@ function NewsInformation(props){
           dataList.dms.push(props.inpormation.list[i])
         }
       }
-      console.log(dataList)
       setDataList(dataList)
     }
   },[props.inpormation])
@@ -40,19 +39,38 @@ function NewsInformation(props){
       <div className={style.NewsInformation_bottom}>
         <div className={style.NewsInformation_bottom_l}>
           {DataList === null? "": 
-            <div className={style.NewsInformation_content_l}>
-              <img src={`https://inexbot.com${DataList[newsSelect][0].litpic}`} alt=""/>
+            <div className={style.NewsInformation_content_l} key={0}>
+              <img src={`${DataList[newsSelect][0].litpic}`} alt=""/>
               <p> {DataList[newsSelect][0].title} </p>
+              <span className={style.NewsInformation_content_txt1}> {DataList[newsSelect][0].description.slice(0,49)} </span>
+              <span className={style.NewsInformation_content_txt2} style={DataList[newsSelect][0].description.length<49?{display:"none"}:{display:"block"}}>{DataList[newsSelect][0].description.slice(49,99)}</span>
+              <span className={style.NewsInformation_content_txt3} style={DataList[newsSelect][0].description.length<99?{display:"none"}:{display:"block"}}>{DataList[newsSelect][0].description.slice(99)}</span>
+              <span className={style.NewsInformation_content_date}>{`
+              ${new Date((DataList[newsSelect][0].pubdate)*1000).getFullYear()} -
+              ${new Date((DataList[newsSelect][0].pubdate)*1000).getMonth()+1 < 10?'0'+( new Date((DataList[newsSelect][0].pubdate)*1000).getMonth()+1) :new Date(DataList[newsSelect][0].pubdate*1000).getMonth()+1} -
+              ${new Date((DataList[newsSelect][0].pubdate)*1000).getDate()<10? '0'+ new Date((DataList[newsSelect][0].pubdate)*1000).getDate() :new Date((DataList[newsSelect][0].pubdate)*1000).getDate()}
+              `
+                }</span>
             </div>
           }
         </div>
         <div className={style.NewsInformation_bottom_r}>
           {DataList === null? "": DataList[newsSelect].map((item,index)=>{
             return (
-              <div className={style.NewsInformation_content_r} style={index ===0?{display:"none"}:index === 1?{}:{marginTop:"10px"}}>
-                <img src={`${DataList[newsSelect][index].litpic}`} alt=""/>
+              <div key={index} className={style.NewsInformation_content_r} style={index ===0?{display:"none"}:index === 1?{}:{marginTop:"10px"}}>
+                <img src={`${item.litpic}`} alt=""/>
                 <div>
-                  <p> {DataList[newsSelect][index].title} </p>
+                  <p> {item.title} </p>
+                  <span className={style.NewsInformation_content_txt1}> { item.id===241? item.description.slice(0,40):item.description.slice(0,22)} </span>
+                  <span className={style.NewsInformation_content_txt2} style={item.id===241?item.description.length<40?{display:"none"}:{display:"block"}:item.description.length<22?{display:"none"}:{display:"block"}}>
+                    {item.id===241? item.description.slice(40):item.description.slice(22)}
+                  </span>
+                  <span className={style.NewsInformation_content_date}>{`
+                  ${new Date((item.pubdate)*1000).getFullYear()} -
+                  ${new Date((item.pubdate)*1000).getMonth()+1 < 10?'0'+( new Date((item.pubdate)*1000).getMonth()+1) :new Date(item.pubdate*1000).getMonth()+1} -
+                  ${new Date((item.pubdate)*1000).getDate()<10? '0'+ new Date((item.pubdate)*1000).getDate() :new Date((item.pubdate)*1000).getDate()}
+                  `
+                }</span>
                 </div>
               </div>
             )

@@ -1,49 +1,55 @@
 .banner{
   width:100%;
-  // height:500px;
+  position: relative;
   div{
     height: 100%;
     color: #fff;
     text-align: center;
     // background: #364d79;
   }
+  .LectOutlined{
+    position: absolute;
+    font-size: 32px;
+    color:#8e9399;
+    z-index: 1;
+    transition: .5s;
+  }
+  .LectOutlined:hover{
+    color:white
+  }
+  .Btmbtn{
+    height: 40px;
+    width: 23px;
+    border-radius: 40px;
+    border: 2px solid white;
+    position: absolute;
+    bottom: 40px;
+    left: 49.3%;
+    z-index: 1;
+    p{
+      background: white;
+      width: 3px;
+      height: 9px;
+      position: absolute;
+      top: 20%;
+      border-radius: 19px;
+      left: 42%;
+    }
+  }
+  .RightOutlined{
+    position: absolute;
+    font-size: 32px;
+    color:#8e9399;
+    z-index: 1;
+    transition: .5s;
+  }
+  .RightOutlined:hover{
+    color:white
+  }
   .banner1, .banner2,.banner3{
       height:100%;
       position: relative;
-      .LectOutlined{
-        position: absolute;
-        font-size: 32px;
-        color:#8e9399;
-      }
-      .LectOutlined:hover{
-        color:white
-      }
-      .RightOutlined{
-        position: absolute;
-        font-size: 32px;
-        color:#8e9399;
-      }
-      .RightOutlined:hover{
-        color:white
-      }
-      .Btmbtn{
-        height: 40px;
-        width: 23px;
-        border-radius: 40px;
-        border: 2px solid white;
-        position: absolute;
-        bottom: 40px;
-        left: 49.3%;
-        p{
-          background: white;
-          width: 3px;
-          height: 9px;
-          position: absolute;
-          top: 20%;
-          border-radius: 19px;
-          left: 42%;
-        }
-      }
+
   }
 
 }

@@ -40,8 +40,9 @@ function Connect(props) {
       </div>
       {/* 解决方案 */}
       <div className="solution">
-        <Solution BannerHeight={BannerHeight} BannerWidth={BannerWidth} />
+        <Solution BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} />
       </div>
+      {/* 产品中心 */}
       <div className="product">
         <Product BannerHeight={BannerHeight} BannerWidth={BannerWidth} TypeList={TypeList} productList={productList} />
       </div>
@@ -55,11 +56,11 @@ function Connect(props) {
       </div>
       {/* 合作伙伴 */}
       <div className="partner">
-        <Patner BannerHeight={BannerHeight} BannerWidth={BannerWidth} productList={productList} />
+        <Patner BannerHeight={BannerHeight} BannerWidth={BannerWidth} productList={productList} TypeList={TypeList} />
       </div>
       {/* 新闻资讯 */}
       <div className="newsInformation">
-        <NewsInformation BannerHeight={BannerHeight} BannerWidth={BannerWidth} inpormation={productList} />
+        <NewsInformation BannerHeight={BannerHeight} BannerWidth={BannerWidth} inpormation={productList} TypeList={TypeList} />
       </div>
     </div>
   );

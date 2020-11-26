@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Carousel, Button } from 'antd';
-import API from 'components/API/api';
+import React, { useRef } from 'react';
+import { Carousel, Button } from 'antd'
 import style from './index.module.less';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
@@ -19,6 +18,29 @@ function Banner(props) {
       className={style.banner}
       style={{ boxSizing: 'border-box', height: document.body.clientHeight }}
     >
+            <LeftOutlined
+              onClick={() => {
+                carousel.current.prev();
+              }}
+              className={style.LectOutlined}
+              style={{
+                left: `${(props.BannerWidth - 1280) / 2.4}px`,
+                top: `${props.BannerHeight / 2}px`,
+              }}
+            />
+            <RightOutlined
+              onClick={() => {
+                carousel.current.next();
+              }}
+              className={style.RightOutlined}
+              style={{
+                right: `${(props.BannerWidth - 1280) / 2.2}px`,
+                top: `${props.BannerHeight / 2}px`,
+              }}
+            />
+            <div className={style.Btmbtn}>
+              <p></p>
+            </div>
       <Carousel autoplay ref={carousel} dots={false}>
         <div>
           <div
@@ -30,36 +52,7 @@ function Banner(props) {
               height: document.body.clientHeight,
             }}
           >
-            {/* <div
-            className={style.banner1}
-            style={{
-              background: `url(${banner1}) no-repeat 50% `,
-              height: props.BannerHeight,
-            }}
-          > */}
-            <LeftOutlined
-              onClick={() => {
-                carousel.current.prev();
-              }}
-              className={style.LectOutlined}
-              style={{
-                left: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <RightOutlined
-              onClick={() => {
-                carousel.current.next();
-              }}
-              className={style.RightOutlined}
-              style={{
-                right: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <div className={style.Btmbtn}>
-              <p></p>
-            </div>
+
           </div>
         </div>
         <div>
@@ -70,29 +63,6 @@ function Banner(props) {
               height: props.BannerHeight,
             }}
           >
-            <LeftOutlined
-              onClick={() => {
-                carousel.current.prev();
-              }}
-              className={style.LectOutlined}
-              style={{
-                left: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <RightOutlined
-              onClick={() => {
-                carousel.current.next();
-              }}
-              className={style.RightOutlined}
-              style={{
-                right: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <div className={style.Btmbtn}>
-              <p></p>
-            </div>
           </div>
         </div>
         <div>
@@ -103,29 +73,6 @@ function Banner(props) {
               height: props.BannerHeight,
             }}
           >
-            <LeftOutlined
-              onClick={() => {
-                carousel.current.prev();
-              }}
-              className={style.LectOutlined}
-              style={{
-                left: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <RightOutlined
-              onClick={() => {
-                carousel.current.next();
-              }}
-              className={style.RightOutlined}
-              style={{
-                right: `${(props.BannerWidth - 1280) / 1.8}px`,
-                top: `${props.BannerHeight / 2}px`,
-              }}
-            />
-            <div className={style.Btmbtn}>
-              <p></p>
-            </div>
           </div>
         </div>
       </Carousel>

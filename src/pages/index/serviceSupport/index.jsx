@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import API from "components/API/api";
 import  "./index.module.less";
+import { RightCircleOutlined } from '@ant-design/icons';
 
 
 function serviceSupport(props){
@@ -13,7 +13,7 @@ function serviceSupport(props){
     for(let i=0; i<props.TypeList.length; i++){
       if(props.TypeList[i].id === 34){
         setContentList(props.TypeList[i])
-        console.log(props.TypeList[i].sublist)
+        console.log(props.TypeList[i],"服务支持")
       }
     }
   },[props.TypeList])
@@ -24,7 +24,7 @@ function serviceSupport(props){
         <div  className="serviceSupport">
           <div className="serviceSupport_top">
             <p> {contentList.typename} </p>
-            <p> SERVICESUPPORT </p>
+            <p> {contentList.typenameen} </p>
           </div>
           <p > {contentList.content.slice(0,25)} </p>
           <div className="serviceSupport_content">
@@ -32,9 +32,9 @@ function serviceSupport(props){
               return (
                 <div key={index}>
                   <p>{item.typename}</p>
-                  {/* <div  dangerouslySetInnerHTML={ index=== 1?{__html:"<div> </div>"}:index=== 3?{__html:"<div> </div>"}:{__html:item.content}}>
-
-                  </div> */}
+                  <img src={require(`images/icon_sp${index+1}.png`)} alt=""/>
+                  <span className="serviceSupport_content_bx"></span>
+                  <RightCircleOutlined className="serviceSupport_content_icon" />
                 </div>
               )
             }) }

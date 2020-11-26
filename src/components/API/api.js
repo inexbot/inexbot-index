@@ -16,7 +16,7 @@ function post(model, params, order, logic = 'and') {
       logic,
       order,
       page: 1,
-      perpage: 100,
+      perpage: 150,
     },
   })
     .then(res => res.data.data)
@@ -51,7 +51,7 @@ export default {
   },
   // 获取新闻列表，合作伙伴和产品中心列表
   getNewslist() {
-    return post('dede_archives', `[["id",">","0"]]`, ['typeid ASC']);
+    return post('dede_archives', `[["id",">","0"]]`, ['pubdate DESC']);
   },
   // 获取banner图上的文字
   getBannerTxt() {

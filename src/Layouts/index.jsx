@@ -13,6 +13,7 @@ function App(props) {
   useEffect(() => {
     API.getTypeList().then(res => {
       setTypeList(res);
+      console.log(res)
     });
     window.onresize = function() {
       setBannerWidth(document.body.clientWidth);
