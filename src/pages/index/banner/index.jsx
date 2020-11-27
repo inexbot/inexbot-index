@@ -24,7 +24,7 @@ function Banner(props) {
               }}
               className={style.LectOutlined}
               style={{
-                left: `${(props.BannerWidth - 1280) / 2.4}px`,
+                left: `${(props.BannerWidth - 1200) / 2.4}px`,
                 top: `${props.BannerHeight / 2}px`,
               }}
             />
@@ -34,7 +34,7 @@ function Banner(props) {
               }}
               className={style.RightOutlined}
               style={{
-                right: `${(props.BannerWidth - 1280) / 2.2}px`,
+                right: `${(props.BannerWidth - 1200) / 2.2}px`,
                 top: `${props.BannerHeight / 2}px`,
               }}
             />

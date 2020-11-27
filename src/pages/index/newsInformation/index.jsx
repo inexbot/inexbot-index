@@ -5,41 +5,55 @@ import style from "./index.module.less";
 
 function NewsInformation(props){
   const [DataList, setDataList] = useState(null);
-  const [newsSelect, setNewsSelect] = useState("news");
+  const [newsSelect, setNewsSelect] = useState("company");
+  const [TypeList, setTypeList] = useState(null);
   useEffect(()=>{
-    let dataList = {news:[],dms:[]};
+    let dataList = {company:[],industry:[]};
     if( props.inpormation !== null ){
       for(let i=0; i<props.inpormation.list.length; i++){
         if(props.inpormation.list[i].typeid === 8){
-          dataList.news.push(props.inpormation.list[i])
+          dataList.company.push(props.inpormation.list[i])
         }else if(props.inpormation.list[i].typeid === 9){
-          dataList.dms.push(props.inpormation.list[i])
+          dataList.industry.push(props.inpormation.list[i])
         }
       }
       setDataList(dataList)
     }
   },[props.inpormation])
 
+  useEffect(()=>{
+    if( props.TypeList !== null ){
+      props.TypeList.map((item,index)=>{
+        if( item.id === 7 ){
+          setTypeList(item)
+          console.log(item)
+        }
+      })
+    }
+  },[props.TypeList])
+
   return(
-    <div className={style.NewsInformation} style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
+    <div className={style.NewsInformation} style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,height:"1040px"}}>
       <div className={style.NewsInformation_top}>
-        <p> 新闻资讯 </p>
-        <p> NEWSINFORMATION </p>
+        <p> {TypeList === null? "":TypeList.typename} </p>
+        <p> {TypeList === null? "":TypeList.typenameen} </p>
       </div>
       <div className={style.NewsInformation_select}>
         <ul>
           <li>
-            <a className={newsSelect === "news"? style.hoverNewsInformationTbs:style.NewsInformationTbs} onClick={()=>{setNewsSelect("news")}} >公司新闻 <span></span></a>
+            <a className={newsSelect === "company"? style.hoverNewsInformationTbs:style.NewsInformationTbs} onClick={()=>{setNewsSelect("company")}} > {TypeList === null? "":TypeList.sublist[0].typename} <span></span></a>
           </li>
           <li>
-            <a className={newsSelect === "dms"? style.hoverNewsInformationTbs:style.NewsInformationTbs} onClick={()=>{setNewsSelect("dms")}} >行业动态 <span></span></a>
+            <a className={newsSelect === "industry"? style.hoverNewsInformationTbs:style.NewsInformationTbs} onClick={()=>{setNewsSelect("industry")}} >{TypeList === null? "":TypeList.sublist[1].typename} <span></span></a>
           </li>
         </ul>
       </div>
       <div className={style.NewsInformation_bottom}>
         <div className={style.NewsInformation_bottom_l}>
           {DataList === null? "": 
-            <div className={style.NewsInformation_content_l} key={0}>
+            <div className={style.NewsInformation_content_l} key={0} onClick={()=>{
+             location.href = `/news/${newsSelect}/${DataList[newsSelect][0].id}.html`;
+            }}>
               <img src={`${DataList[newsSelect][0].litpic}`} alt=""/>
               <p> {DataList[newsSelect][0].title} </p>
               <span className={style.NewsInformation_content_txt1}> {DataList[newsSelect][0].description.slice(0,49)} </span>
@@ -55,9 +69,11 @@ function NewsInformation(props){
           }
         </div>
         <div className={style.NewsInformation_bottom_r}>
-          {DataList === null? "": DataList[newsSelect].map((item,index)=>{
+          {DataList === null? "": DataList[newsSelect].slice(0,6).map((item,index)=>{
             return (
-              <div key={index} className={style.NewsInformation_content_r} style={index ===0?{display:"none"}:index === 1?{}:{marginTop:"10px"}}>
+              <div key={index} className={style.NewsInformation_content_r} style={index ===0?{display:"none"}:index === 1?{}:{marginTop:"10px"}} onClick={()=>{
+                location.href = `/news/${newsSelect}/${item.id}.html`;
+              }}>
                 <img src={`${item.litpic}`} alt=""/>
                 <div>
                   <p> {item.title} </p>

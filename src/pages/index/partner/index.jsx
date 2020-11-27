@@ -31,7 +31,7 @@ function partner(props){
   },[props.TypeList])
 
   return(
-    <div className={style.partner} style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`,background:`url(${bg_2}) no-repeat`}}>
+    <div className={style.partner} style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_2}) no-repeat`}}>
       <div className={style.partner_top}>
         <p> {TypeList=== null? "" : TypeList.sublist[1].typename} </p>
         <p> {TypeList=== null? "" : TypeList.sublist[1].typenameen} </p>

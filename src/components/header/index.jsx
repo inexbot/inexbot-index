@@ -24,7 +24,7 @@ function Header(props) {
       className={style.header}
       style={{
         width: props.BannerWidth,
-        padding: `0 ${(props.BannerWidth - 1280) / 2.6}px`,
+        padding: `0 ${(props.BannerWidth - 1200) / 2.6}px`,
       }}
     >
       <h1>
@@ -60,9 +60,9 @@ function Header(props) {
             })}
       </ul>
       <div className={style.header_txt}>
-        <a style={{ fontSize: '15px', color: 'white' }}> 中文 </a>
+        <a className={style.header_text_cn} > 中文 </a>
         <span>&nbsp; / &nbsp;</span>
-        <a style={{ fontSize: '14px', color: '#a5b3be' }}> EN </a>
+        <a className={style.header_text_en} href="http://en.inexbot.com/#Banner"> EN </a>
       </div>
       <div className={style.top_sousuo} style={{ position: 'relative' }}>
         <a className={style.icon_sousuo}>

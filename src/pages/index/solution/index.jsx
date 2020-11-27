@@ -35,7 +35,7 @@ function Solution(props){
     }
   }
   return(
-    <div className={style.solution} style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
+    <div className={style.solution} style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`}}>
       <div className={style.solution_top}>
         <p> {TypeList === null? "":TypeList.typename} </p>
         <p> {TypeList === null? "":TypeList.typenameen}</p>

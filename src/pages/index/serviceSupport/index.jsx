@@ -13,13 +13,12 @@ function serviceSupport(props){
     for(let i=0; i<props.TypeList.length; i++){
       if(props.TypeList[i].id === 34){
         setContentList(props.TypeList[i])
-        console.log(props.TypeList[i],"服务支持")
       }
     }
   },[props.TypeList])
 
   return(
-    <div style={{padding:`0 ${(props.BannerWidth-1280)/2.6}px`}}>
+    <div style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`}}>
       {contentList === null ? "" : 
         <div  className="serviceSupport">
           <div className="serviceSupport_top">
@@ -32,8 +31,12 @@ function serviceSupport(props){
               return (
                 <div key={index}>
                   <p>{item.typename}</p>
-                  <img src={require(`images/icon_sp${index+1}.png`)} alt=""/>
-                  <span className="serviceSupport_content_bx"></span>
+                  <div>
+                    <img src={require(`images/icon_sp${index+1}.png`)} alt=""/>
+                  </div>
+                  <div>
+                    <span className="serviceSupport_content_bx"></span>
+                  </div>
                   <RightCircleOutlined className="serviceSupport_content_icon" />
                 </div>
               )
