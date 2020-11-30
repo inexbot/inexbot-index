@@ -82,19 +82,21 @@ function Product(props){
               </div>
             </div>
             <div className={style.product_center_list_r}>
-              {productData[[productNum[0]]].map((item,index)=>{
-                if( index !== 0 ){
-                  return(
-                    <div key={index} className={style.product__center_r} style={index === 1 ?{}:{marginTop:"35px"}} onClick={()=>{
-                      location.href = `/product/${productNum[0]}/${item.id}.html`
-                    }}>
-                      <img src={`${item.litpic}`} alt=""/>
-                      <p style={item.description.length>20?{width:"242px",overflow: "hidden",whiteSpace: "nowrap",textOverflow:"ellipsis",marginLeft:"30px"}
-                      :{ width:"100%",display:"flex",justifyContent:"center"}} >{item.description}</p>
-                    </div>
-                  )
-                }
-              })}
+              <div style={{ width:`${(productData[[productNum[0]]].length*64.5161290)}vw` }}>
+                {productData[[productNum[0]]].map((item,index)=>{
+                  if( index !== 0 ){
+                    return(
+                      <div key={index} className={style.product__center_r} style={index === 1 ?{}:{marginTop:"35px"}} onClick={()=>{
+                        location.href = `/product/${productNum[0]}/${item.id}.html`
+                      }}>
+                        <img src={`${item.litpic}`} alt=""/>
+                        <p style={item.description.length>20?{width:"242px",overflow: "hidden",whiteSpace: "nowrap",textOverflow:"ellipsis",marginLeft:"30px"}
+                        :{ width:"100%",display:"flex",justifyContent:"center"}} >{item.description}</p>
+                      </div>
+                    )
+                  }
+                })}
+              </div>
             </div>
           </div>
         }

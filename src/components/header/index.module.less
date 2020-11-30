@@ -1,20 +1,14 @@
+@import "../style/style.less";
 
-
-@media screen and (max-width: 750px) {
-  .header{
-    width: 1rem;
-    overflow: hidden;
-    height: 3rem;
-  }
-}
 
 @media screen and (min-width: 750px) and ( max-width: 1200px ) {
-  .header{
+  body{
     
   }
 }
 
-@media screen and (min-width: 1200px) {
+// pc端样式
+// @media screen and (min-width: 1200px) {
   .header{
     height:60px;
     display: flex;
@@ -192,6 +186,59 @@
         display: block;
       }
     }
+    .icon_list{
+      display: none;
+    }
+  }
+// }
+
+// 手机端样式
+@media screen and (max-width: 750px) {
+  .header{
+    .setH(100);
+    .setW();
+    // overflow: hidden;
+    >h1{
+      img{
+        .setH(100)
+      }
+      span{
+        .setF(50);
+        color:white ;
+        line-height: 1;
+      }
+    }
+    .header_list{
+      display: none;
+    }
+    .header_txt{
+      display: none;
+    }
+    .top_sousuo{
+      // position: absolute;
+      .setW(76);
+      // right: 0;
+      left:20.4838vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span{
+        color:white;
+        .setF(40);
+      }
+    }
+    .icon_list{
+      .setW(74);
+      .setH(100);
+      display: flex;
+      align-items: center;
+      color:white;
+      .setF(40);
+      position: absolute;
+      font-weight: 900;
+      right:0;
+    }
+    
   }
 }
 
