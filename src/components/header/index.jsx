@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './index.module.less';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined,MenuOutlined } from '@ant-design/icons';
 
 function Header(props) {
   const [TypeList, setTypeList] = useState(props.TypeList);
@@ -22,10 +22,7 @@ function Header(props) {
   return (
     <div
       className={style.header}
-      style={{
-        width: props.BannerWidth,
-        padding: `0 ${(props.BannerWidth - 1200) / 2.6}px`,
-      }}
+      style={ props.BannerWidth > 1200?{ width: props.BannerWidth, padding: `0 ${(props.BannerWidth - 1200) / 2.6}px`, }:{}}
     >
       <h1>
         <a href="https://www.inexbot.com">
@@ -65,11 +62,14 @@ function Header(props) {
         <a className={style.header_text_en} href="http://en.inexbot.com/#Banner"> EN </a>
       </div>
       <div className={style.top_sousuo} style={{ position: 'relative' }}>
-        <a className={style.icon_sousuo}>
+        <a >
           <SearchOutlined />
         </a>
         <input className={style.icon_sousuo_ipt} />
         <span></span>
+      </div>
+      <div className={style.icon_list}>
+        <MenuOutlined />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+// PC端样式
 .solution{
   width:100%;
   background:white;
@@ -98,5 +99,62 @@
   }
   .solution_btm >div:hover{
     cursor: pointer;
+  }
+}
+
+@import "~components/style/style.less";
+// 手机端样式
+@media screen and (max-width: 750px) {
+  .solution{
+    .setH(1000);
+    .setW();
+    margin-bottom: 34vw;
+    .solution_top{
+      p:nth-child(1){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .setW();
+        left:0;
+        padding:0;
+        top:16.1290322vw;
+        .setF(36);
+      }
+      p:nth-child(2){
+        .setW();
+        top:17vw;
+        padding:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left:0;
+        .setF(28);
+      }
+    }
+    >p{
+      .setF(20);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top:20vw;
+      margin-top: 29vw;
+    }
+    .solution_btm{
+      .setW(588);
+      .setH(700);
+      display: flex;
+      margin:0 auto;
+      margin-top: 13vw;
+      >div{
+        .setW(288);
+        .setH(221);
+        .solution_btn_opc{
+          display: none;;
+        }
+        .solution_btn_opc:hover{
+          display: none;
+        }
+      }
+    }
   }
 }

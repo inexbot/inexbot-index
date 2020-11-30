@@ -44,7 +44,7 @@ function Solution(props){
       <div className={style.solution_btm}>
         { dataList.map((item,index)=>{
             return (
-              <div  key={index} style={{ width:"33%",height:"282px",background:`url(${banner3}) no-repeat`,backgroundSize:"533px"}} onClick={()=>{
+              <div  key={index} style={props.BannerWidth > 1200?{ width:"33%",height:"282px",background:`url(${banner3}) no-repeat`,backgroundSize:"533px"}:{background:`url(${banner3}) no-repeat`,backgroundSize:"136%"}} onClick={()=>{
                 location.href = getLink(item.typedir)
               }} >
                 <span className={style.solution_btm_txt}> {item.typename} </span>

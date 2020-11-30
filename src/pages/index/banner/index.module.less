@@ -1,3 +1,4 @@
+// PC端样式
 .banner{
   width:100%;
   position: relative;
@@ -52,4 +53,35 @@
 
   }
 
+}
+@import "~components/style/style.less";
+// 手机端样式
+@media screen and (max-width: 750px) {
+  .banner{
+
+    .LectOutlined{
+      display: none;
+    }
+    .RightOutlined{
+      display: none;
+    }
+    .banner1{
+      overflow: hidden;
+      img{
+        margin-left:-137.419355vw;
+      }
+    }
+    .banner2{
+      overflow: hidden;
+      img{
+        margin-left:-137.419355vw;
+      }
+    }
+    .banner3{
+      overflow: hidden;
+      img{
+        margin-left:-137.419355vw;
+      }
+    }
+  }
 }

@@ -16,7 +16,7 @@ function Banner(props) {
   return (
     <div
       className={style.banner}
-      style={{ boxSizing: 'border-box', height: document.body.clientHeight }}
+      style={ props.BannerWidth > 1200?{ boxSizing: 'border-box', height: document.body.clientHeight }:{}}
     >
             <LeftOutlined
               onClick={() => {
@@ -41,39 +41,55 @@ function Banner(props) {
             <div className={style.Btmbtn}>
               <p></p>
             </div>
-      <Carousel autoplay ref={carousel} dots={false}>
-        <div>
-          <div
+      <Carousel
+      //  autoplay
+       ref={carousel} dots={false}>
+        <div className={style.banner1}>
+          <img  src={banner1} alt="" style={{
+            height:props.BannerHeight, width:"292vw"
+          }} />
+          {/* <div
             className={style.banner1}
-            style={{
+            style={props.BannerWidth > 1200?{
               background: `url(${banner1}) no-repeat ${-(
                 1919 - props.BannerWidth
               ) / 2}px `,
               height: document.body.clientHeight,
-            }}
+            }:{background: `url(${banner1}) no-repeat ${-(
+              1919 - props.BannerWidth
+            ) / 2}px `,}}
           >
-
-          </div>
+          </div> */}
         </div>
-        <div>
-          <div
+        <div className={style.banner2}>
+        <img  src={banner2} alt="" style={{
+            height:props.BannerHeight, width:"292vw"
+          }} />
+          {/* <div
             className={style.banner2}
-            style={{
+            style={props.BannerWidth > 1200?{
               background: `url(${banner2}) no-repeat 50% `,
               height: props.BannerHeight,
-            }}
+            }:{background: `url(${banner2}) no-repeat ${-(
+              1919 - props.BannerWidth
+            ) / 2}px `,}}
           >
-          </div>
+          </div> */}
         </div>
-        <div>
-          <div
+        <div className={style.banner3}>
+        <img  src={banner3} alt="" style={{
+            height:props.BannerHeight, width:"292vw"
+          }} />
+          {/* <div
             className={style.banner3}
-            style={{
+            style={ props.BannerWidth > 1200?{
               background: `url(${banner3}) no-repeat 50% `,
               height: props.BannerHeight,
-            }}
+            }:{background: `url(${banner3}) no-repeat ${-(
+              1919 - props.BannerWidth
+            ) / 2}px `,}}
           >
-          </div>
+          </div> */}
         </div>
       </Carousel>
       ,
