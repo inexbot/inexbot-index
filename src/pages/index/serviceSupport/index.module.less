@@ -1,3 +1,4 @@
+// PC端样式
 .serviceSupport{
   width:100%;
   background:white;
@@ -77,6 +78,74 @@
       position: absolute;
       top:128px;
       right:28px;
+    }
+  }
+}
+
+@import "~components/style/style.less";
+// 手机端样式
+@media screen and (max-width: 1200px) {
+  .serviceSupport{
+    .setH(1340);
+    .setW();
+    .serviceSupport_top{
+      p:nth-child(1){
+        position: relative;
+        left:0;
+        top:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+        padding:0;
+        margin-top: 16.9354838vw;
+      }
+      p:nth-child(2){
+        position: relative;
+        left:0;
+        top:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+        padding:0;
+        margin-top: -12.322581vw;
+      }
+    }
+    >p{
+      .setF(16);
+      margin-top:16.741935vw ;
+    }
+    .serviceSupport_content{
+      .setW();
+      height:153.806452vw;
+      padding:0 6.6129032258vw;
+      flex-wrap: wrap ;
+      margin-top: 12.870968vw;
+      align-items: center;
+      >div{
+        p{
+          margin-top: 12.25806451vw;
+          .setF(22);
+        }
+        .serviceSupport_content_icon{
+          .setF(22);
+          position: absolute;
+          right:3.8709677vw;
+          top:13.709677419vw;
+        }
+        .setW(258);
+        .setH(358);
+        img{
+          .setW(140);
+        }
+        div{
+          .serviceSupport_content_bx{
+            .setH(140);
+            .setW(140);
+          }
+        }
+      }
     }
   }
 }

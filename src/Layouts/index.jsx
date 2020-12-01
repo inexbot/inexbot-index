@@ -32,7 +32,7 @@ function App(props) {
   }, [BannerHeight]);
 
   return (
-    <div className="App">
+    <div className={style.App}>
       {/* 主页头部,Header组件*/}
       <div className={style.Header} style={{ background: headerBgc }}>
         <Header

@@ -31,12 +31,12 @@ function partner(props){
   },[props.TypeList])
 
   return(
-    <div className={style.partner} style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_2}) no-repeat`}}>
+    <div className={style.partner} style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_2}) no-repeat`, backgroundSize:"100% 100%"}}>
       <div className={style.partner_top}>
         <p> {TypeList=== null? "" : TypeList.sublist[1].typename} </p>
         <p> {TypeList=== null? "" : TypeList.sublist[1].typenameen} </p>
       </div>
-      <p > 我们定期提供最新软件升级包、操作手册以及相关文档。 </p>
+      <p > 众多优秀的合作伙伴使我们前进的动力。 </p>
       { contentList === null? "" :
         <div className={style.partner_content}>
           {contentList.slice(0,20).map((item,index)=>{
@@ -50,7 +50,7 @@ function partner(props){
         </div>
       }
       <div className={style.partner_bottom}>
-        <Button ghost style={{borderRadius:"10px",height:"44px",width:"239px"}}>更多合作伙伴</Button>
+        <Button className={style.partner_bottom_txt} ghost style={ props.BannerWidth > 1200?{borderRadius:"10px",height:"44px",width:"239px"}:{}}>更多合作伙伴</Button>
       </div>
     </div>
   )

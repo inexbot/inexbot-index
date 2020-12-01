@@ -1,11 +1,7 @@
 @import "../style/style.less";
 
 
-@media screen and (min-width: 750px) and ( max-width: 1200px ) {
-  body{
-    
-  }
-}
+
 
 // pc端样式
 // @media screen and (min-width: 1200px) {
@@ -131,6 +127,14 @@
       }
     }
     .top_sousuo{
+      a{
+        font-size: 23px;
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: white;
+      }
       .icon_sousuo{
         color:#a5b3be;
         font-size: 20px;
@@ -193,19 +197,26 @@
 // }
 
 // 手机端样式
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1200px) {
   .header{
     .setH(100);
     .setW();
-    // overflow: hidden;
     >h1{
-      img{
-        .setH(100)
-      }
-      span{
-        .setF(50);
-        color:white ;
-        line-height: 1;
+      height:100%;
+      .setW(281);
+      a{
+        display: flex;
+        align-items: center;
+        .setW(281);
+        img{
+          .setW(63);
+          .setH(49);
+        }
+        span{
+          .setF(30);
+          color:white ;
+          line-height: 1;
+        }
       }
     }
     .header_list{
@@ -218,13 +229,21 @@
       // position: absolute;
       .setW(76);
       // right: 0;
-      left:20.4838vw;
+      // right:18.87096774vw;
+      left:29.4838vw;
       display: flex;
       justify-content: center;
       align-items: center;
+      .icon_sousuo_ipt{
+        top: 14vw;
+        left: -25vw;
+        width: 40vw;
+      }
       span{
         color:white;
-        .setF(40);
+        .setF(30); 
+        left: 6vw;
+        top: 14vw;
       }
     }
     .icon_list{
@@ -233,12 +252,11 @@
       display: flex;
       align-items: center;
       color:white;
-      .setF(40);
+      .setF(30);
       position: absolute;
       font-weight: 900;
       right:0;
     }
-    
   }
 }
 

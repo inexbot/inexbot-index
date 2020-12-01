@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import style from './index.module.less';
-import API from 'components/API/api';
 
 export function Footer(props) {
   const [footerList, setFooterList] = useState([]);

@@ -19,7 +19,7 @@ function inexbotIntroduce(props){
   },[props.TypeList])
 //   
   return(
-    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_1}) no-repeat`}}>
+    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_1}) no-repeat`,backgroundSize:"100%  100%"}}>
       <div className="inexbot_lf">
         <div className="header_Txt">
           <span>智能</span>

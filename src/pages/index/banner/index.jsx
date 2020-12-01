@@ -45,51 +45,55 @@ function Banner(props) {
       //  autoplay
        ref={carousel} dots={false}>
         <div className={style.banner1}>
-          <img  src={banner1} alt="" style={{
-            height:props.BannerHeight, width:"292vw"
-          }} />
-          {/* <div
-            className={style.banner1}
-            style={props.BannerWidth > 1200?{
-              background: `url(${banner1}) no-repeat ${-(
-                1919 - props.BannerWidth
-              ) / 2}px `,
-              height: document.body.clientHeight,
-            }:{background: `url(${banner1}) no-repeat ${-(
-              1919 - props.BannerWidth
-            ) / 2}px `,}}
-          >
-          </div> */}
+        {  props.BannerWidth< 1200 ? 
+              <img  src={banner1} alt="" style={{
+                height:props.BannerHeight, width:"292vw"
+              }} />:
+              <div
+                className={style.banner1}
+                style={ props.BannerWidth > 1200?{
+                  background: `url(${banner1}) no-repeat 50% `,
+                  height: props.BannerHeight,
+                }:{background: `url(${banner1}) no-repeat ${-(
+                  1919 - props.BannerWidth
+                ) / 2}px `,}}
+              >
+              </div> 
+           }
         </div>
         <div className={style.banner2}>
-        <img  src={banner2} alt="" style={{
-            height:props.BannerHeight, width:"292vw"
-          }} />
-          {/* <div
-            className={style.banner2}
-            style={props.BannerWidth > 1200?{
-              background: `url(${banner2}) no-repeat 50% `,
-              height: props.BannerHeight,
-            }:{background: `url(${banner2}) no-repeat ${-(
-              1919 - props.BannerWidth
-            ) / 2}px `,}}
-          >
-          </div> */}
+        {  props.BannerWidth< 1200 ? 
+              <img  src={banner2} alt="" style={{
+                height:props.BannerHeight, width:"292vw"
+              }} />:
+              <div
+                className={style.banner2}
+                style={ props.BannerWidth > 1200?{
+                  background: `url(${banner2}) no-repeat 50% `,
+                  height: props.BannerHeight,
+                }:{background: `url(${banner2}) no-repeat ${-(
+                  1919 - props.BannerWidth
+                ) / 2}px `,}}
+              >
+              </div> 
+           }
         </div>
         <div className={style.banner3}>
-        <img  src={banner3} alt="" style={{
-            height:props.BannerHeight, width:"292vw"
-          }} />
-          {/* <div
-            className={style.banner3}
-            style={ props.BannerWidth > 1200?{
-              background: `url(${banner3}) no-repeat 50% `,
-              height: props.BannerHeight,
-            }:{background: `url(${banner3}) no-repeat ${-(
-              1919 - props.BannerWidth
-            ) / 2}px `,}}
-          >
-          </div> */}
+          {  props.BannerWidth< 1200 ? 
+              <img  src={banner3} alt="" style={{
+                height:props.BannerHeight, width:"292vw"
+              }} />:
+              <div
+                className={style.banner3}
+                style={ props.BannerWidth > 1200?{
+                  background: `url(${banner3}) no-repeat 50% `,
+                  height: props.BannerHeight,
+                }:{background: `url(${banner3}) no-repeat ${-(
+                  1919 - props.BannerWidth
+                ) / 2}px `,}}
+              >
+              </div> 
+           }
         </div>
       </Carousel>
       ,
