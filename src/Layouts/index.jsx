@@ -8,7 +8,6 @@ function App(props) {
   const [TypeList, setTypeList] = useState(null);
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
   const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
-  const [headerBgc, setHeaderBgc] = useState('');
 
   useEffect(() => {
     API.getTypeList().then(res => {
@@ -21,20 +20,11 @@ function App(props) {
     };
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('scroll', function(e) {
-      if (e.srcElement.documentElement.scrollTop + 60 > BannerHeight) {
-        setHeaderBgc('#1c3e5a');
-      } else {
-        setHeaderBgc('');
-      }
-    });
-  }, [BannerHeight]);
 
   return (
     <div className={style.App}>
       {/* 主页头部,Header组件*/}
-      <div className={style.Header} style={{ background: headerBgc }}>
+      <div className={style.Header} >
         <Header
           TypeList={TypeList}
           BannerHeight={BannerHeight}

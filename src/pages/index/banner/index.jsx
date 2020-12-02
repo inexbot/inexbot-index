@@ -96,7 +96,6 @@ function Banner(props) {
            }
         </div>
       </Carousel>
-      ,
     </div>
   );
 }

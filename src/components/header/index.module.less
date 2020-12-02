@@ -127,6 +127,7 @@
       }
     }
     .top_sousuo{
+      position: relative;
       a{
         font-size: 23px;
         width: 100%;
@@ -198,9 +199,14 @@
 
 // 手机端样式
 @media screen and (max-width: 1200px) {
+  div{
+
   .header{
+    // background:oldlace;
     .setH(100);
     .setW();
+    z-index: 100;
+    position: fixed;
     >h1{
       height:100%;
       .setW(281);
@@ -223,21 +229,33 @@
       display: none;
     }
     .header_txt{
-      display: none;
+      left:10vw;
+      position: relative;
+      .header_text_en{
+        .setF(17);
+      }
+      .header_text_cn{
+        .setF(17);
+      }
     }
     .top_sousuo{
-      // position: absolute;
+      position: relative;
       .setW(76);
-      // right: 0;
-      // right:18.87096774vw;
-      left:29.4838vw;
+      left:12.4838vw;
       display: flex;
       justify-content: center;
       align-items: center;
+      a{
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .icon_sousuo_ipt{
         top: 14vw;
         left: -25vw;
         width: 40vw;
+        height:6vw;
       }
       span{
         color:white;
@@ -255,9 +273,40 @@
       .setF(30);
       position: absolute;
       font-weight: 900;
-      right:0;
+      right:-3vw;
     }
   }
+  .header_list_P{
+    .setW();
+    position: fixed;
+    background:black;
+    z-index: 9;
+    top:0;
+    padding-top: 16.1290322vw;
+    opacity: .8;
+    flex-direction: column;
+    flex-wrap: wrap;
+    li{
+      margin-left: 4vw;
+      margin-top: 3.2vw;
+      >a{
+        color:white;
+        .setF(13);
+        font-weight: 700;
+      }
+      ul{
+        li{
+          a{
+            display: inline;
+            color:#929396;
+            .setF(11);
+          }
+        }
+      }
+    }
+  }    
+ }
 }
+
 
 

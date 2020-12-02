@@ -49,27 +49,30 @@ function Product(props){
         <p> { productHedList===null? "" :  productHedList.typenameen} </p>
       </div>
       <p>  </p>
-      <div className={style.product_hedlist}>
-        { productHedList ===null?"":
-           productHedList.sublist.map((item,index)=>{
-            return(
-              <li key={index} >
-                <a className={index === productNum[1]? style.hoverproductTbs:style.productTbs} onClick={()=>{
-                  if(index ===0){
-                    setProductNum(["controlSys",0]);
-                  }else if( index ===1 ){
-                    setProductNum(["NRB",1]);
-                  }else if( index ===2 ){
-                    setProductNum(["servo",2]);
-                  }else if( index ===3 ){
-                    setProductNum(["vision",3]);
-                  }else if( index ===4 ){
-                    setProductNum(["weldTracking",4]);
-                  }
-                }} >{item.typename} <span></span></a>
-              </li>
-            )
-        })}  
+      <div className={style.product_hedlist_fs}>
+        <div className={style.product_hedlist}  style={ productHedList ===null?{}:props.BannerWidth< 750?{width:`${productHedList.sublist.length*21.612903}vw`,overflowX:"scroll"}:{} }>
+          { productHedList ===null?"":
+             productHedList.sublist.map((item,index)=>{
+              return(
+                <li key={index} >
+                  <a className={index === productNum[1]? style.hoverproductTbs:style.productTbs}
+                  onClick={()=>{
+                    if(index ===0){
+                      setProductNum(["controlSys",0]);
+                    }else if( index ===1 ){
+                      setProductNum(["NRB",1]);
+                    }else if( index ===2 ){
+                      setProductNum(["servo",2]);
+                    }else if( index ===3 ){
+                      setProductNum(["vision",3]);
+                    }else if( index ===4 ){
+                      setProductNum(["weldTracking",4]);
+                    }
+                  }} > <p>{item.typename}</p>  <span></span></a>
+                </li>
+              )
+          })}  
+        </div>
       </div>
         {productData === null? "" :
           <div className={style.product_center}>
