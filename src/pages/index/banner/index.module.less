@@ -1,4 +1,15 @@
 // PC端样式
+.bannerchStyle(){
+  transition: .6s;
+  font-size: 37px;
+  position: absolute;
+}
+.bannerenStyle(){
+  transition: .6s;
+  font-size: 37px;
+  position: absolute;
+}
+
 .banner{
   width:100%;
   position: relative;
@@ -7,16 +18,6 @@
     color: #fff;
     text-align: center;
     // background: #364d79;
-  }
-  .LectOutlined{
-    position: absolute;
-    font-size: 32px;
-    color:#8e9399;
-    z-index: 1;
-    transition: .5s;
-  }
-  .LectOutlined:hover{
-    color:white
   }
   .Btmbtn{
     height: 40px;
@@ -37,23 +38,83 @@
       left: 42%;
     }
   }
-  .RightOutlined{
-    position: absolute;
-    font-size: 32px;
-    color:#8e9399;
-    z-index: 1;
-    transition: .5s;
-  }
-  .RightOutlined:hover{
-    color:white
-  }
   .banner1, .banner2,.banner3{
     img{
       height:100%;
       // position: relative;
     }
+    // 图1
+    .banner1_txt_ch{
+      .bannerchStyle();
+      top: 308px;
+      opacity: 1;
+      left: 2335px;
+    }
+    .banner1_txt_ch_hover{
+      .bannerchStyle();
+      top: 308px;
+      opacity: 0;
+      left: 2435px;
+    }
+    .banner1_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left: 2335px;
+      top: 436px;
+    }
+    .banner1_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left: 2435px;
+      top: 436px;
+    }
+    // 图2
+    .banner2_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      top:308px;
+      left: 4241px;
+    }
+    .banner2_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      top:308px;
+      left: 4341px;
+    }
+    .banner2_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      top:487px;
+      left: 4241px;
+    }
+    .banner2_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      top:487px;
+      left: 4341px;
+    }
+    // 图3
+    .banner3_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      left: 2335px;
+    }
+    .banner3_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      left: 2435px;
+    }
+    .banner3_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left: 2335px;
+    }
+    .banner3_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left: 2435px;
+    }
   }
-
 }
 @import "~components/style/style.less";
 // 手机端样式

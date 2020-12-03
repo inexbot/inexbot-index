@@ -36,7 +36,7 @@ function Connect(props) {
     <div>
       {/* banner图 */}
       <div className="banner">
-        <Banner BannerHeight={BannerHeight} BannerWidth={BannerWidth}  />
+        <Banner BannerHeight={BannerHeight} BannerWidth={BannerWidth} />
       </div>
       {/* 解决方案 */}
       <div className="solution">
