@@ -57,7 +57,7 @@ export function Footer(props) {
           </div>
           <div className={style.footer_qrcode}>
             <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/qrcode.jpg" />
-            <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/qrcode.jpg" />
+            <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/miniproqr.jpg" />
           </div>
         </div>
         <div className={style.footer_list}>

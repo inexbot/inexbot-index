@@ -12,7 +12,6 @@ function App(props) {
   useEffect(() => {
     API.getTypeList().then(res => {
       setTypeList(res);
-      console.log(res)
     });
     window.onresize = function() {
       setBannerWidth(document.body.clientWidth);
@@ -20,11 +19,10 @@ function App(props) {
     };
   }, []);
 
-
   return (
     <div className={style.App}>
       {/* 主页头部,Header组件*/}
-      <div className={style.Header} >
+      <div className={style.Header}>
         <Header
           TypeList={TypeList}
           BannerHeight={BannerHeight}
