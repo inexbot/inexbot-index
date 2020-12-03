@@ -198,9 +198,8 @@
 // }
 
 // 手机端样式
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 750px) {
   div{
-
   .header{
     // background:oldlace;
     .setH(100);
@@ -232,10 +231,10 @@
       left:10vw;
       position: relative;
       .header_text_en{
-        .setF(17);
+        .setF(19);
       }
       .header_text_cn{
-        .setF(17);
+        .setF(19);
       }
     }
     .top_sousuo{
@@ -291,7 +290,7 @@
       margin-top: 3.2vw;
       >a{
         color:white;
-        .setF(13);
+        .setF(21);
         font-weight: 700;
       }
       ul{
@@ -299,7 +298,7 @@
           a{
             display: inline;
             color:#929396;
-            .setF(11);
+            .setF(21);
           }
         }
       }
@@ -309,4 +308,223 @@
 }
 
 
+// 平板端样式
+@media screen and (min-width: 750px) and (max-width:900px ) {
+  div{
+  .header{
+    // background:oldlace;
+    .setH(70);
+    .setW();
+    z-index: 100;
+    position: fixed;
+    >h1{
+      height:100%;
+      .setW(281);
+      a{
+        display: flex;
+        align-items: center;
+        .setW(281);
+        img{
+          .setW(63);
+          .setH(49);
+        }
+        span{
+          .setF(30);
+          color:white ;
+          line-height: 1;
+        }
+      }
+    }
+    .header_list{
+      display: none;
+    }
+    .header_txt{
+      left:10vw;
+      position: relative;
+      .header_text_en{
+        .setF(19);
+      }
+      .header_text_cn{
+        .setF(19);
+      }
+    }
+    .top_sousuo{
+      position: relative;
+      .setW(76);
+      left:12.4838vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a{
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .icon_sousuo_ipt{
+        top: 14vw;
+        left: -25vw;
+        width: 40vw;
+        height:6vw;
+      }
+      span{
+        color:white;
+        .setF(30); 
+        left: 6vw;
+        top: 14vw;
+      }
+    }
+    .icon_list{
+      .setW(74);
+      .setH(70);
+      display: flex;
+      align-items: center;
+      color:white;
+      .setF(30);
+      position: absolute;
+      font-weight: 900;
+      right:-3vw;
+    }
+  }
+  .header_list_P{
+    .setW();
+    position: fixed;
+    background:black;
+    z-index: 9;
+    top:0;
+    padding-top: 16.1290322vw;
+    opacity: .8;
+    flex-direction: column;
+    flex-wrap: wrap;
+    li{
+      margin-left: 4vw;
+      margin-top: 2vw;
+      >a{
+        color:white;
+        .setF(18);
+        font-weight: 700;
+      }
+      ul{
+        li{
+          a{
+            display: inline;
+            color:#929396;
+            .setF(16);
+          }
+        }
+      }
+    }
+  }    
+ }
+}
+
+// 平板端样式
+@media screen and (min-width: 900px) and (max-width:1200px ) {
+  div{
+  .header{
+    // background:oldlace;
+    .setH(50);
+    .setW();
+    z-index: 100;
+    position: fixed;
+    >h1{
+      height:100%;
+      .setW(281);
+      a{
+        display: flex;
+        align-items: center;
+        .setW(281);
+        img{
+          .setW(63);
+          .setH(49);
+        }
+        span{
+          .setF(20);
+          color:white ;
+          line-height: 1;
+        }
+      }
+    }
+    .header_list{
+      display: none;
+    }
+    .header_txt{
+      left:10vw;
+      position: relative;
+      .header_text_en{
+        .setF(15);
+      }
+      .header_text_cn{
+        .setF(15);
+      }
+    }
+    .top_sousuo{
+      position: relative;
+      .setW(76);
+      left:12.4838vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a{
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .icon_sousuo_ipt{
+        top: 14vw;
+        left: -25vw;
+        width: 40vw;
+        height:6vw;
+      }
+      span{
+        color:white;
+        .setF(20); 
+        left: 6vw;
+        top: 14vw;
+      }
+    }
+    .icon_list{
+      .setW(74);
+      .setH(50);
+      display: flex;
+      align-items: center;
+      color:white;
+      .setF(30);
+      position: absolute;
+      font-weight: 900;
+      right:-3vw;
+    }
+  }
+  .header_list_P{
+    .setW();
+    position: fixed;
+    background:black;
+    z-index: 9;
+    top:0;
+    padding-top: 16.1290322vw;
+    opacity: .8;
+    flex-direction: column;
+    flex-wrap: wrap;
+    li{
+      margin-left: 4vw;
+      margin-top: 2vw;
+      >a{
+        color:white;
+        .setF(14);
+        font-weight: 700;
+      }
+      ul{
+        li{
+          a{
+            display: inline;
+            color:#929396;
+            .setF(12);
+          }
+        }
+      }
+    }
+  }    
+ }
+}
 

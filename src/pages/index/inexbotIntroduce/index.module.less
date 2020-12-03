@@ -73,9 +73,10 @@
 
 @import "~components/style/style.less";
 // 手机端样式
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 750px) {
   .inexboot_introduce{
-    // .setH(1540);
+    .setH(1540);
+    // height:1000px;
     display: flex;
     flex-direction:column;
     justify-content:  flex-start;
@@ -89,6 +90,56 @@
         font-size:4.580645vw ;
         span{
           padding:0 6vw;
+        }
+      }
+      #about-intro{
+        .setF(16)
+      }
+      .about-bottom{
+        .about-ind{
+          p{
+            .setF(16);
+          }
+        }
+      }
+    }
+    .inexbot_rt{
+      float:none;
+      width:100%;
+      padding: 0 5.483870vw;
+
+    }
+  }
+}
+
+//  平板端样式
+@media screen and (min-width:750px) and (max-width:1200px) {
+  .inexboot_introduce{
+    .setH(1040);
+    // height:1000px;
+    display: flex;
+    flex-direction:column;
+    justify-content:  flex-start;
+    align-items: center;
+    .inexbot_lf{
+      float:none;
+      width:100%;
+      padding: 0 5.483870vw;
+      margin-top: 20vw;
+      .header_Txt{
+        font-size:4.580645vw ;
+        span{
+          padding:0 6vw;
+        }
+      }
+      #about-intro{
+        .setF(16)
+      }
+      .about-bottom{
+        .about-ind{
+          p{
+            .setF(16);
+          }
         }
       }
     }
