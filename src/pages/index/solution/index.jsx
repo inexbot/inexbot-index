@@ -44,7 +44,6 @@ function Solution(props) {
       <p> 我们期待，未来每一台机器人的背后，都有纳博特的技术 </p>
       <div className={style.solution_btm}>
         {dataList.map((item, index) => {
-          console.log(item);
           return (
             <div
               key={index}
