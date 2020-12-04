@@ -117,7 +117,7 @@ function Product(props) {
             }}
           >
             <div className={style.product__center_l}>
-              <p> {productData[productNum[0]][0].description} </p>
+              <p> {productData[productNum[0]][0].title} </p>
               <img src={`${productData[productNum[0]][0].litpic}`} alt="" />
             </div>
           </div>

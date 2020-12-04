@@ -90,13 +90,13 @@ function Header(props) {
             EN{' '}
           </a>
         </div>
-        <div className={style.top_sousuo}>
+        {/* <div className={style.top_sousuo}>
           <a>
             <SearchOutlined />
           </a>
           <input className={style.icon_sousuo_ipt} />
           <span></span>
-        </div>
+        </div> */}
         <div className={style.icon_list}>
           <MenuOutlined
             onClick={() => {
