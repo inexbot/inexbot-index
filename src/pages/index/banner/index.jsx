@@ -3,6 +3,7 @@ import { Carousel, Button } from 'antd'
 import style from './index.module.less';
 import API from "components/API/api";
 import { useEffect } from 'react';
+import renderEmpty from 'antd/lib/config-provider/renderEmpty';
 
 function Banner(props) {
   const [TypeList, setTypeList] = useState(null);
@@ -32,9 +33,8 @@ function Banner(props) {
     })
   },[])
 
-  const bannerChange=(num)=>{
-    console.log(num)
-    setBannerChangeNum(num)
+  const bannerChange=(from, to)=>{
+    setBannerChangeNum(to)
   }
 
   // 初始获取图片上的文字
@@ -54,71 +54,97 @@ function Banner(props) {
       </div>
       <Carousel
       //  autoplay
-      afterChange={bannerChange}
+      beforeChange={bannerChange}
        ref={carousel} >
         <div className={style.banner1}>
         {  props.BannerWidth< 1200 ?
-              <img  src={banner1} alt="" style={{
-                height:props.BannerHeight, width:"292vw"
-              }} />
+              <div>
+                <img  src={banner1} alt="" style={{
+                  height:props.BannerHeight, width:"292vw"
+                }} />
+                <span className={bannerChangeNum===0?style.banner1_txt_ch :style.banner1_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===0?style.banner1_txt_en :style.banner1_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1en} </p>` }}>
+                </span>
+              </div>
               :
               <div
                 className={style.banner1}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner1}) no-repeat 50% `,
                   height: props.BannerHeight,
+                  position:"relative"
                 }:{background: `url(${banner1}) no-repeat ${-(
                   1919 - props.BannerWidth
-                ) / 2}px `,}}
+                ) / 2}px `, position:"relative"}}
               >
+                <span className={bannerChangeNum===0?style.banner1_txt_ch :style.banner1_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===0?style.banner1_txt_en :style.banner1_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1en} </p>` }}>
+                </span>
               </div> 
            }
-          <span className={bannerChangeNum===0?style.banner1_txt_ch :style.banner1_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1ch} </p>` }}>
-          </span>
-          <span className={bannerChangeNum===0?style.banner1_txt_en :style.banner1_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1en} </p>` }}>
-          </span>
+
         </div>
         <div className={style.banner2}>
         {  props.BannerWidth< 1200 ? 
-              <img  src={banner2} alt="" style={{
-                height:props.BannerHeight, width:"292vw"
-              }} />:
+              <div>
+                <img  src={banner2} alt="" style={{
+                  height:props.BannerHeight, width:"292vw"
+                }} />
+                <span className={bannerChangeNum===1?style.banner2_txt_ch :style.banner2_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===1?style.banner2_txt_en :style.banner2_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2en} </p>` }}>
+                </span>
+              </div>
+              :
               <div
                 className={style.banner2}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner2}) no-repeat 50% `,
                   height: props.BannerHeight,
+                   position:"relative"
                 }:{background: `url(${banner2}) no-repeat ${-(
                   1919 - props.BannerWidth
-                ) / 2}px `,}}
+                ) / 2}px `,
+                 position:"relative"}}
               >
+                <span className={bannerChangeNum===1?style.banner2_txt_ch :style.banner2_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===1?style.banner2_txt_en :style.banner2_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2en} </p>` }}>
+                </span>
               </div> 
            }
-          <span className={bannerChangeNum===1?style.banner2_txt_ch :style.banner2_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2ch} </p>` }}>
-          </span>
-          <span className={bannerChangeNum===1?style.banner2_txt_en :style.banner2_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2en} </p>` }}>
-          </span>
+
         </div>
         <div className={style.banner3}>
           {  props.BannerWidth< 1200 ? 
+              <div>
               <img  src={banner3} alt="" style={{
                 height:props.BannerHeight, width:"292vw"
-              }} />:
+              }} />
+                <span className={bannerChangeNum===2?style.banner3_txt_ch :style.banner3_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===2?style.banner3_txt_en :style.banner3_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3en} </p>` }}>
+                </span>
+              </div>
+              :
               <div
                 className={style.banner3}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner3}) no-repeat 50% `,
-                  height: props.BannerHeight,
+                  height: props.BannerHeight, position:"relative"
                 }:{background: `url(${banner3}) no-repeat ${-(
                   1919 - props.BannerWidth
-                ) / 2}px `,}}
+                ) / 2}px `, position:"relative"}}
               >
+                <span className={bannerChangeNum===2?style.banner3_txt_ch :style.banner3_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3ch} </p>` }}>
+                </span>
+                <span className={bannerChangeNum===2?style.banner3_txt_en :style.banner3_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3en} </p>` }}>
+                </span>
               </div> 
            }
-            <span className={bannerChangeNum===3?style.banner3_txt_ch :style.banner3_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3ch} </p>` }}>
-            </span>
-            <span className={bannerChangeNum===3?style.banner3_txt_en :style.banner3_txt_en_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3en} </p>` }}>
-          </span>
+
         </div>
       </Carousel>
     </div>

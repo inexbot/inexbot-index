@@ -1,13 +1,17 @@
 // PC端样式
 .bannerchStyle(){
-  transition: .6s;
-  font-size: 37px;
+  transition: 1.5s;
+  font-size: 52px;
   position: absolute;
+  text-shadow: black 3px 3px 5px;
+  text-align: left;
 }
 .bannerenStyle(){
-  transition: .6s;
-  font-size: 37px;
+  transition: 1.5s;
+  font-size: 43px;
   position: absolute;
+  text-shadow: black 3px 3px 5px;
+  text-align: left;
 }
 
 .banner{
@@ -41,84 +45,101 @@
   .banner1, .banner2,.banner3{
     img{
       height:100%;
-      // position: relative;
     }
     // 图1
     .banner1_txt_ch{
       .bannerchStyle();
-      top: 308px;
+      top: 337px;
       opacity: 1;
-      left: 2335px;
+      left: 220px;
     }
     .banner1_txt_ch_hover{
       .bannerchStyle();
-      top: 308px;
+      top: 337px;
       opacity: 0;
-      left: 2435px;
+      left: 320px;
     }
     .banner1_txt_en{
       .bannerenStyle();
       opacity: 1;
-      left: 2335px;
-      top: 436px;
+      left: 220px;
+      top: 496px;
     }
     .banner1_txt_en_hover{
       .bannerenStyle();
       opacity: 0;
-      left: 2435px;
-      top: 436px;
+      left: 320px;
+      top: 496px;
     }
     // 图2
     .banner2_txt_ch{
       .bannerchStyle();
       opacity: 1;
-      top:308px;
-      left: 4241px;
+      top:337px;
+      left: 220px;
     }
     .banner2_txt_ch_hover{
       .bannerchStyle();
       opacity: 0;
-      top:308px;
-      left: 4341px;
+      top:337px;
+      left: 320px;
     }
     .banner2_txt_en{
       .bannerenStyle();
       opacity: 1;
-      top:487px;
-      left: 4241px;
+      top:583px;
+      left: 220px;
     }
     .banner2_txt_en_hover{
       .bannerenStyle();
       opacity: 0;
-      top:487px;
-      left: 4341px;
+      top:583px;
+      left: 320px;
     }
     // 图3
     .banner3_txt_ch{
       .bannerchStyle();
       opacity: 1;
-      left: 2335px;
+      top:337px;
+      left: 220px;
     }
     .banner3_txt_ch_hover{
       .bannerchStyle();
       opacity: 0;
-      left: 2435px;
+      top:337px;
+      left: 320px;
     }
     .banner3_txt_en{
       .bannerenStyle();
       opacity: 1;
-      left: 2335px;
+      top:415px;
+      left: 220px;
     }
     .banner3_txt_en_hover{
       .bannerenStyle();
       opacity: 0;
-      left: 2435px;
+      top:415px;
+      left: 320px;
     }
   }
 }
 @import "~components/style/style.less";
 // 手机端样式
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 750px) {
+  .bannerchStyle(){
+    transition: 1.5s;
+    .setF(40);
+    position: absolute;
+    text-shadow: black 3px 3px 5px;
+    text-align: left;
+  }
+  .bannerenStyle(){
+    transition: 1.5s;
+    .setF(35);
+    position: absolute;
+    text-shadow: black 3px 3px 5px;
+    text-align: left;
+  }
   .banner{
     .LectOutlined{
       display: none;
@@ -126,23 +147,180 @@
     .RightOutlined{
       display: none;
     }
-    .banner1{
+    .banner1, .banner2, .banner3{
       overflow: hidden;
+      position: relative;
       img{
         margin-left:-137.419355vw;
       }
+    // 图1
+    .banner1_txt_ch{
+      .bannerchStyle();
+      top: 68vw;
+      opacity: 1;
+      left: 5vw;
     }
-    .banner2{
-      overflow: hidden;
-      img{
-        margin-left:-137.419355vw;
-      }
+    .banner1_txt_ch_hover{
+      .bannerchStyle();
+      top: 68vw;
+      opacity: 0;
+      left: 20vw;
     }
-    .banner3{
+    .banner1_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left: 5vw;
+      top: 90vw;
+    }
+    .banner1_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left: 20vw;
+      top: 90vw;
+    }
+    // 图2
+    .banner2_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      top:68vw;
+      left: 5vw;
+    }
+    .banner2_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      top:68vw;
+      left: 20vw;
+    }
+    .banner2_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      top:100vw;
+      left: 5vw;
+    }
+    .banner2_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      top:100vw;
+      left: 20vw;
+    }
+    // 图3
+    .banner3_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      top:68vw;
+      left: 5vw;
+    }
+    .banner3_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      top:68vw;
+      left: 20vw;
+    }
+    .banner3_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      top:83vw;
+      left: 5vw;
+    }
+    .banner3_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      top:83vw;
+      left: 20vw;
+    }
+    }
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  .bannerchStyle(){
+    transition: 1.5s;
+    font-size: 40px;
+    position: absolute;
+    text-align: left;
+  }
+  .bannerenStyle(){
+    transition: 1.5s;
+    font-size: 35px;
+    position: absolute;
+    text-align: left;
+  }
+  .banner{
+    .LectOutlined{
+      display: none;
+    }
+    .RightOutlined{
+      display: none;
+    }
+    .banner1, .banner2, .banner3{
       overflow: hidden;
+      position: relative;
       img{
         margin-left:-137.419355vw;
       }
+          // 图1
+    .banner1_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner1_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      left:120px;
+    }
+    .banner1_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner1_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left:120px;
+    }
+    // 图2
+    .banner2_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner2_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      left:120px;
+    }
+    .banner2_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner2_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left:120px;
+    }
+    // 图3
+    .banner3_txt_ch{
+      .bannerchStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner3_txt_ch_hover{
+      .bannerchStyle();
+      opacity: 0;
+      left:120px;
+    }
+    .banner3_txt_en{
+      .bannerenStyle();
+      opacity: 1;
+      left:20px;
+    }
+    .banner3_txt_en_hover{
+      .bannerenStyle();
+      opacity: 0;
+      left:120px;
+    }
     }
   }
 }
