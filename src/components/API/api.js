@@ -23,7 +23,6 @@ function post(model, params, order, logic = 'and') {
     .catch(res => {
       console.log(res);
     });
-    
 }
 
 export default {
@@ -40,7 +39,7 @@ export default {
         });
         res.list.forEach(value => {
           for (let i = 0; i < _l.length; i++) {
-            if (value.topid == _l[i].id && value.ishidden == 0) {
+            if (value.reid == _l[i].id && value.ishidden == 0) {
               _l[i].sublist.push(value);
             }
           }
@@ -63,7 +62,6 @@ export default {
   },
   // 获取产品中心模块的产品简介
   getProductIntroduce() {
-    return post('dede_addonimages', `[["aid",">","0"]]`,['typeid ASC']);
+    return post('dede_addonimages', `[["aid",">","0"]]`, ['typeid ASC']);
   },
-
 };
