@@ -27,7 +27,6 @@ function inexbotIntroduce(props){
           <span>互联</span>
         </div>
         <div dangerouslySetInnerHTML={inexbotTxtl===null? {__html:"<div> </div>"}:{__html:inexbotTxtl}}>
-  
         </div>
       </div>
       <div className="inexbot_rt" onClick={()=>{
