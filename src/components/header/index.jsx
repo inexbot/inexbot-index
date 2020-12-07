@@ -20,11 +20,13 @@ function Header(props) {
     if (props.TypeList !== null) {
       props.TypeList.splice(8);
     }
+    console.log(props.TypeList,"这里是header的数据")
     setTypeList(props.TypeList);
   }, [props.TypeList]);
 
   useEffect(() => {
     window.addEventListener('scroll', function(e) {
+      // console.log(props.history)
       if (e.srcElement.documentElement.scrollTop + 60 > props.BannerHeight) {
         setHeaderBgc('#1c3e5a');
       } else {
@@ -34,18 +36,17 @@ function Header(props) {
   }, [props.BannerHeight]);
 
   return (
-    <div>
+    <div 
+      className={style.Header}
+      style={
+      props.BannerWidth > 1200
+        ? {
+            background: headerBgc,
+          }
+        : { background: headerBgc }
+      }>
       <div
         className={style.header}
-        style={
-          props.BannerWidth > 1200
-            ? {
-                width: props.BannerWidth,
-                padding: `0 ${(props.BannerWidth - 1200) / 2.6}px`,
-                background: headerBgc,
-              }
-            : { background: headerBgc }
-        }
       >
         <h1>
           <a href="https://www.inexbot.com">

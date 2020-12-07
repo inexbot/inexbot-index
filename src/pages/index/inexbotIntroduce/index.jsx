@@ -17,35 +17,36 @@ function inexbotIntroduce(props){
       }
     }
   },[props.TypeList])
-//   
   return(
-    <div className="inexboot_introduce" style={{padding:`0 ${(props.BannerWidth-1200)/2.6}px`,background:`url(${bg_1}) no-repeat`,backgroundSize:"100%  100%"}}>
-      <div className="inexbot_lf">
-        <div className="header_Txt">
-          <span>智能</span>
-          <span>简单</span>
-          <span>互联</span>
+    <div style={{ background:`url(${bg_1}) no-repeat`,backgroundSize:"100%  100%" }} className="inexbot_Introduce">
+      <div className="inexboot_introduce" >
+        <div className="inexbot_lf">
+          <div className="header_Txt">
+            <span>智能</span>
+            <span>简单</span>
+            <span>互联</span>
+          </div>
+          <div dangerouslySetInnerHTML={inexbotTxtl===null? {__html:"<div> </div>"}:{__html:inexbotTxtl}}>
+          </div>
         </div>
-        <div dangerouslySetInnerHTML={inexbotTxtl===null? {__html:"<div> </div>"}:{__html:inexbotTxtl}}>
+        <div className="inexbot_rt" onClick={()=>{
+          setVideoShow("block")
+          document.body.style.overflowY = "hidden"
+          let video = document.getElementById('movie');
+          video.play()
+        }}>
+          <img src={require(`images/video.jpg`)} alt=""/>
         </div>
-      </div>
-      <div className="inexbot_rt" onClick={()=>{
-        setVideoShow("block")
-        document.body.style.overflowY = "hidden"
+        <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls >
+          <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/>
+        </video>
+      <Button style={{ display:videoShow,position:"fixed",top:"0",right:"0",zIndex:"10001" }} onClick={()=>{
+        setVideoShow("none")
+        document.body.style.overflowY = "auto";
         let video = document.getElementById('movie');
-        video.play()
-      }}>
-        <img src={require(`images/video.jpg`)} alt=""/>
+        video.pause()
+      }}>关闭</Button>
       </div>
-      <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls >
-        <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/>
-      </video>
-    <Button style={{ display:videoShow,position:"fixed",top:"0",right:"0",zIndex:"10001" }} onClick={()=>{
-      setVideoShow("none")
-      document.body.style.overflowY = "auto";
-      let video = document.getElementById('movie');
-      video.pause()
-    }}>关闭</Button>
     </div>
   )
 }

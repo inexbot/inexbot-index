@@ -1,9 +1,11 @@
 // PC端样式
-.partner{
+.Partner{
   width:100%;
+ .partner{
+  width:1200px;
+  margin:0 auto;
   height:1080px;
   overflow: hidden;
-  background:#13182b;
   .partner_top{
     width:100%;
     position: relative;
@@ -108,69 +110,73 @@
     //   transform:translateY(-2px)
     // }
   }
+ }
 }
 
 @import "~components/style/style.less";
 // 手机端样式
 @media screen and (max-width: 1200px) {
-  .partner{
-    .setH(1340);
-    .setW();
-    .partner_top{
-      p:nth-child(1){
-        position:unset;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .setW();
-        margin-top: 16.1290322vw;
-        .setF(40);
-      }
-      p:nth-child(2){
-        position:unset;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .setW();
-        margin-top: -12.870968vw;
-        .setF(40);
-      }
-    }
-    >p{
-      .setF(17);
-      margin:0;
-      margin-top: 6vw;
-    }
-    .partner_content{
-      .setH(843);
+  .Partner{
+    width:100%;
+    .partner{
+      .setH(1340);
       .setW();
-      padding:0 8.548387vw;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .partner_photo{
-        .setW(249);
-        .setH(132);
-        margin-bottom: 1.612903vw;
-        img{
-          .setW(249);
-          .setH(132);
+      .partner_top{
+        p:nth-child(1){
+          position:unset;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .setW();
+          margin-top: 16.1290322vw;
+          .setF(40);
         }
-        span{
-          .setW(249);
-          .setH(132);
+        p:nth-child(2){
+          position:unset;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .setW();
+          margin-top: -12.870968vw;
+          .setF(40);
         }
       }
-    }
-    .partner_bottom{
-      margin-top: 9vw;
-      .partner_bottom_txt{
-        .setW(221);
-        .setH(43);
-        .setF(15);
-        color:#e2e6ef;
-        border-radius: 10px;
-        border: solid 1px #92969f;
+      >p{
+        .setF(17);
+        margin:0;
+        margin-top: 6vw;
+      }
+      .partner_content{
+        .setH(843);
+        .setW();
+        padding:0 8.548387vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .partner_photo{
+          .setW(249);
+          .setH(132);
+          margin-bottom: 1.612903vw;
+          img{
+            .setW(249);
+            .setH(132);
+          }
+          span{
+            .setW(249);
+            .setH(132);
+          }
+        }
+      }
+      .partner_bottom{
+        margin-top: 9vw;
+        .partner_bottom_txt{
+          .setW(221);
+          .setH(43);
+          .setF(15);
+          color:#e2e6ef;
+          border-radius: 10px;
+          border: solid 1px #92969f;
+        }
       }
     }
   }

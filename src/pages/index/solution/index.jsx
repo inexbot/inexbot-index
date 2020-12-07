@@ -33,50 +33,51 @@ function Solution(props) {
     }
   }
   return (
-    <div
-      className={style.solution}
-      style={{ padding: `0 ${(props.BannerWidth - 1200) / 2.6}px` }}
-    >
-      <div className={style.solution_top}>
-        <p> {TypeList === null ? '' : TypeList.typename} </p>
-        <p> {TypeList === null ? '' : TypeList.typenameen}</p>
-      </div>
-      <p> 我们期待，未来每一台机器人的背后，都有纳博特的技术 </p>
-      <div className={style.solution_btm}>
-        {dataList.map((item, index) => {
-          return (
-            <div
-              key={index}
-              style={
-                props.BannerWidth > 1200
-                  ? {
-                      width: '33%',
-                      height: '282px',
-                      background: `url(${item.typeimg}) no-repeat`,
-                      backgroundSize: '533px',
-                    }
-                  : {
-                      background: `url(${item.typeimg}) no-repeat`,
-                      backgroundSize: '136%',
-                    }
-              }
-              onClick={() => {
-                location.href = getLink(item.typedir);
-              }}
-            >
-              <span className={style.solution_btm_txt}> {item.typename} </span>
-              <div className={style.solution_btn_opc}>
-                <img src={require(`images/icon${index + 1}.png`)} alt="" />
-                <p> {item.description.slice(0, 21)}</p>
-                {item.description.length < 21 ? (
-                  ''
-                ) : (
-                  <span> {item.description.slice(21)} </span>
-                )}
+    <div>
+      <div
+        className={style.solution}
+      >
+        <div className={style.solution_top}>
+          <p> {TypeList === null ? '' : TypeList.typename} </p>
+          <p> {TypeList === null ? '' : TypeList.typenameen}</p>
+        </div>
+        <p> 我们期待，未来每一台机器人的背后，都有纳博特的技术 </p>
+        <div className={style.solution_btm}>
+          {dataList.map((item, index) => {
+            return (
+              <div
+                key={index}
+                style={
+                  props.BannerWidth > 1200
+                    ? {
+                        width: '33%',
+                        height: '282px',
+                        background: `url(${item.typeimg}) no-repeat`,
+                        backgroundSize: '533px',
+                      }
+                    : {
+                        background: `url(${item.typeimg}) no-repeat`,
+                        backgroundSize: '136%',
+                      }
+                }
+                onClick={() => {
+                  location.href = getLink(item.typedir);
+                }}
+              >
+                <span className={style.solution_btm_txt}> {item.typename} </span>
+                <div className={style.solution_btn_opc}>
+                  <img src={require(`images/icon${index + 1}.png`)} alt="" />
+                  <p> {item.description.slice(0, 21)}</p>
+                  {item.description.length < 21 ? (
+                    ''
+                  ) : (
+                    <span> {item.description.slice(21)} </span>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

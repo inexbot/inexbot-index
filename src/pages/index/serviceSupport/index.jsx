@@ -29,11 +29,7 @@ function serviceSupport(props) {
 
   return (
     <div
-      style={
-        props.BannerWidth > 1200
-          ? { padding: `0 ${(props.BannerWidth - 1200) / 2.6}px` }
-          : {}
-      }
+      className="ServiceSupport"
     >
       {contentList === null ? (
         ''

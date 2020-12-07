@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {connect} from "umi";
 import API from "components/API/api";
 import Banner from './index/banner/index.jsx';
 import Solution from './index/solution/index.jsx';
@@ -9,11 +10,25 @@ import Patner from "./index/partner/index.jsx";
 import NewsInformation from "./index/newsInformation/index.jsx";
 import "./index.css"
 
+// const mapStateToProps = state => {
+//   return {
+//     headerScroll:saate.index.
+//   }
+// }
+
 function Connect(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
   const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
   const [TypeList, setTTyoeList] = useState(props.TypeList);
   const [productList, setProductList] = useState(null);
+
+  // 进入到主页时候，头目栏目滑到banner图下背景颜色才会改变
+  // useEffect(()=>{
+  //   props.dispatch({
+  //     type:"index/setHeaderScreoll",
+  //     data:1200
+  //   })
+  // },[])
 
   // 实时更新页面的宽度和高度
   useEffect(() => {

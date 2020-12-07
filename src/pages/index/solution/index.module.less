@@ -1,6 +1,7 @@
 // PC端样式
 .solution{
-  width:100%;
+  width:1200px;
+  margin:0 auto;
   background:white;
   overflow: hidden;
   margin-bottom: 150px;
@@ -8,32 +9,31 @@
     width:100%;
     position: relative;
     p:nth-child(1){
-      position: absolute;
-      color:#41aeff;
-      font-size:34px;
+      position: relative;
+      color: #41aeff;
+      font-size: 34px;
       display: flex;
       text-align: center;
       justify-content: center;
       z-index: 1;
       font-weight: 600;
-      left:44.6%;
-      padding: 100px 0;
+      margin-top: 117px;
     }
     p:nth-child(2){
-      color:#ecf0f3;
-      font-size:39px;
-      position: absolute;
-      top:13%;
-      left:35.8%;
-      opacity: .6;
+      color: #ecf0f3;
+      font-size: 39px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      opacity: 0.6;
       font-weight: 600;
-      padding: 100px 0;
-      margin-top: 10px;
+      margin-top: -41px;
     }
   }
   >p{
     font-size:17px;
-    margin-top:18%;
+    margin-top:4%;
     color:#737373;
     display: flex;
     justify-content: center;
@@ -114,20 +114,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        .setW();
-        left:0;
-        padding:0;
-        top:16.1290322vw;
-        .setF(36);
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        margin-top: 10vw;
+        font-size: 5.80645161vw
       }
       p:nth-child(2){
-        .setW();
-        top:17vw;
-        padding:0;
+        width: 100vw;
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        left:0;
+        margin-top: -5vw;
         .setF(28);
       }
     }
@@ -137,7 +136,6 @@
       justify-content: center;
       align-items: center;
       top:20vw;
-      margin-top: 29vw;
     }
     .solution_btm{
       .setW(588);
