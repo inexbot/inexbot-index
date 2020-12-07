@@ -1,70 +1,73 @@
 // PC端样式
-.inexboot_introduce{
-  width:100%;
-  height:1020px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .inexbot_lf{
-    width:43%;
-    float: left;
-  }
-  .inexbot_rt{
-    width:56%;
-    float: right;
-    img{
-      width:100%;
-    };
-    img:hover{
-      cursor:pointer
-    }
-  }
-  video{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index: 1000;
-    background:black
-  }
-  .header_Txt{
-    color:white;
-    width:100%;
+.inexbot_Introduce{
+  .inexboot_introduce{
+    width:1200px;
+    margin:0 auto;
+    height:1020px;
     display: flex;
-    justify-content: center;
-    font-size: 25px;
-    line-height: 87px;
-    span{
-      padding:0 37px;
+    justify-content: space-between;
+    align-items: center;
+    .inexbot_lf{
+      width:43%;
+      float: left;
     }
-  }
-  .about{
-    text-align: inherit;
-    #about-intro{
-      width:100%;
-      color:#d7dde9;
-      display: block;
-      text-indent: 35px;
-      line-height: 29px;
-      font-size: 12px;
-    }
-    .about-something{
-      display: none;
-    };
-    #about-title{
-      display: none;
-    };
-    .about-logo{
-      display: none;
-    };
-    .about-bottom{
-      .about-ind{
+    .inexbot_rt{
+      width:56%;
+      float: right;
+      img{
         width:100%;
-        p{
-          color:#d7dde9;
-          display: block;
-          text-indent: 35px;
-          line-height: 29px;
-          font-size: 12px;
+      };
+      img:hover{
+        cursor:pointer
+      }
+    }
+    video{
+      position:fixed;
+      top:0;
+      left:0;
+      z-index: 1000;
+      background:black
+    }
+    .header_Txt{
+      color:white;
+      width:100%;
+      display: flex;
+      justify-content: center;
+      font-size: 25px;
+      line-height: 87px;
+      span{
+        padding:0 37px;
+      }
+    }
+    .about{
+      text-align: inherit;
+      #about-intro{
+        width:100%;
+        color:#d7dde9;
+        display: block;
+        text-indent: 35px;
+        line-height: 29px;
+        font-size: 12px;
+      }
+      .about-something{
+        display: none;
+      };
+      #about-title{
+        display: none;
+      };
+      .about-logo{
+        display: none;
+      };
+      .about-bottom{
+        .about-ind{
+          width:100%;
+          p{
+            color:#d7dde9;
+            display: block;
+            text-indent: 35px;
+            line-height: 29px;
+            font-size: 12px;
+          }
         }
       }
     }
@@ -74,82 +77,88 @@
 @import "~components/style/style.less";
 // 手机端样式
 @media screen and (max-width: 750px) {
-  .inexboot_introduce{
-    .setH(1540);
-    // height:1000px;
-    display: flex;
-    flex-direction:column;
-    justify-content:  flex-start;
-    align-items: center;
-    .inexbot_lf{
-      float:none;
-      width:100%;
-      padding: 0 5.483870vw;
-      margin-top: 20vw;
-      .header_Txt{
-        font-size:4.580645vw ;
-        span{
-          padding:0 6vw;
+  .inexbot_Introduce{
+    .inexboot_introduce{
+      width:100vw;
+      height:281.387097vw;
+      // height:1000px;
+      display: flex;
+      flex-direction:column;
+      justify-content:  flex-start;
+      align-items: center;
+      .inexbot_lf{
+        float:none;
+        width:100%;
+        padding: 0 5.483870vw;
+        margin-top: 20vw;
+        .header_Txt{
+          font-size:4.580645vw ;
+          span{
+            padding:0 6vw;
+          }
         }
-      }
-      #about-intro{
-        .setF(16)
-      }
-      .about-bottom{
-        .about-ind{
-          p{
-            .setF(16);
+        #about-intro{
+          .setF(16)
+        }
+        .about-bottom{
+          .about-ind{
+            p{
+              .setF(16);
+            }
           }
         }
       }
-    }
-    .inexbot_rt{
-      float:none;
-      width:100%;
-      padding: 0 5.483870vw;
-
+      .inexbot_rt{
+        float:none;
+        width:100%;
+        padding: 0 5.483870vw;
+  
+      }
     }
   }
 }
 
 //  平板端样式
 @media screen and (min-width:750px) and (max-width:1200px) {
-  .inexboot_introduce{
-    .setH(1040);
-    // height:1000px;
-    display: flex;
-    flex-direction:column;
-    justify-content:  flex-start;
-    align-items: center;
-    .inexbot_lf{
-      float:none;
-      width:100%;
-      padding: 0 5.483870vw;
-      margin-top: 20vw;
-      .header_Txt{
-        font-size:4.580645vw ;
-        span{
-          padding:0 6vw;
+  .inexbot_Introduce{
+    .inexboot_introduce{
+      width:100vw;
+      .setH(1040);
+      // height:1000px;
+      display: flex;
+      flex-direction:column;
+      justify-content:  flex-start;
+      align-items: center;
+      .inexbot_lf{
+        float:none;
+        width:100%;
+        padding: 0 5.483870vw;
+        margin-top: 20vw;
+        .header_Txt{
+          font-size:4.580645vw ;
+          span{
+            padding:0 6vw;
+          }
         }
-      }
-      #about-intro{
-        .setF(16);
-        line-height:1.5;
-      }
-      .about-bottom{
-        .about-ind{
-          p{
-            .setF(16);
-            line-height:1.5;
+        #about-intro{
+          .setF(16);
+          line-height:1.5;
+        }
+        .about-bottom{
+          .about-ind{
+            p{
+              .setF(16);
+              line-height:1.5;
+            }
           }
         }
       }
-    }
-    .inexbot_rt{
-      float:none;
-      width:100%;
-      padding: 0 5.483870vw;
-
+      .inexbot_rt{
+        float:none;
+        width:100%;
+        padding: 0 5.483870vw;
+  
+      }
     }
   }
 }

@@ -1,11 +1,12 @@
 @import "../style/style.less";
 
-
-
-
 // pc端样式
-// @media screen and (min-width: 1200px) {
+.Header{
+  height:60px;
+  width:100%;
   .header{
+    width:1200px;
+    margin:0 auto;
     height:60px;
     display: flex;
     h1{
@@ -195,11 +196,13 @@
       display: none;
     }
   }
-// }
+}
 
 // 手机端样式
 @media screen and (max-width: 750px) {
-  div{
+  .Header{
+    .setH(100);
+    width:100%;
   .header{
     // background:oldlace;
     .setH(100);
@@ -310,7 +313,8 @@
 
 // 平板端样式
 @media screen and (min-width: 750px) and (max-width:900px ) {
-  div{
+  .Header{
+    .setH(70);
   .header{
     // background:oldlace;
     .setH(70);
@@ -420,9 +424,9 @@
 
 // 平板端样式
 @media screen and (min-width: 900px) and (max-width:1200px ) {
-  div{
+  .Header{
+  .setH(50);
   .header{
-    // background:oldlace;
     .setH(50);
     .setW();
     z-index: 100;
