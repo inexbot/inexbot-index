@@ -8,11 +8,17 @@ function App(props) {
   const [TypeList, setTypeList] = useState(null);
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
   const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
+  const [productList, setProductList] = useState(null);
 
   useEffect(() => {
+    // 获取总数据
     API.getTypeList().then(res => {
       setTypeList(res);
     });
+    // 获取新闻列表,合作伙伴和产品中心列表
+    API.getNewslist().then(res=>{
+      setProductList(res)
+    })
     window.onresize = function() {
       setBannerWidth(document.body.clientWidth);
       setBannerHeight(document.body.clientHeight);
@@ -36,6 +42,7 @@ function App(props) {
             TypeList: TypeList,
             BannerHeight: BannerHeight,
             BannerWidth: BannerWidth,
+            productList:productList,
           });
         })}
       </div>

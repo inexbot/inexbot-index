@@ -22,7 +22,6 @@ function serviceSupport(props) {
     for (let i = 0; i < props.TypeList.length; i++) {
       if (props.TypeList[i].id === 34) {
         setContentList(props.TypeList[i]);
-        console.log(props.TypeList[i])
       }
     }
   }, [props.TypeList]);

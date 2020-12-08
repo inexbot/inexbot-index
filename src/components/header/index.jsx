@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from "umi";
 import style from './index.module.less';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
+
+const mapStateToProps = state =>{
+  return{
+    headerScroll: state.index.headerScroll
+  }
+}
 
 function Header(props) {
   const [TypeList, setTypeList] = useState(props.TypeList);
@@ -20,31 +27,24 @@ function Header(props) {
     if (props.TypeList !== null) {
       props.TypeList.splice(8);
     }
-    console.log(props.TypeList,"这里是header的数据")
     setTypeList(props.TypeList);
   }, [props.TypeList]);
 
   useEffect(() => {
     window.addEventListener('scroll', function(e) {
-      // console.log(props.history)
-      if (e.srcElement.documentElement.scrollTop + 60 > props.BannerHeight) {
+      if (e.srcElement.documentElement.scrollTop + 60 > props.headerScroll) {
         setHeaderBgc('#1c3e5a');
       } else {
         setHeaderBgc('');
       }
     });
-  }, [props.BannerHeight]);
+  }, [props.headerScroll]);
 
   return (
     <div 
       className={style.Header}
       style={
-      props.BannerWidth > 1200
-        ? {
-            background: headerBgc,
-          }
-        : { background: headerBgc }
-      }>
+      { background: headerBgc, }  }>
       <div
         className={style.header}
       >
@@ -112,7 +112,7 @@ function Header(props) {
       </div>
       <ul
         className={style.header_list_P}
-        style={{ height: `${props.BannerHeight}px`, display: listShow }}
+        style={{ height: `100vh`, display: listShow }}
       >
         {TypeList === null
           ? ' '
@@ -139,4 +139,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default connect(mapStateToProps)(Header);

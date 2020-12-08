@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './index.css';
 import style from './index.module.less';
 
 function Product(props) {

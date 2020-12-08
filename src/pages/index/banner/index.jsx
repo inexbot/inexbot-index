@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Carousel, Button } from 'antd';
+import { Carousel } from 'antd';
 import style from './index.module.less';
 import API from 'components/API/api';
 import { useEffect } from 'react';
-import renderEmpty from 'antd/lib/config-provider/renderEmpty';
 
 function Banner(props) {
   const [TypeList, setTypeList] = useState(null);
@@ -62,7 +61,7 @@ function Banner(props) {
         {  props.BannerWidth< 1200 ?
               <div>
                 <img  src={banner1} alt="" style={{
-                  height:props.BannerHeight, width:"292vw"
+                  height:"100vh", width:"292vw"
                 }} />
                 <span className={bannerChangeNum===0?style.banner1_txt_ch :style.banner1_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1ch} </p>` }}>
                 </span>
@@ -74,10 +73,10 @@ function Banner(props) {
                 className={style.banner1}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner1}) no-repeat 50% `,
-                  height: props.BannerHeight,
+                  height: "100vh",
                   position:"relative"
                 }:{background: `url(${banner1}) no-repeat ${-(
-                  1919 - props.BannerWidth
+                  1919 - "100vw"
                 ) / 2}px `, position:"relative"}}
               >
                 <span className={bannerChangeNum===0?style.banner1_txt_ch :style.banner1_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner1ch} </p>` }}>
@@ -92,7 +91,7 @@ function Banner(props) {
         {  props.BannerWidth< 1200 ? 
               <div>
                 <img  src={banner2} alt="" style={{
-                  height:props.BannerHeight, width:"292vw"
+                  height:"100vh", width:"292vw"
                 }} />
                 <span className={bannerChangeNum===1?style.banner2_txt_ch :style.banner2_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner2ch} </p>` }}>
                 </span>
@@ -104,10 +103,10 @@ function Banner(props) {
                 className={style.banner2}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner2}) no-repeat 50% `,
-                  height: props.BannerHeight,
+                  height: "100vh",
                    position:"relative"
                 }:{background: `url(${banner2}) no-repeat ${-(
-                  1919 - props.BannerWidth
+                  1919 - "100vw"
                 ) / 2}px `,
                  position:"relative"}}
               >
@@ -123,7 +122,7 @@ function Banner(props) {
           {  props.BannerWidth< 1200 ? 
               <div>
               <img  src={banner3} alt="" style={{
-                height:props.BannerHeight, width:"292vw"
+                height:"100vh", width:"292vw"
               }} />
                 <span className={bannerChangeNum===2?style.banner3_txt_ch :style.banner3_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3ch} </p>` }}>
                 </span>
@@ -135,9 +134,9 @@ function Banner(props) {
                 className={style.banner3}
                 style={ props.BannerWidth > 1200?{
                   background: `url(${banner3}) no-repeat 50% `,
-                  height: props.BannerHeight, position:"relative"
+                  height: "100vh", position:"relative"
                 }:{background: `url(${banner3}) no-repeat ${-(
-                  1919 - props.BannerWidth
+                  1919 - "100vw"
                 ) / 2}px `, position:"relative"}}
               >
                 <span className={bannerChangeNum===2?style.banner3_txt_ch :style.banner3_txt_ch_hover} dangerouslySetInnerHTML={  bannerTxt === null? {__html:"<div></div>"} :{ __html:`<p> ${bannerTxt.banner3ch} </p>` }}>

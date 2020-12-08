@@ -37,7 +37,7 @@ function inexbotIntroduce(props){
         }}>
           <img src={require(`images/video.jpg`)} alt=""/>
         </div>
-        <video id="movie" style={{ width:props.BannerWidth,height:props.BannerHeight,display:videoShow}} controls >
+        <video id="movie" style={{ width:"100vw",height:"100vh",display:videoShow}} controls >
           <source src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/video.mp4" type="video/mp4"/>
         </video>
       <Button style={{ display:videoShow,position:"fixed",top:"0",right:"0",zIndex:"10001" }} onClick={()=>{
