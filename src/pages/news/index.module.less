@@ -53,7 +53,6 @@
       position: relative;
       transition: .5s;
       .newlist_center_img{
-        width:384px;
         height:256px;
         overflow: hidden;
         img{
@@ -62,7 +61,7 @@
       }
       .newlist_center_title{
         width:95%;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         text-indent:15px;
         margin-top:11px;
@@ -71,7 +70,7 @@
         white-space: nowrap;
       }
       .newlist_center_dis{
-        font-size: 14px;
+        font-size: 16px;
         width: 87%;
         text-indent: 20px;
         color: #adadad;
@@ -85,7 +84,7 @@
       }
       .newlist_center_date{
         color:#adadad;
-        font-size: 12px;
+        font-size: 14px;
         position: absolute;
         bottom: 12px;
         right: 20px;
@@ -97,9 +96,11 @@
     }
   }
   .newlist_bottom_page{
+    width:100%;
     margin-bottom: 100px;
     position: relative;
-    right:-434px;
+    display: flex;
+    justify-content: center;
     margin-top: 50px;
     transition: all .5s;
   }
@@ -109,8 +110,48 @@
 @media screen and (max-width:900px){
   .news{
     .newslist_select{
-      height:12.290323vw;
-      margin-top: -12.290323vw;
+      height:40px;
+      margin-top: -40px;
+    }
+    .newlist{
+      width:94vw;
+      margin:0 auto;
+      margin-top: 5vw;
+      .newlist_center{
+        width:100%;
+        margin-bottom: 5vw;
+      }
     }
   }
+  .newlist_bottom_page{
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+  }
 }
+
+@media screen and (min-width:900px) and ( max-width:1200px ) {
+  .news{
+    .newslist_select{
+      height:50px;
+      margin-top: -50px;
+    }
+    .newlist{
+      width:94vw;
+      margin:0 auto;
+      margin-top: 5vw;
+      .newlist_center{
+        width:48%;
+        margin-bottom: 5vw;
+      }
+    }
+  }
+  .newlist_bottom_page{
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
