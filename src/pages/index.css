@@ -1,3 +1,6 @@
 /* .product{
   display: none;
 } */
+.ant-select-arrow {
+  color: yellow;
+}

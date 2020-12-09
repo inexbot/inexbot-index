@@ -2,11 +2,19 @@ import React, { useEffect, useState } from 'react';
 import DownloadBanner from 'components/downloadbanner';
 import style from './index.module.less';
 import API from 'components/API/api';
+import { Select } from 'antd';
+const { Option } = Select;
 function Download(props) {
   const [version, setVersion] = useState('');
+  const [selected, setSelected] = useState('');
   const [links, setLinks] = useState({});
+  const [versionList, setVersionList] = useState([]);
   const [updateData, setUpdateData] = useState([]);
-  const [TypeList, setTypeList] = useState(null);
+
+  function changeVersion(val) {
+    setSelected(val);
+    setUpdateData(versionList[val].updateData);
+  }
   useEffect(() => {
     API.getDownloadLink().then(res => {
       let _r = res.list[0];
@@ -21,6 +29,13 @@ function Download(props) {
         vscode: _r.vscode,
         translate: _r.translate,
       });
+      setSelected(0);
+      setUpdateData(_r.updateData);
+      let _l = [];
+      res.list.forEach(value => {
+        _l.push(value);
+      });
+      setVersionList(_l);
     });
   }, []);
   return (
@@ -32,6 +47,33 @@ function Download(props) {
           version: version,
         }}
       />
+      <div className={style.download}>
+        <div className={style.title}>
+          <div className={style.enTitle}>UPDATE HISTORY</div>
+          <div className={style.cnTitle}>更新历史</div>
+          <Select
+            onChange={changeVersion}
+            value={selected}
+            bordered={false}
+            style={{
+              marginTop: '50px',
+              width: '150px',
+              height: '40px',
+              fontSize: '25px',
+            }}
+          >
+            {versionList.map((value, index) => (
+              <Option key={index} value={index}>
+                {value.version}
+              </Option>
+            ))}
+          </Select>
+        </div>
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{ __html: updateData }}
+        />
+      </div>
     </div>
   );
 }
