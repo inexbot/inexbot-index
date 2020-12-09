@@ -64,4 +64,7 @@ export default {
   getProductIntroduce() {
     return post('dede_addonimages', `[["aid",">","0"]]`, ['typeid ASC']);
   },
+  getDownloadLink() {
+    return post('dede_download', `[["aid",">","0"]]`, ['aid ASC']);
+  },
 };
