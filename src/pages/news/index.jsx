@@ -15,15 +15,30 @@ function News(props){
   const [newSelect, setNewsSelect] = useState("company");
   const [productList, setProductList] = useState(null);
   const [newListPage, setnewListPage] = useState(1);
+  const [pegeNum, setPageNum] = useState(9);
 
   // 更新滚动高度header颜色改变
   useEffect(()=>{
+    let num = 0;
+    if( props.BannerWidth <760 ){
+      num = 160 
+      setPageNum(6)
+    }else if( props.BannerWidth > 760 &&  props.BannerWidth < 900  ){
+      num = 225
+      setPageNum(6)
+    }else if( props.BannerWidth > 900 &&  props.BannerWidth < 1200  ){
+      num = 225
+      setPageNum(8)
+    }else{
+      setPageNum(9)
+    }
     props.dispatch({
       type:"index/setHeaderScreoll",
-      data:420
+      data:num
     })
-  },[])
+  },[props.BannerWidth])
 
+  // 从数据库筛选出来公司新闻和行业动态的数据
   useEffect(()=>{
     let dataList = {company:[],industry:[]};
     if( props.productList  === null ){
@@ -36,7 +51,6 @@ function News(props){
         dataList.industry.push(props.productList.list[i])
       }
     }
-    console.log(dataList,"这里是新闻资讯页面S")
     setProductList(dataList)
   },[props.productList])
 
@@ -46,7 +60,6 @@ function News(props){
       props.TypeList.map((item,index)=>{
         if(item.id === 7){
           setTypeList(item);
-          console.log(item);
         }
       })
     }
@@ -69,9 +82,10 @@ function News(props){
         <div className={style.news}>
           <Banner data={{
             BannerImg:"https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/video.jpg",
+            BannerSize:"100%",
+            BannerLeft:"0",
             TxtCh:TypeList.typename ,
             TxtEn:TypeList.typenameen,
-            Height:500
           }}
           ></Banner>
           <div className={style.newslist_select}>
@@ -94,7 +108,7 @@ function News(props){
           </div>
           <div className={style.newlist}>
             { productList === null? "":
-              productList[newSelect].slice((newListPage-1)*9,(newListPage-1)*9+9).map((item,index)=>{
+              productList[newSelect].slice((newListPage-1)*pegeNum,(newListPage-1)*pegeNum+pegeNum).map((item,index)=>{
                 return(
                   <div key={index} className={style.newlist_center}>
                     <div className={style.newlist_center_img}>
@@ -113,9 +127,16 @@ function News(props){
               })
             }
             <Pagination className={style.newlist_bottom_page} current={newListPage} itemRender={itemRender} total={productList===null?1:productList[newSelect].length} onChange={(page, pageSize)=>{
-              console.log(page,pageSize)
               setnewListPage(page)
-              window.scrollTo(0,361)
+              if( props.BannerWidth <760 ){
+                window.scrollTo(0,160)
+              } else if( props.BannerWidth >1200 ){
+                window.scrollTo(0,361)
+              }else if( props.BannerWidth > 760 && props.BannerWidth < 900 ){
+                window.scrollTo(0,240)
+              }else if( props.BannerWidth > 900 && props.BannerWidth < 1200 ){
+                window.scrollTo(0,240)
+              }
             }} />
           </div>
 
