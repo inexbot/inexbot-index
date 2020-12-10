@@ -1,8 +1,7 @@
 // PC端样式
-.solution{
+.children_solution{
   .solution_select{
     width:1200px;
-    height:60px;
     margin:0 auto;
     display: flex;
     justify-content: center;
@@ -57,9 +56,122 @@
       }
     }
   }
-  .solution_center{
-    height:2000px;
+  .multirobot{
+    overflow: hidden;
     width:1200px;
     margin:0 auto;
+    .multirobot_center{
+      width:70%;
+      float:left;
+    }
+    .multirobot_center_l{
+      width:100%;
+    }
+    .multirobot_photo{
+      width:25%;
+      float: right;
+      >div{
+        margin: 40px 0;
+        img{
+          width:100%;
+        }
+        p{
+          height:26px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@import "~components/style/style.less";
+@media screen and (max-width:1200px){
+  .children_solution{
+    .solution_select_All{
+      .solution_select{
+        height:none;
+        display: flex;
+        flex-wrap: wrap;
+        width:94vw;
+        li{
+          margin: 0 10px;
+        }
+      };
+    }
+    .multirobot_center{
+      width:100%;
+      float: none;
+    }
+    .multirobot{
+      width:100vw;
+      .api{
+        width:100vw;
+        padding:0 4vw;
+        // background:red;
+        .api-line2{
+          >h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          >div{
+            h2{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line3{
+          >h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          >div{
+            h2{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line4{
+          >h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          >div{
+            h2{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line5{
+          >h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          >div{
+            h2{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+      .multirobot_photo{
+        width:100vw;
+        padding:0 4vw;
+      }
+    }
   }
 }
