@@ -43,7 +43,7 @@ function partner(props) {
           <p> {TypeList === null ? '' : TypeList.sublist[1].typename} </p>
           <p> {TypeList === null ? '' : TypeList.sublist[1].typenameen} </p>
         </div>
-        <p> 众多优秀的合作伙伴使我们前进的动力。 </p>
+        <p> 众多优秀的合作伙伴是我们前进的动力。 </p>
         {contentList === null ? (
           ''
         ) : (
