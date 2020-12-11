@@ -67,4 +67,10 @@ export default {
   getDownloadLink() {
     return post('dede_download', `[["aid",">","0"]]`, ['aid ASC']);
   },
+  getManualList() {
+    return post('dede_allmanual', `[["typeid","=","58"]]`, ['sort ASC']);
+  },
+  getOtherDocList() {
+    return post('dede_allmanual', `[["typeid","=","63"]]`, ['sort ASC']);
+  },
 };

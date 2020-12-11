@@ -1,0 +1,60 @@
+.manual {
+  width: 100%;
+  .manual_select {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    margin-top: -80px;
+    position: relative;
+    z-index: 3;
+    .manual_select_selected {
+      width: 50%;
+      height: 100%;
+      background: #50afff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 17px;
+    }
+    .manual_select_unSelected {
+      width: 50%;
+      height: 100%;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 17px;
+    }
+    .manual_select_selected:hover {
+      cursor: pointer;
+    }
+    .manual_select_unSelected:hover {
+      cursor: pointer;
+    }
+  }
+  .manual_table {
+    width: 80%;
+  }
+}
+
+@import '~components/style/style.less';
+// 手机端样式
+@media screen and (max-width: 900px) {
+  .manual {
+    .manual_select {
+      height: 40px;
+      margin-top: -40px;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .manual {
+    .manual_select {
+      height: 50px;
+      margin-top: -50px;
+    }
+  }
+}
