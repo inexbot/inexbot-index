@@ -1,8 +1,7 @@
-
 export default {
   namespace: 'index',
   state: {
-    headerScroll:1200,
+    headerScroll: 1200,
   },
   effects: {
     *fetch({ payload }, { call, put }) {
@@ -11,7 +10,7 @@ export default {
     },
   },
   reducers: {
-    setHeaderScreoll(state, action) {
+    setHeaderScroll(state, action) {
       let _state = JSON.parse(JSON.stringify(state));
       _state.headerScroll = action.data;
       return _state;
