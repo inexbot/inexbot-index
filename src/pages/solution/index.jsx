@@ -4,11 +4,11 @@ import Banner from 'components/banner/index';
 import image from 'images/faq-bg.jpg';
 import './index.module.less';
 
-const mapStateToProps = state => {
-  return {
-    headerScroll: state.index.headerScroll,
-  };
-};
+
+const mapStateToProps = state =>{
+  return{
+  }
+}
 
 function Solution(props) {
   const [TypeList, setTypeList] = useState(null);
