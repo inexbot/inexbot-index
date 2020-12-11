@@ -4,7 +4,7 @@ import style from "./index.module.less";
 
 function Banner(props){
   useEffect(()=>{
-    console.log(props)
+    // console.log(props)
   },[])
   return(
     <div className={style.BannerAll} style={{ background:`url(${props.data.BannerImg}) ${props.data.BannerLeft} repeat`,backgroundSize:props.data.BannerSize }}>

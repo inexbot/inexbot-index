@@ -6,7 +6,6 @@ import "./index.module.less";
 
 const mapStateToProps = state =>{
   return{
-    headerScroll: state.index.headerScroll,
   }
 }
 

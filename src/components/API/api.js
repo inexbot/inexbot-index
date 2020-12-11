@@ -64,7 +64,12 @@ export default {
   getProductIntroduce() {
     return post('dede_addonimages', `[["aid",">","0"]]`, ['typeid ASC']);
   },
+  // 获取软件下载页面的内容
   getDownloadLink() {
     return post('dede_download', `[["aid",">","0"]]`, ['aid ASC']);
   },
+  // 获取教学视频的视频
+  getTeachvideo() {
+    return post('dede_teachclass', `[["aid",">","0"]]`, ['sort ASC']);
+  }
 };

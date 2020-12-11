@@ -1,8 +1,10 @@
 // PC端样式
-.BannerAll {
+.download_BannerAll {
+  background:url(https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/download.jpg) 0 -115px;
   height: 500px;
+  background-size:100%;
   overflow: hidden;
-  background-size: 100px 100px;
+  // background-size: 100px 100px;
   position: relative;
   .model {
     background: #11264f;
@@ -46,14 +48,198 @@
       display: flex;
       flex-direction: column;
     }
+    .ant-row{
+      .ant-col, .ant-col-16{
+        .ant-row{
+          justify-content: space-around;
+        }
+      }
+    }
   }
   .downloadButton {
     margin-top: 40px;
     background: rgba(0, 0, 0, 0);
-    border-color: #eaedf2;
+    border-color: #eaedf2;  
     border-radius: 10px;
   }
 }
 
-// 手机端样式
-// @media screen and ( max-width: )
+// // 手机端样式
+@import "~components/style/style.less";
+@media screen and ( max-width: 900px ){
+  .download_BannerAll{
+    height:900px;
+    background:url(https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/download.jpg) -1222px -200px;
+    background-size:567%;
+    .Banner{
+      margin-top: 98px;
+      width: 83vw;
+      .ant-row{
+        .ant-col-8{
+          width:100%;
+          max-width: 100%;
+          .title{
+            .banner_txt_ch{
+              font-size: 6.967742vw;
+              font-weight: 600;
+            }
+            .banner_txt_en{
+              font-size: 3vw;
+              color:#abafba;
+            }
+          }
+          .version{
+            >p{
+              color:#e9eef2;
+            }
+            .notice{
+              display: flex;
+              .title{
+                display: inline-block;
+                margin-right: 14px;
+              }
+              .info{
+                display: inline-block;
+                width:59vw;
+              }
+            }
+            .otherDownload{
+              margin-top: 41px;
+              width:100%;
+              display: flex;
+              justify-content: space-between;
+              .downloadButton{
+                margin:0;
+              }
+              #baiduPan{
+                margin:0;
+              }
+            }
+          }
+        }
+      }
+      .ant-col, .ant-col-16{
+        width:100%;
+        max-width: 100%;
+        flex:none;
+        .ant-row{
+          width:100%;
+          display: flex;
+          justify-content: space-between !important;
+          flex-wrap: wrap;
+          margin-top: 31px;
+          .ant-col, .program{
+            width:45%;
+            margin:0;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            img{
+              width:140px;
+              height:102px;
+            }
+            .downloadButton{
+              width:100%;
+              display:flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and ( max-width: 1200px ) and ( min-width: 900px ) {
+  .download_BannerAll{
+    height:1000px;
+    background:url(https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/download.jpg) -462px -200px;
+    background-size:200%;
+    .Banner{
+      margin-top: 98px;
+      width: 83vw;
+      .ant-row{
+        .ant-col-8{
+          width:100%;
+          max-width: 100%;
+          .title{
+            .banner_txt_ch{
+              font-size: 6.967742vw;
+              font-weight: 600;
+            }
+            .banner_txt_en{
+              font-size: 3vw;
+              color:#abafba;
+            }
+          }
+          .version{
+            >p{
+              font-size: 22px;
+              color:#e9eef2;
+            }
+            .notice{
+              width:600px;
+              display: flex;
+              font-size: 22px;
+              .title{
+                display: inline-block;
+                margin-right: 14px;
+              }
+              .info{
+                display: inline-block;
+                width:59vw;
+              }
+            }
+            .otherDownload{
+              margin-top: 30px;
+              width:100%;
+              display: flex;
+              justify-content: space-between;
+              .downloadButton{
+                margin:0;
+                width:45%;
+                font-size: 22px;
+                height:50px;
+              }
+              #baiduPan{
+                margin:0;
+              }
+            }
+          }
+        }
+      }
+      .ant-col, .ant-col-16{
+        width:100%;
+        max-width: 100%;
+        flex:none;
+        .ant-row{
+          width:100%;
+          display: flex;
+          justify-content: space-between !important;
+          flex-wrap: wrap;
+          margin-top: 31px;
+          .ant-col, .program{
+            width:45%;
+            margin:0;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            img{
+              width:140px;
+              height:102px;
+            }
+            .downloadButton{
+              width:100%;
+              display:flex;
+              align-items: center;
+              justify-content: center;
+              height:50px;
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

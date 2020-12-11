@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import DownloadBanner from 'components/downloadbanner';
-import style from './index.module.less';
+import './index.module.less';
+import {connect} from "umi";
 import API from 'components/API/api';
 import { Select } from 'antd';
 const { Option } = Select;
+
+const mapStateToProps= state =>{
+  return{
+    
+  }
+}
+
 function Download(props) {
   const [version, setVersion] = useState('');
   const [selected, setSelected] = useState('');
@@ -13,8 +21,25 @@ function Download(props) {
 
   function changeVersion(val) {
     setSelected(val);
-    setUpdateData(versionList[val].updateData);
+    setUpdateData(versionList[val].updatedata);
   }
+
+  // 更新滚动高度header颜色改变
+  useEffect(()=>{
+    let num = 0;
+    if( props.BannerWidth <760 ){
+      num = 900
+    }else if( props.BannerWidth > 760 &&  props.BannerWidth < 1200  ){
+      num = 1000
+    }else{
+      num = 500
+    }
+    props.dispatch({
+      type:"index/setHeaderScreoll",
+      data:num
+    })
+  },[props.BannerWidth])
+
   useEffect(() => {
     API.getDownloadLink().then(res => {
       let _r = res.list[0];
@@ -30,7 +55,7 @@ function Download(props) {
         translate: _r.translate,
       });
       setSelected(0);
-      setUpdateData(_r.updateData);
+      setUpdateData(_r.updatedata);
       let _l = [];
       res.list.forEach(value => {
         _l.push(value);
@@ -47,10 +72,10 @@ function Download(props) {
           version: version,
         }}
       />
-      <div className={style.download}>
-        <div className={style.title}>
-          <div className={style.enTitle}>UPDATE HISTORY</div>
-          <div className={style.cnTitle}>更新历史</div>
+      <div className="children_download">
+        <div className="title">
+          <div className="enTitle">UPDATE HISTORY</div>
+          <div className="cnTitle">更新历史</div>
           <Select
             onChange={changeVersion}
             value={selected}
@@ -70,11 +95,11 @@ function Download(props) {
           </Select>
         </div>
         <div
-          className={style.content}
+          className="content"
           dangerouslySetInnerHTML={{ __html: updateData }}
         />
       </div>
     </div>
   );
 }
-export default Download;
+export default connect(mapStateToProps)(Download) ;
