@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useHistory } from 'umi';
 import Banner from 'components/banner/index';
-import image from 'images/about-bg.jpg';
+import API from 'components/API/api';
+import image from 'images/faq-bg.jpg';
 import './index.module.less';
 
 const mapStateToProps = state => {
@@ -10,9 +11,9 @@ const mapStateToProps = state => {
   };
 };
 
-function About(props) {
+function Partner(props) {
   const [TypeList, setTypeList] = useState(null);
-  const [newCenter, setNewCenter] = useState(null);
+  const [joinList, setJoinList] = useState([]);
   const history = useHistory();
   // 获取解决方案页面的全部数据
   useEffect(() => {
@@ -26,7 +27,23 @@ function About(props) {
       }
     });
   }, [props.TypeList]);
-
+  useEffect(() => {
+    API.getJoin().then(res => {
+      let _l = [];
+      res.list.forEach(value => {
+        _l.push(
+          <li key={value.id}>
+            <div className="joinlist">
+              <h1>{value.title}</h1>
+              {/* <hr style="height: 1px; border: none; border-top: 1px solid #.join-list h1;" /> */}
+              <p>{value.description}</p>
+            </div>
+          </li>,
+        );
+      });
+      setJoinList(_l);
+    });
+  }, []);
   // 更新滚动高度header颜色改变
   useEffect(() => {
     let num = 0;
@@ -42,14 +59,6 @@ function About(props) {
       data: num,
     });
   }, [props.BannerWidth]);
-
-  // 根据选择不同的模块显示不同的中心内容
-  useEffect(() => {
-    if (TypeList === null) {
-      return;
-    }
-    setNewCenter(TypeList.sublist[0].content);
-  }, [TypeList]);
 
   return (
     <div>
@@ -74,7 +83,7 @@ function About(props) {
                   history.push('/about');
                 }}
               >
-                <a className="hoveraboutTbs">
+                <a className="aboutTbs">
                   <p>公司简介</p>
                   <span></span>
                 </a>
@@ -96,7 +105,7 @@ function About(props) {
                   history.push('/about/join');
                 }}
               >
-                <a className="aboutTbs">
+                <a className="hoveraboutTbs">
                   <p>加入我们</p>
                   <span></span>
                 </a>
@@ -115,10 +124,9 @@ function About(props) {
             </ul>
           </div>
           <div className="multirobot">
-            <div
-              className="multirobot_center_l"
-              dangerouslySetInnerHTML={{ __html: newCenter }}
-            ></div>
+            <div className="multirobot_center_l">
+              <ul>{joinList}</ul>
+            </div>
           </div>
         </div>
       )}
@@ -126,4 +134,4 @@ function About(props) {
   );
 }
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(Partner);

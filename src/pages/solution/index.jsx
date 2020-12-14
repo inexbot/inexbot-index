@@ -4,11 +4,9 @@ import Banner from 'components/banner/index';
 import image from 'images/faq-bg.jpg';
 import './index.module.less';
 
-
-const mapStateToProps = state =>{
-  return{
-  }
-}
+const mapStateToProps = state => {
+  return {};
+};
 
 function Solution(props) {
   const [TypeList, setTypeList] = useState(null);
@@ -53,7 +51,6 @@ function Solution(props) {
     TypeList.sublist.map((item, index) => {
       if (item.typenameen === solutionNum[0]) {
         setNewCenter(item.content);
-        console.log(item);
       }
     });
   }, [solutionNum, TypeList]);
@@ -70,7 +67,6 @@ function Solution(props) {
       }
     });
     setMultirobotPhoto(DataList);
-    console.log(DataList);
   }, [props.productList]);
 
   return (

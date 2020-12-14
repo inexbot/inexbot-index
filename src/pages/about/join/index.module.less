@@ -1,0 +1,196 @@
+// PC端样式
+.children_about {
+  .about_select {
+    // width:1200px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      display: flex;
+      position: relative;
+      margin: 0 40px;
+      height: 100%;
+      .aboutTbs {
+        color: #3b3b3b;
+        line-height: 60px;
+        height: 100%;
+        display: block;
+        box-sizing: border-box;
+        span {
+          display: block;
+          background: #52b2fe;
+          width: 0;
+          margin-left: 50%;
+          border-radius: 20px;
+          height: 3px;
+          position: absolute;
+          bottom: 10px;
+          transition: all 0.5s;
+        }
+      }
+      a:hover {
+        color: #52b2fe;
+        span {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+      .hoveraboutTbs {
+        color: #52b2fe;
+        line-height: 60px;
+        height: 100%;
+        display: block;
+        box-sizing: border-box;
+        span {
+          display: block;
+          background: #52b2fe;
+          width: 100%;
+          margin-left: 0;
+          border-radius: 20px;
+          height: 3px;
+          position: absolute;
+          bottom: 10px;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+  .multirobot {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+    .multirobot_center {
+      width: 70%;
+      float: left;
+    }
+    .multirobot_center_l {
+      margin: 25px auto;
+      width: 100%;
+    }
+    .multirobot_photo {
+      width: 25%;
+      float: right;
+      > div {
+        margin: 40px 0;
+        img {
+          width: 100%;
+        }
+        p {
+          height: 26px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@import '~components/style/style.less';
+@media screen and (max-width: 1200px) {
+  .children_about {
+    .about_select_All {
+      .about_select {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          margin: 0 10px;
+        }
+      }
+    }
+    .multirobot_center {
+      width: 100%;
+      float: none;
+    }
+    .multirobot {
+      width: 100vw;
+      .api {
+        width: 100vw;
+        padding: 0 4vw;
+        .api-line2 {
+          > h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          > div {
+            h2 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line3 {
+          > h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          > div {
+            h2 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line4 {
+          > h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          > div {
+            h2 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .api-line5 {
+          > h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          > div {
+            h2 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.joinlist {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+  background-color: white;
+  padding: 1vh 1vw;
+  min-width: 300px;
+}
+.joinlist:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.joinlist h1 {
+  color: blueviolet;
+  font-size: large;
+  margin: 2vh 1vw;
+  font-size: 20px;
+  font-weight: 600;
+}
+.joinlist p {
+  font-size: 16px;
+  margin: 2vh 1vw;
+  line-height: 2;
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useHistory } from 'umi';
 import Banner from 'components/banner/index';
-import image from 'images/about-bg.jpg';
+import image from 'images/faq-bg.jpg';
+import API from 'components/API/api';
 import './index.module.less';
 
 const mapStateToProps = state => {
@@ -10,9 +11,11 @@ const mapStateToProps = state => {
   };
 };
 
-function About(props) {
+function Partner(props) {
   const [TypeList, setTypeList] = useState(null);
-  const [newCenter, setNewCenter] = useState(null);
+  const [strategy, setStrategy] = useState([]);
+  const [core, setCore] = useState([]);
+  const [gold, setGold] = useState([]);
   const history = useHistory();
   // 获取解决方案页面的全部数据
   useEffect(() => {
@@ -26,6 +29,41 @@ function About(props) {
       }
     });
   }, [props.TypeList]);
+
+  useEffect(() => {
+    API.getPartner().then(res => {
+      let _gold = [];
+      let _strategy = [];
+      let _core = [];
+      res.list.forEach(value => {
+        if (value.typeid === 53) {
+          //strategy
+          _strategy.push(
+            <div className="partnersPic" key={value.id}>
+              <img src={value.litpic}></img>
+            </div>,
+          );
+        } else if (value.typeid === 54) {
+          //core
+          _core.push(
+            <div className="partnersPic" key={value.id}>
+              <img src={value.litpic}></img>
+            </div>,
+          );
+        } else if (value.typeid === 55) {
+          //gold
+          _gold.push(
+            <div className="partnersPic" key={value.id}>
+              <img src={value.litpic}></img>
+            </div>,
+          );
+        }
+      });
+      setCore(_core);
+      setGold(_gold);
+      setStrategy(_strategy);
+    });
+  }, []);
 
   // 更新滚动高度header颜色改变
   useEffect(() => {
@@ -42,14 +80,6 @@ function About(props) {
       data: num,
     });
   }, [props.BannerWidth]);
-
-  // 根据选择不同的模块显示不同的中心内容
-  useEffect(() => {
-    if (TypeList === null) {
-      return;
-    }
-    setNewCenter(TypeList.sublist[0].content);
-  }, [TypeList]);
 
   return (
     <div>
@@ -74,7 +104,7 @@ function About(props) {
                   history.push('/about');
                 }}
               >
-                <a className="hoveraboutTbs">
+                <a className="aboutTbs">
                   <p>公司简介</p>
                   <span></span>
                 </a>
@@ -107,7 +137,7 @@ function About(props) {
                   history.push('/about/partner');
                 }}
               >
-                <a className="aboutTbs">
+                <a className="hoveraboutTbs">
                   <p>合作伙伴</p>
                   <span></span>
                 </a>
@@ -115,10 +145,14 @@ function About(props) {
             </ul>
           </div>
           <div className="multirobot">
-            <div
-              className="multirobot_center_l"
-              dangerouslySetInnerHTML={{ __html: newCenter }}
-            ></div>
+            <div className="multirobot_center_l">
+              <h1>战略</h1>
+              <div className="partners">{strategy}</div>
+              <h1>金牌服务商</h1>
+              <div className="partners">{gold}</div>
+              <h1>核心客户</h1>
+              <div className="partners">{core}</div>
+            </div>
           </div>
         </div>
       )}
@@ -126,4 +160,4 @@ function About(props) {
   );
 }
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(Partner);

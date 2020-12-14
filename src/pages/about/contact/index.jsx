@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useHistory } from 'umi';
 import Banner from 'components/banner/index';
-import image from 'images/about-bg.jpg';
+import image from 'images/faq-bg.jpg';
 import './index.module.less';
 
 const mapStateToProps = state => {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   };
 };
 
-function About(props) {
+function Contact(props) {
   const [TypeList, setTypeList] = useState(null);
   const [newCenter, setNewCenter] = useState(null);
   const history = useHistory();
@@ -48,7 +48,7 @@ function About(props) {
     if (TypeList === null) {
       return;
     }
-    setNewCenter(TypeList.sublist[0].content);
+    setNewCenter(TypeList.sublist[1].content);
   }, [TypeList]);
 
   return (
@@ -74,7 +74,7 @@ function About(props) {
                   history.push('/about');
                 }}
               >
-                <a className="hoveraboutTbs">
+                <a className="aboutTbs">
                   <p>公司简介</p>
                   <span></span>
                 </a>
@@ -85,7 +85,7 @@ function About(props) {
                   history.push('/about/contact');
                 }}
               >
-                <a className="aboutTbs">
+                <a className="hoveraboutTbs">
                   <p>联系我们</p>
                   <span></span>
                 </a>
@@ -126,4 +126,4 @@ function About(props) {
   );
 }
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(Contact);

@@ -77,5 +77,16 @@ export default {
   // 获取教学视频的视频
   getTeachvideo() {
     return post('dede_teachclass', `[["aid",">","0"]]`, ['sort ASC']);
-  }
+  },
+  getPartner() {
+    return post(
+      'dede_archives',
+      `[["typeid","=","53"],["typeid","=","54"],["typeid","=","55"]]`,
+      ['weight ASC'],
+      'or',
+    );
+  },
+  getJoin() {
+    return post('dede_archives', `[["typeid","=","40"]]`, ['weight ASC']);
+  },
 };
