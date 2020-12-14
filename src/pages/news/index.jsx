@@ -162,6 +162,7 @@ function News(props) {
               className={style.newlist_bottom_page}
               current={newListPage}
               itemRender={itemRender}
+              pageSize={pegeNum}
               total={productList === null ? 1 : productList[newSelect].length}
               onChange={(page, pageSize) => {
                 setnewListPage(page);

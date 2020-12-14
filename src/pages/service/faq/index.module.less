@@ -1,4 +1,95 @@
-
-.faq{
-  
+.children_faq {
+  .faq_search {
+    width: 1200px;
+    margin: 40px auto;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    .ant-input-group-wrapper {
+      width: 650px;
+      .ant-input-wrapper,
+      .ant-input-group {
+        border-radius: 8px;
+        overflow: hidden;
+        .ant-input {
+          height: 80px;
+          font-size: 24px;
+          color: #b4b4b4;
+          border-radius: 8px 0 0 8px;
+          text-indent: 9px;
+        }
+        .ant-input-group-addon {
+          .ant-btn,
+          .ant-input-search-button,
+          .ant-btn-primary {
+            height: 80px;
+            width: 91px;
+            font-size: 42px;
+          }
+        }
+      }
+    }
+  }
+  .faq_selectAll {
+    .fa1_select {
+      height: 60px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      li {
+        display: flex;
+        position: relative;
+        margin: 0 40px;
+        height: 100%;
+        .solutionTbs {
+          color: #3b3b3b;
+          line-height: 60px;
+          height: 100%;
+          display: block;
+          box-sizing: border-box;
+          span {
+            display: block;
+            background: #52b2fe;
+            width: 0;
+            margin-left: 50%;
+            border-radius: 20px;
+            height: 3px;
+            position: absolute;
+            bottom: 10px;
+            transition: all 0.5s;
+          }
+        }
+        a:hover {
+          color: #52b2fe;
+          span {
+            width: 100%;
+            margin-left: 0;
+          }
+        }
+        .hoversolutionTbs {
+          color: #52b2fe;
+          line-height: 60px;
+          height: 100%;
+          display: block;
+          box-sizing: border-box;
+          span {
+            display: block;
+            background: #52b2fe;
+            width: 100%;
+            margin-left: 0;
+            border-radius: 20px;
+            height: 3px;
+            position: absolute;
+            bottom: 10px;
+            transition: all 0.5s;
+          }
+        }
+      }
+    }
+  }
+  .faq_table {
+    width: 1200px;
+    margin: 40px auto;
+  }
 }

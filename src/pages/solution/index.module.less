@@ -1,83 +1,83 @@
 // PC端样式
-.children_solution{
-  .solution_select{
+.children_solution {
+  .solution_select {
     // width:1200px;
-    height:60px;
-    margin:0 auto;
+    height: 60px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    li{
+    li {
       display: flex;
       position: relative;
-      margin:0 40px;
-      height:100%;
-      .solutionTbs{
-        color:#3b3b3b;
+      margin: 0 40px;
+      height: 100%;
+      .solutionTbs {
+        color: #3b3b3b;
         line-height: 60px;
-        height:100%;
+        height: 100%;
         display: block;
         box-sizing: border-box;
-        span{
+        span {
           display: block;
-          background:#52b2fe;
-          width:0;
+          background: #52b2fe;
+          width: 0;
           margin-left: 50%;
           border-radius: 20px;
-          height:3px;
+          height: 3px;
           position: absolute;
           bottom: 10px;
-          transition: all .5s ,;
-        };
+          transition: all 0.5s;
+        }
       }
-      a:hover{
-        color:#52b2fe;
-        span{
-          width:100%;
+      a:hover {
+        color: #52b2fe;
+        span {
+          width: 100%;
           margin-left: 0;
         }
       }
-      .hoversolutionTbs{
-        color:#52b2fe;
+      .hoversolutionTbs {
+        color: #52b2fe;
         line-height: 60px;
-        height:100%;
+        height: 100%;
         display: block;
         box-sizing: border-box;
-        span{
+        span {
           display: block;
-          background:#52b2fe;
-          width:100%;
+          background: #52b2fe;
+          width: 100%;
           margin-left: 0;
           border-radius: 20px;
-          height:3px;
+          height: 3px;
           position: absolute;
           bottom: 10px;
-          transition: all .5s ,;
-        };
+          transition: all 0.5s;
+        }
       }
     }
   }
-  .multirobot{
+  .multirobot {
     overflow: hidden;
-    width:1200px;
-    margin:0 auto;
-    .multirobot_center{
-      width:70%;
-      float:left;
+    width: 1200px;
+    margin: 0 auto;
+    .multirobot_center {
+      width: 70%;
+      float: left;
     }
-    .multirobot_center_l{
-      width:100%;
+    .multirobot_center_l {
+      width: 100%;
     }
-    .multirobot_photo{
-      width:25%;
+    .multirobot_photo {
+      width: 25%;
       float: right;
-      >div{
+      > div {
         margin: 40px 0;
-        img{
-          width:100%;
+        img {
+          width: 100%;
         }
-        p{
-          height:26px;
+        p {
+          height: 26px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -88,77 +88,79 @@
   }
 }
 
-@import "~components/style/style.less";
-@media screen and (max-width:1200px){
-  .children_solution{
-    .solution_select_All{
-      .solution_select{
+@import '~components/style/style.less';
+@media screen and (max-width: 1200px) {
+  .children_solution {
+    .solution_select_All {
+      overflow-x: scroll;
+      .solution_select {
         display: flex;
-        flex-wrap:wrap ;
-        li{
+        flex-wrap: wrap;
+        width: 660px;
+        li {
           margin: 0 10px;
         }
-      };
+      }
     }
-    .multirobot_center{
-      width:100%;
+    .multirobot_center {
+      width: 100%;
       float: none;
     }
-    .multirobot{
-      width:100vw;
-      .api{
-        width:100vw;
-        padding:0 4vw;
-        .api-line2{
-          >h1{
+    .multirobot {
+      width: 100vw;
+      .api {
+        width: 100vw;
+        padding: 0 4vw;
+        .api-line2 {
+          > h1 {
             display: flex;
             justify-content: center;
             align-items: center;
           }
-          >div{
-            h2{
+          > div {
+            h2 {
               display: flex;
               justify-content: center;
               align-items: center;
             }
           }
         }
-        .api-line3{
-          >h1{
+        .api-line3 {
+          > h1 {
             display: flex;
             justify-content: center;
             align-items: center;
           }
-          >div{
-            h2{
+          > div {
+            h2 {
               display: flex;
               justify-content: center;
               align-items: center;
             }
           }
         }
-        .api-line4{
-          >h1{
+        .api-line4 {
+          > h1 {
             display: flex;
             justify-content: center;
             align-items: center;
           }
-          >div{
-            h2{
+          > div {
+            h2 {
               display: flex;
               justify-content: center;
               align-items: center;
             }
           }
         }
-        .api-line5{
-          >h1{
+        .api-line5 {
+          > h1 {
             display: flex;
             justify-content: center;
             align-items: center;
           }
-          >div{
-            h2{
+          > div {
+            h2 {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -166,9 +168,9 @@
           }
         }
       }
-      .multirobot_photo{
-        width:100vw;
-        padding:0 4vw;
+      .multirobot_photo {
+        width: 100vw;
+        padding: 0 4vw;
       }
     }
   }
