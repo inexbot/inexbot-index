@@ -68,17 +68,14 @@ export default {
   getDownloadLink() {
     return post('dede_download', `[["aid",">","0"]]`, ['aid ASC']);
   },
-<<<<<<< HEAD
   getManualList() {
     return post('dede_allmanual', `[["typeid","=","58"]]`, ['sort ASC']);
   },
   getOtherDocList() {
     return post('dede_allmanual', `[["typeid","=","63"]]`, ['sort ASC']);
   },
-=======
   // 获取教学视频的视频
   getTeachvideo() {
     return post('dede_teachclass', `[["aid",">","0"]]`, ['sort ASC']);
   }
->>>>>>> louwenkai
 };
