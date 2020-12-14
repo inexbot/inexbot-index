@@ -5,12 +5,12 @@ import API from 'components/API/api';
 import { useEffect } from 'react';
 
 function Banner(props) {
-  const [TypeList, setTypeList] = useState(null);
   const [bannerTxt, setBannertxt] = useState(null);
   const [bannerChangeNum, setBannerChangeNum] = useState(0);
 
   let carousel = useRef(null);
 
+  // 初始获取图片上的文字
   useEffect(() => {
     API.getBannerTxt().then(res => {
       let DataList = {};
@@ -34,7 +34,6 @@ function Banner(props) {
     setBannerChangeNum(to);
   };
 
-  // 初始获取图片上的文字
   let banner1 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner1.jpg';
   let banner2 =
@@ -200,7 +199,6 @@ function Banner(props) {
                 src={banner2Video}
                 autoPlay
                 loop
-                preload
                 playsInline
               ></video>
               <span

@@ -2,14 +2,14 @@ import axios from 'axios';
 const url = 'https://hd215.api.yesapi.cn/';
 const app_key = 'A9B8F37512C199D5FE1BDC229CD9E36C';
 
-function post(model, params, order, logic = 'and') {
+function post(model, params, order, logic = 'and', database = 'super') {
   return axios({
     method: 'POST',
     url: url,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: {
       s: 'App.SuperTable.FreeQuery',
-      database: 'super',
+      database,
       app_key: app_key,
       model_name: model,
       where: params,
@@ -77,5 +77,14 @@ export default {
   // 获取教学视频的视频
   getTeachvideo() {
     return post('dede_teachclass', `[["aid",">","0"]]`, ['sort ASC']);
+  },
+  // 获取常见问题页面的问题列表
+  getFaqSelect() {
+    return post('inexbot_faq_type', '[["id", ">", "0"]]', ["id ASC"] , 'and' ,  'iu');
+  },
+
+  // 获取常见问题页面的标题
+  getFaqtitle( typeid ) {
+    return post('inexbot_faq', `[["type", "=", ${typeid} ]]`, ["id ASC"] , 'and' ,  'iu');
   }
 };
