@@ -36,12 +36,16 @@ function Banner(props) {
 
   let banner1 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner1.jpg';
+  let banner1Video =
+    'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner1.mp4';
   let banner2 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner2.jpg';
   let banner2Video =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner2.mp4';
   let banner3 =
     'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner3.jpg';
+  let banner3Video =
+    'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/server/banner3.mp4';
   return (
     <div
       className={style.banner}
@@ -58,7 +62,7 @@ function Banner(props) {
         autoplay
         beforeChange={bannerChange}
         ref={carousel}
-        autoplaySpeed={9000}
+        autoplaySpeed={8000}
       >
         <div className={style.banner1}>
           {props.BannerWidth < 1200 ? (
@@ -102,18 +106,19 @@ function Banner(props) {
               style={
                 props.BannerWidth > 1200
                   ? {
-                      background: `url(${banner1}) no-repeat 50% `,
+                      // background: `url(${banner1}) no-repeat 50% `,
                       height: '100vh',
                       position: 'relative',
                     }
                   : {
-                      background: `url(${banner1}) no-repeat ${-(
-                        1919 - '100vw'
-                      ) / 2}px `,
+                      // background: `url(${banner1}) no-repeat ${-(
+                      //   1919 - '100vw'
+                      // ) / 2}px `,
                       position: 'relative',
                     }
               }
             >
+              <video src={banner1Video} autoPlay loop playsInline></video>
               <span
                 className={
                   bannerChangeNum === 0
@@ -265,18 +270,19 @@ function Banner(props) {
               style={
                 props.BannerWidth > 1200
                   ? {
-                      background: `url(${banner3}) no-repeat 50% `,
+                      // background: `url(${banner3}) no-repeat 50% `,
                       height: '100vh',
                       position: 'relative',
                     }
                   : {
-                      background: `url(${banner3}) no-repeat ${-(
-                        1919 - '100vw'
-                      ) / 2}px `,
+                      // background: `url(${banner3}) no-repeat ${-(
+                      //   1919 - '100vw'
+                      // ) / 2}px `,
                       position: 'relative',
                     }
               }
             >
+              <video src={banner3Video} autoPlay loop playsInline></video>
               <span
                 className={
                   bannerChangeNum === 2
