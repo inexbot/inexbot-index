@@ -110,4 +110,8 @@ export default {
       'iu',
     );
   },
+  // 获取新闻资讯的详细内容
+  getNewsContent() {
+    return post('dede_addonarticle', '[[ "typeid" , "<" , "10"]]', ['aid ASC']);
+  }
 };

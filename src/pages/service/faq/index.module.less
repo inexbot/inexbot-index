@@ -1,3 +1,4 @@
+// PC端样式
 .children_faq {
   .faq_search {
     width: 1200px;
@@ -92,4 +93,201 @@
     width: 1200px;
     margin: 40px auto;
   }
+  .faq_contenAll{
+    width:1200px;
+    margin: 40px auto;
+    .faq_content{
+      height:600px;
+      overflow-x:hidden;
+      .faq_content_title{
+        font-size: 30px;
+        color:black;
+        font-weight: 900;
+        display: flex;
+        justify-content: center;
+        width:1200px;
+        margin-bottom: 20px;
+      }
+      .faq_content_question1{
+        font-size: 21px;
+        color: #50afff;
+        font-weight: 600;
+        span{
+          color:black;
+        }
+      }
+      .faq_content_solution1{
+        margin-bottom: 20px;
+        span{
+          font-size: 21px;
+          color: #101011;
+          font-weight: 600
+        }
+        div{
+          margin-left: 40px;
+          color:black;
+          line-height: 27px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
+
+
+// 手机端样式
+@media screen and ( max-width: 900px ){
+.children_faq{
+    .faq_search{
+      width: 100vw;
+      height: 40px;
+      .ant-input-group-wrapper{
+        width: 69vw;
+        .ant-input-wrapper,
+        .ant-input-group {
+          border-radius: 8px;
+          overflow: hidden;
+          .ant-input {
+            height: 45px;
+            font-size: 15px;
+            color: #b4b4b4;
+            border-radius: 8px 0 0 8px;
+            text-indent: 0px;
+          }
+          .ant-input-group-addon {
+            .ant-btn,
+            .ant-input-search-button,
+            .ant-btn-primary {
+              height: 45px;
+              width: 44px;
+              font-size: 24px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+    .faq_selectAll{
+      .fa1_selectFs{
+        width:92vw;
+        margin:0 auto;
+        overflow-x:scroll;
+        .fa1_select{
+          width:850px;
+          display: flex;
+          li{
+            margin: 0 13px;
+          }
+        }
+      }
+      .faq_table{
+        width:92vw;
+        margin:0 auto;
+      }
+    }
+    .faq_contenAll{
+      width:92vw;
+      margin:0 auto;
+      .faq_content{
+        .faq_content_title{
+          font-size: 24px;
+          width:92vw;
+        }
+        .faq_content_question1{
+          font-size: 17px;
+        }
+        .faq_content_solution1{
+          font-size: 17px;
+          span{
+            font-size: 17px;
+          }
+          div{
+            margin-left: 30px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and ( min-width: 900px ) and ( max-width: 1200px ) {
+  .children_faq{
+      .faq_search{
+        width: 100vw;
+        height: 40px;
+        .ant-input-group-wrapper{
+          width: 69vw;
+          .ant-input-wrapper,
+          .ant-input-group {
+            border-radius: 8px;
+            overflow: hidden;
+            .ant-input {
+              height: 45px;
+              font-size: 15px;
+              color: #b4b4b4;
+              border-radius: 8px 0 0 8px;
+              text-indent: 0px;
+            }
+            .ant-input-group-addon {
+              .ant-btn,
+              .ant-input-search-button,
+              .ant-btn-primary {
+                height: 45px;
+                width: 44px;
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+      .faq_selectAll{
+        .fa1_selectFs{
+          width:92vw;
+          margin:0 auto;
+          overflow-x:scroll;
+          .fa1_select{
+            // width:1050px;
+            display: flex;
+            li{
+              margin: 0 13px;
+            }
+          }
+        }
+        .faq_table{
+          width:92vw;
+          margin:0 auto;
+        }
+      }
+      .faq_contenAll{
+        width:92vw;
+        margin:0 auto;
+        .faq_content{
+          margin: 40px auto;
+          .faq_content_title{
+            font-size: 30px;
+            width:92vw;
+          }
+          .faq_content_question1{
+            font-size: 21px;
+          }
+          .faq_content_solution1{
+            font-size: 21px;
+            span{
+              font-size: 21px;
+            }
+            div{
+              margin-left: 35px;
+              font-size: 17px;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -3,6 +3,7 @@ import { connect } from 'umi';
 import style from './index.module.less';
 import { Pagination, Button } from 'antd';
 import Banner from 'components/banner/index';
+import API from '../../components/API/api';
 
 const mapStateToProps = state => {
   return {
@@ -16,6 +17,9 @@ function News(props) {
   const [productList, setProductList] = useState(null);
   const [newListPage, setnewListPage] = useState(1);
   const [pegeNum, setPageNum] = useState(9);
+  const [newsContent, setNewsContent] = useState(null);
+  const [newsListChildren, setNewsListChildren] = useState(null);
+  const [newListShow, setNewListShow] = useState(true);
 
   // 更新滚动高度header颜色改变
   useEffect(() => {
@@ -29,7 +33,8 @@ function News(props) {
     } else if (props.BannerWidth > 900 && props.BannerWidth < 1200) {
       num = 225;
       setPageNum(8);
-    } else {
+    } else  {
+      num = 420;
       setPageNum(9);
     }
     props.dispatch({
@@ -65,6 +70,13 @@ function News(props) {
     }
   }, [props.TypeList]);
 
+  // 获取新闻详细内容
+  useEffect(()=>{
+    API.getNewsContent().then(res=>{
+      setNewsContent(res.list)
+    })
+  },[])
+
   // 修改分页的显示样式
   function itemRender(current, type, originalElement) {
     if (type === 'prev') {
@@ -74,6 +86,20 @@ function News(props) {
       return <Button> 下一页 </Button>;
     }
     return originalElement;
+  }
+
+  // 点击新闻切换content内容
+  const ChangeNewsContent = (Item) =>{
+    if( newsContent === null ){
+      ChangeNewsContent( Item )
+    }else{
+      newsContent.map((item,index)=>{
+        if( Item.id === item.aid ){
+          setNewsListChildren(item)
+          setNewListShow(false)
+        }
+      })
+    }
   }
 
   return (
@@ -108,6 +134,7 @@ function News(props) {
                   }
                   onClick={() => {
                     setnewListPage(1);
+                    setNewListShow(true)
                     if (index === 0) {
                       setNewsSelect('company');
                     } else {
@@ -120,7 +147,7 @@ function News(props) {
               );
             })}
           </div>
-          <div className={style.newlist}>
+          <div className={style.newlist} style={newListShow? {display:"flex"} : {display:"none"}}>
             {productList === null
               ? ''
               : productList[newSelect]
@@ -130,7 +157,7 @@ function News(props) {
                   )
                   .map((item, index) => {
                     return (
-                      <div key={index} className={style.newlist_center}>
+                      <div key={index} className={style.newlist_center} onClick={ChangeNewsContent.bind(null,item)}>
                         <div className={style.newlist_center_img}>
                           <img src={item.litpic} alt="" />
                         </div>
@@ -180,6 +207,12 @@ function News(props) {
                 }
               }}
             />
+          </div>
+          <div className={style.newlist_children} style={newListShow? {display:"none"} : {display:"block"}} >
+            <div
+              dangerouslySetInnerHTML={ newsListChildren===null?{__html:"<div></div>"}
+              :{ __html: newsListChildren.body }}>
+            </div>
           </div>
         </div>
       )}

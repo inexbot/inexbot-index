@@ -19,15 +19,21 @@ function Faq(props) {
   const [dataSoure, setDataSoure] = useState(null);
   const [contentShow, setContentShow] = useState(true);
   const [contentValue, setContentValue] = useState(null);
-  const [dataList, setDataList] = useState(null);
-  // const []
-  //
-  // useEffect(() => {
-  //   props.dispatch({
-  //     type: 'index/setHeaderScroll',
-  //     data: 500,
-  //   });
-  // }, []);
+
+  useEffect(() => {
+    let num = 0;
+    if (props.BannerWidth < 760) {
+      num = 200;
+    } else if (props.BannerWidth > 760 && props.BannerWidth < 1200) {
+      num = 280;
+    } else {
+      num = 500;
+    }
+    props.dispatch({
+      type: 'index/setHeaderScroll',
+      data: num,
+    });
+  }, [props.BannerWidth]);
 
   const { Search } = Input;
   const onSearch = value => console.log(value);
@@ -50,7 +56,6 @@ function Faq(props) {
     ];
     API.getFaqtitle(faqSelectNum + 1).then(res => {
       let dataSoure = [];
-      console.log(res);
       res.list.map((item, index) => {
         dataSoure.push({
           title: item.title,
@@ -60,7 +65,6 @@ function Faq(props) {
       });
       setDataSoure(dataSoure);
       setDataColumns(columns);
-      setDataList(res.list);
     });
   }, [faqSelectNum]);
 
@@ -77,35 +81,37 @@ function Faq(props) {
         }}
       ></Banner>
       <div className="faq_search">
-        <Search onSearch={onSearch} enterButton style={{ height: '200px' }} />
+        <Search onSearch={onSearch} enterButton  />
       </div>
       <div className="faq_selectAll">
-        <ul className="fa1_select">
-          {faqSelectlist === null
-            ? ''
-            : faqSelectlist.map((item, index) => {
-                return (
-                  <li
-                    key={index}
-                    onClick={() => {
-                      setFaqSelectNum(index);
-                      console.log(item);
-                    }}
-                  >
-                    <a
-                      className={
-                        index === faqSelectNum
-                          ? 'hoversolutionTbs'
-                          : 'solutionTbs'
-                      }
+        <div className="fa1_selectFs">
+          <ul className="fa1_select">
+            {faqSelectlist === null
+              ? ''
+              : faqSelectlist.map((item, index) => {
+                  return (
+                    <li
+                      key={index}
+                      onClick={() => {
+                        setFaqSelectNum(index);
+                        setContentShow(true);
+                      }}
                     >
-                      <p>{item.type}</p>
-                      <span></span>
-                    </a>
-                  </li>
-                );
-              })}
-        </ul>
+                      <a
+                        className={
+                          index === faqSelectNum
+                            ? 'hoversolutionTbs'
+                            : 'solutionTbs'
+                        }
+                      >
+                        <p>{item.type}</p>
+                        <span></span>
+                      </a>
+                    </li>
+                  );
+                })}
+          </ul>
+        </div>
         <div
           className="faq_table"
           style={contentShow ? { display: 'block' } : { display: 'none' }}
@@ -116,22 +122,27 @@ function Faq(props) {
             onRow={(record, index) => {
               return {
                 onClick: () => {
-                  // history.push(`/content?id=${record.key}`);
-                  console.log(record);
-                  dataList.map((item, index) => {
-                    // console.log(item)
-                    if (item.id === record.key) {
-                      setContentValue(item);
-                      console.log(item);
-                    }
-                  });
+                  setContentShow(false);
+                  if (record.value.question1 != null && record.value.question1 != ''){
+                    record.value.solution1 = record.value.solution1.replace(/[\n\r]/g, '<br>');
+                  }
+                  if (record.value.question2 != null && record.value.question2 != ''){
+                    record.value.solution2 = record.value.solution2.replace(/[\n\r]/g, '<br>');
+                  }
+                  if (record.value.question3 != null && record.value.question3 != ''){
+                    record.value.solution3 = record.value.solution3.replace(/[\n\r]/g, '<br>');
+                  }
+                  if (record.value.question4 != null && record.value.question4 != ''){
+                    record.value.solution4 = record.value.solution4.replace(/[\n\r]/g, '<br>');
+                  }
+                  setContentValue(record.value);
                 },
               };
             }}
           />
         </div>
         <div
-          className="fa1_content"
+          className="faq_contenAll"
           style={contentShow ? { display: 'none' } : { display: 'block' }}
         >
           <img
@@ -142,7 +153,31 @@ function Faq(props) {
               setContentShow(true);
             }}
           />
-          <div></div>
+          {contentValue === null? "" : 
+            <div className="faq_content">
+              <h2 className="faq_content_title"> {contentValue.title} </h2>
+              <h3 className="faq_content_question1"> 问题一&nbsp;: &nbsp; <span> {contentValue.question1} </span> </h3>
+              <div className="faq_content_solution1">
+                <span > 解决方案一 &nbsp;:  &nbsp;</span>
+                <div dangerouslySetInnerHTML={{ __html: contentValue.solution1 }} ></div>
+              </div>
+              <h3 className="faq_content_question1"> 问题二&nbsp;: &nbsp; <span>{contentValue.question2}</span> </h3>
+              <div className="faq_content_solution1">
+                <span > 解决方案二 &nbsp;:  &nbsp;</span>
+                <div dangerouslySetInnerHTML={{ __html: contentValue.solution2 }} ></div>
+              </div>
+              <h3 className="faq_content_question1"> 问题三&nbsp;: &nbsp; <span>{contentValue.question3}</span> </h3>
+              <div className="faq_content_solution1">
+                <span > 解决方案三 &nbsp;:  &nbsp;</span>
+                <div dangerouslySetInnerHTML={{ __html: contentValue.solution3 }} ></div>
+              </div>
+              <h3 className="faq_content_question1"> 问题四&nbsp;: &nbsp; <span>{contentValue.question4} </span></h3>
+              <div className="faq_content_solution1">
+                <span > 解决方案四 &nbsp;:  &nbsp;</span>
+                <div dangerouslySetInnerHTML={{ __html: contentValue.solution4 }} ></div>
+              </div>
+            </div>
+          }
         </div>
       </div>
     </div>
