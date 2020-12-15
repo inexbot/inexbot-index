@@ -118,7 +118,17 @@ function Banner(props) {
                     }
               }
             >
-              <video src={banner1Video} autoPlay loop playsInline></video>
+              <video
+                autoPlay
+                loop
+                muted
+                preload="auto"
+                playsinline
+                webkit-playsinline="true"
+                x5-video-player-type="h5"
+                x5-video-orientation="portraint"
+                src={banner1Video}
+              ></video>
               <span
                 className={
                   bannerChangeNum === 0
@@ -200,7 +210,17 @@ function Banner(props) {
                     }
               }
             >
-              <video src={banner2Video} autoPlay loop playsInline></video>
+              <video
+                autoPlay
+                loop
+                muted
+                preload="auto"
+                playsinline
+                webkit-playsinline="true"
+                x5-video-player-type="h5"
+                x5-video-orientation="portraint"
+                src={banner2Video}
+              ></video>
               <span
                 className={
                   bannerChangeNum === 1
@@ -282,7 +302,17 @@ function Banner(props) {
                     }
               }
             >
-              <video src={banner3Video} autoPlay loop playsInline></video>
+              <video
+                autoPlay
+                loop
+                muted
+                preload="auto"
+                playsinline
+                webkit-playsinline="true"
+                x5-video-player-type="h5"
+                x5-video-orientation="portraint"
+                src={banner3Video}
+              ></video>
               <span
                 className={
                   bannerChangeNum === 2
