@@ -84,6 +84,23 @@
           font-size: 17px;
         }
       }
+      >div:hover{
+        cursor:pointer;
+      }
+    }
+  }
+  .solution_video{
+    width:1200px;
+    margin:40px auto;
+    p{
+      font-size: 30px;
+      width:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: black;
     }
   }
 }
@@ -92,6 +109,8 @@
 @media screen and (max-width: 1200px) {
   .children_solution {
     .solution_select_All {
+      width:92vw;
+      margin:0 auto;
       overflow-x: scroll;
       .solution_select {
         display: flex;
@@ -171,6 +190,12 @@
       .multirobot_photo {
         width: 100vw;
         padding: 0 4vw;
+      }
+    }
+    .solution_video{
+      width:92vw;
+      p{
+        font-size: 21px;
       }
     }
   }

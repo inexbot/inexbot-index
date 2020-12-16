@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import API from 'components/API/api.js';
 import Banner from 'components/banner';
+import { Pagination, Button } from 'antd';
 import style from './index.module.less';
+import { connect } from 'umi';
+
+const mapStateToProps = state =>{
+  return{
+
+  }
+}
 
 function TeachVideo(props) {
   const [videoSelect, setVideoSelect] = useState('smallClass');
   const [TypeList, setTypeList] = useState(null);
   const [videoList, setVideoList] = useState(null);
+  const [videoListPage, setVideoListPage] = useState(1);
+  const [pegeNum, setPageNum] = useState(12);
 
   // 获取视频
   useEffect(() => {
@@ -23,9 +33,30 @@ function TeachVideo(props) {
     });
   }, []);
 
+    // 更新滚动高度header颜色改变
+    useEffect(() => {
+      let num = 0;
+      if (props.BannerWidth < 760) {
+        num = 160;
+        setPageNum(6);
+      } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
+        num = 225;
+        setPageNum(6);
+      } else if (props.BannerWidth > 900 && props.BannerWidth < 1200) {
+        num = 225;
+        setPageNum(8);
+      } else  {
+        num = 420;
+        setPageNum(12);
+      }
+      props.dispatch({
+        type: 'index/setHeaderScroll',
+        data: num,
+      });
+    }, [props.BannerWidth]);
+
   // 获取banner图上的文字和图片
   useEffect(() => {
-    // console.log(props.TypeList,"教学视频")
     if (props.TypeList === null) {
       return;
     }
@@ -39,6 +70,18 @@ function TeachVideo(props) {
       }
     });
   }, [props.TypeList]);
+
+    // 修改分页的显示样式
+    function itemRender(current, type, originalElement) {
+      if (type === 'prev') {
+        return <Button> 上一页 </Button>;
+      }
+      if (type === 'next') {
+        return <Button> 下一页 </Button>;
+      }
+      return originalElement;
+    }
+  
 
   return (
     <div className={style.children_teachvideo}>
@@ -63,6 +106,7 @@ function TeachVideo(props) {
                   : style.teachvideo_centre
               }
               onClick={() => {
+                setVideoListPage(1);
                 setVideoSelect('smallClass');
               }}
             >
@@ -76,6 +120,7 @@ function TeachVideo(props) {
                   : style.teachvideo_centre
               }
               onClick={() => {
+                setVideoListPage(1);
                 setVideoSelect('openPlateForm');
               }}
             >
@@ -83,25 +128,56 @@ function TeachVideo(props) {
               开放平台教学视频{' '}
             </li>
           </ul>
-          <div className={style.teachvideo_centre}>
-            {videoList === null
-              ? ''
-              : videoList[videoSelect].map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={style.teachvideo_centre_children}
-                    >
-                      <img
-                        src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
-                        alt=""
-                      />
-                      <p>
-                        {item.chap} &nbsp; &nbsp;{item.name}
-                      </p>
-                    </div>
-                  );
-                })}
+          <div  className={style.teachvideo_centreFs}>
+            <div className={style.teachvideo_centre}>
+              {videoList === null
+                ? ''
+                : videoList[videoSelect]
+                .slice(
+                  (videoListPage - 1) * pegeNum,
+                  (videoListPage - 1) * pegeNum + pegeNum,
+                ).map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className={style.teachvideo_centre_children}
+                        onClick={()=>{
+                          location.href = item.link
+                        }}
+                      >
+                        <img
+                          src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
+                          alt=""
+                        />
+                        <p>
+                          {item.chap} &nbsp; &nbsp;{item.name}
+                        </p>
+                      </div>
+                    );
+                  })}
+            </div>
+            <Pagination
+              className={style.videolist_bottom_page}
+              current={videoListPage}
+              itemRender={itemRender}
+              pageSize={pegeNum}
+              total={videoList === null ? 1 : videoList[videoSelect].length}
+              onChange={(page, pageSize) => {
+                setVideoListPage(page);
+                if (props.BannerWidth < 760) {
+                  window.scrollTo(0, 160);
+                } else if (props.BannerWidth > 1200) {
+                  window.scrollTo(0, 361);
+                } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
+                  window.scrollTo(0, 240);
+                } else if (
+                  props.BannerWidth > 900 &&
+                  props.BannerWidth < 1200
+                ) {
+                  window.scrollTo(0, 240);
+                }
+              }}
+            />
           </div>
         </div>
       )}
@@ -109,4 +185,4 @@ function TeachVideo(props) {
   );
 }
 
-export default TeachVideo;
+export default connect(mapStateToProps)(TeachVideo) ;

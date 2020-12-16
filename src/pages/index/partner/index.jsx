@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import style from './index.module.less';
 import bg_2 from 'images/bg-2.jpg';
+import {history} from "umi";
 
 function partner(props) {
   const [contentList, setContentList] = useState(null);
@@ -67,6 +68,10 @@ function partner(props) {
                 ? { borderRadius: '10px', height: '44px', width: '239px' }
                 : {}
             }
+            onClick={()=>{
+              history.push("/about/partner")
+              window.scrollTo(0,0);
+            }}
           >
             更多合作伙伴
           </Button>

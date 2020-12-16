@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'umi';
+import {Button} from "antd";
+import API from "components/API/api.js";
 import Banner from 'components/banner/index';
 import image from 'images/faq-bg.jpg';
 import './index.module.less';
@@ -13,6 +15,9 @@ function Solution(props) {
   const [solutionNum, setSolutionNum] = useState(['Pallet', 0]);
   const [newCenter, setNewCenter] = useState(null);
   const [multirobotPhoto, setMultirobotPhoto] = useState(null);
+  const [videoList, setVideoList] = useState(null);
+  const [pitchOnVideo, setPitchOnVideo] = useState(null);
+  const [videoShow, setVideoShow] = useState(false);
 
   // 获取解决方案页面的全部数据
   useEffect(() => {
@@ -22,10 +27,16 @@ function Solution(props) {
     props.TypeList.map((item, index) => {
       if (item.id === 25) {
         setTypeList(item);
-        // console.log(item,"这里是解决方案页面")
       }
     });
   }, [props.TypeList]);
+
+  useEffect(()=>{
+    if( props.location.query.type === "" ){
+      return;
+    }
+    setSolutionNum([props.location.query.type,props.location.query.num])
+  },[props.location.query])
 
   // 更新滚动高度header颜色改变
   useEffect(() => {
@@ -69,6 +80,25 @@ function Solution(props) {
     setMultirobotPhoto(DataList);
   }, [props.productList]);
 
+  // 获取视频
+  useEffect(()=>{
+    API.getSolutionVideo().then(res=>{
+      setVideoList(res.list);
+    })
+  },[])
+
+  // 点击图片视频显示
+  const clickVideoShow = (Item) =>{
+    setVideoShow(true);
+    let data = { video:null, txt:"" };
+    videoList.map((item,index)=>{
+      if( Item.id === item.aid ){
+        data.video = item;
+        data.txt =  Item.description;
+        setPitchOnVideo(data)
+      }
+    })
+  }
   return (
     <div>
       {TypeList === null ? (
@@ -92,6 +122,11 @@ function Solution(props) {
                     key={index}
                     onClick={() => {
                       setSolutionNum([item.typenameen, index]);
+                      setVideoShow(false);
+                      if(videoShow){
+                        let video = document.getElementsByTagName('video');
+                        video[0].pause()
+                      }
                     }}
                   >
                     <a
@@ -109,26 +144,7 @@ function Solution(props) {
               })}
             </ul>
           </div>
-          <div className="multirobot">
-            <div className="multirobot_photo">
-              {multirobotPhoto === null
-                ? ''
-                : multirobotPhoto.map((item, index) => {
-                    return (
-                      <div
-                        key={index}
-                        style={
-                          solutionNum[0] === 'MultiRobot'
-                            ? { display: 'block' }
-                            : { display: 'none' }
-                        }
-                      >
-                        <img src={item.litpic} alt="" />
-                        <p>{item.title}</p>
-                      </div>
-                    );
-                  })}
-            </div>
+          <div className="multirobot" style={ videoShow ?{display:"none"}:{display:"block"}}>
             <div
               className={
                 solutionNum[0] === 'MultiRobot'
@@ -141,6 +157,38 @@ function Solution(props) {
                   : { __html: newCenter }
               }
             ></div>
+            <div className="multirobot_photo">
+              {multirobotPhoto === null
+                ? ''
+                : multirobotPhoto.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        style={
+                          solutionNum[0] === 'MultiRobot'
+                            ? { display: 'block' }
+                            : { display: 'none' }
+                        }
+                        onClick={clickVideoShow.bind(null,item)}
+                      >
+                        <img src={item.litpic} alt="" />
+                        <p>{item.title}</p>
+                      </div>
+                    );
+                  })}
+            </div>
+          </div>
+          <div className="solution_video" style={ videoShow ?{display:"block"}:{display:"none"}}>
+            <Button onClick={()=>{
+              setVideoShow(false);
+              let video = document.getElementsByTagName('video');
+              video[0].pause()
+            }}> 返回 </Button>
+            <p > {pitchOnVideo === null?"": pitchOnVideo.txt} </p>
+            <div  id="movie" 
+              dangerouslySetInnerHTML = {pitchOnVideo === null?{ __html: '<div> </div>' }: { __html:pitchOnVideo.video.body}}>
+
+            </div>
           </div>
         </div>
       )}

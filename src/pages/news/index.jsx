@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 function News(props) {
   const [TypeList, setTypeList] = useState(null);
-  const [newSelect, setNewsSelect] = useState('company');
+  const [newSelect, setNewsSelect] = useState('Company');
   const [productList, setProductList] = useState(null);
   const [newListPage, setnewListPage] = useState(1);
   const [pegeNum, setPageNum] = useState(9);
@@ -43,17 +43,24 @@ function News(props) {
     });
   }, [props.BannerWidth]);
 
+  useEffect(()=>{
+    if( props.location.query.type === "" ){
+      return;
+    }
+    setNewsSelect(props.location.query.type)
+  },[props.location.query.type])
+
   // 从数据库筛选出来公司新闻和行业动态的数据
   useEffect(() => {
-    let dataList = { company: [], industry: [] };
+    let dataList = { Company: [], Industry: [] };
     if (props.productList === null) {
       return;
     }
     for (let i = 0; i < props.productList.list.length; i++) {
       if (props.productList.list[i].typeid === 8) {
-        dataList.company.push(props.productList.list[i]);
+        dataList.Company.push(props.productList.list[i]);
       } else if (props.productList.list[i].typeid === 9) {
-        dataList.industry.push(props.productList.list[i]);
+        dataList.Industry.push(props.productList.list[i]);
       }
     }
     setProductList(dataList);
@@ -125,10 +132,10 @@ function News(props) {
                   key={index}
                   className={
                     index === 0
-                      ? newSelect === 'company'
+                      ? newSelect === 'Company'
                         ? style.newslist_select_children_h
                         : style.newslist_select_children
-                      : newSelect === 'industry'
+                      : newSelect === 'Industry'
                       ? style.newslist_select_children_h
                       : style.newslist_select_children
                   }
@@ -136,9 +143,9 @@ function News(props) {
                     setnewListPage(1);
                     setNewListShow(true)
                     if (index === 0) {
-                      setNewsSelect('company');
+                      setNewsSelect('Company');
                     } else {
-                      setNewsSelect('industry');
+                      setNewsSelect('Industry');
                     }
                   }}
                 >

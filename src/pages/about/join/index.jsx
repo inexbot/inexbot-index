@@ -23,7 +23,6 @@ function Partner(props) {
     props.TypeList.map((item, index) => {
       if (item.id === 1) {
         setTypeList(item);
-        // console.log(item,"这里是解决方案页面")
       }
     });
   }, [props.TypeList]);
@@ -71,7 +70,7 @@ function Partner(props) {
               BannerImg: image,
               BannerSize: '150%',
               BannerLeft: '40%',
-              TxtCh: '解决方案',
+              TxtCh: '关于纳博特',
               TxtEn: 'about',
             }}
           ></Banner>
@@ -80,7 +79,7 @@ function Partner(props) {
               <li
                 key={0}
                 onClick={() => {
-                  history.push('/about');
+                  history.push('/about/inexbot');
                 }}
               >
                 <a className="aboutTbs">

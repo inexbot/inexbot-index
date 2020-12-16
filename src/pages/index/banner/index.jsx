@@ -123,7 +123,7 @@ function Banner(props) {
                 loop
                 muted
                 preload="auto"
-                playsinline
+                playsInline
                 webkit-playsinline="true"
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"
@@ -215,7 +215,7 @@ function Banner(props) {
                 loop
                 muted
                 preload="auto"
-                playsinline
+                playsInline
                 webkit-playsinline="true"
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"
@@ -307,7 +307,7 @@ function Banner(props) {
                 loop
                 muted
                 preload="auto"
-                playsinline
+                playsInline
                 webkit-playsinline="true"
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"

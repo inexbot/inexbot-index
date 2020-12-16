@@ -50,7 +50,7 @@ export default {
   },
   // 获取新闻列表，合作伙伴和产品中心列表
   getNewslist() {
-    return post('dede_archives', `[["id",">","0"]]`, ['pubdate DESC']);
+    return post('dede_archives', `[["id",">","0"]]`, ['senddate DESC']);
   },
   // 获取banner图上的文字
   getBannerTxt() {
@@ -113,5 +113,10 @@ export default {
   // 获取新闻资讯的详细内容
   getNewsContent() {
     return post('dede_addonarticle', '[[ "typeid" , "<" , "10"]]', ['aid ASC']);
+  },
+
+  // 获取解决方案页面的视频
+  getSolutionVideo(){
+    return post('dede_addonarticle', '[[ "typeid" , "=" , "50"]]', ['aid ASC']);
   }
 };

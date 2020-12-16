@@ -3,7 +3,7 @@ import {connect} from "umi";
 import {Pagination, Button} from "antd";
 import Banner from "components/banner";
 import bannerImg from "images/product-bg.jpg";
-import style from "./index.module.less"
+import "./index.module.less"
 import API from "components/API/api";
 
 const mapStateToProps = state =>{
@@ -21,7 +21,8 @@ function Product(props){
   const [ContentShow, setContentShow] = useState(true);
   const [productDetailList, setProductDetailList] = useState(null);
   const [productDetail, setProductDetail] = useState(null);
-  const [productDetailClick, setProductDetailClick] = useState(null)
+  const [productDetailClick, setProductDetailClick] = useState(null);
+  const [productChildrenNum, setProductChildrenNum] = useState(4);
 
   // 更新产品中心的标签页
   useEffect(() => {
@@ -29,7 +30,6 @@ function Product(props){
       props.TypeList.map((item, index) => {
         if (item.id === 14) {
           setProductHedList(item);
-          console.log(item)
         }
       });
     }
@@ -39,10 +39,10 @@ function Product(props){
   useEffect(() => {
     let num = 0;
     if (props.BannerWidth < 760) {
-      num = 200;
+      num = 196;
       setPageNum(6);
     } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
-      num = 270;
+      num = 250;
       setPageNum(6);
     } else if (props.BannerWidth > 900 && props.BannerWidth < 1200) {
       num = 270;
@@ -81,14 +81,12 @@ function Product(props){
         }
       }
       setProductData(dataList);
-      console.log(dataList)
     }
   }, [props.productList]);
 
   // 获取产品的详细内容
   useEffect(()=>{
     API.getProductIntroduce().then(res=>{
-      console.log(res,"这里是详细内容")
       setProductDetailList(res.list);
     })
   },[])
@@ -106,21 +104,42 @@ function Product(props){
 
   // 点击产品展示相对应产品的详细内容
   const showProductDetail = ( Item )=>{
-    console.log(Item);
+    setContentShow(false)
     setProductDetailClick(Item);
     if( productDetailList === null ){
       showProductDetailList(Item);
     }else{
       productDetailList.map((item,index)=>{
         if( Item.id === item.aid ){
-          console.log(item);
           setProductDetail(item)
         }
       })
     }
   }
+
+  useEffect(()=>{
+    if( props.location.query.type === "" ){
+      return;
+    }
+    setProductNum([props.location.query.type,props.location.query.num])
+  },[props.location.query])
+
+  // 手机端点击产品向上移动
+  const Upmove = () =>{
+    if (props.BannerWidth < 760) {
+      window.scrollTo(0, 140);
+    } else if (props.BannerWidth > 1200) {
+    } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
+      window.scrollTo(0, 220);
+    } else if (
+      props.BannerWidth > 900 &&
+      props.BannerWidth < 1200
+    ) {
+      window.scrollTo(0, 220);
+    }
+  }
   return(
-    <div className={style.productFs}>
+    <div className="productFs">
       <Banner
         data={{
           BannerImg:bannerImg,
@@ -130,9 +149,9 @@ function Product(props){
           TxtEn: "PRODUCT CENTER",
         }}
       ></Banner>
-      <div className={style.product_hedlist_fs}>
+      <div className="product_hedlist_fs">
         <div
-          className={style.product_hedlist}
+          className="product_hedlist"
         >
           {productHedList === null
             ? ''
@@ -142,11 +161,12 @@ function Product(props){
                   <a
                     className={
                       index === productNum[1]
-                        ? style.hoverproductTbs
-                        : style.productTbs
+                        ? "hoverproductTbs"
+                        : "productTbs"
                     }
                     onClick={() => {
                       setProductPage(1);
+                      setContentShow(true);
                       if (index === 0) {
                         setProductNum(['controlSys', 0]);
                       } else if (index === 1) {
@@ -168,7 +188,7 @@ function Product(props){
             })}
         </div>
       </div>
-      <div className={style.product_content_probably}>
+      <div className="product_content_probably" style={ContentShow? { display:"block" }: { display:"none" }} > 
         <div>
           { productData === null?"" :
             productData[[productNum[0]]].slice(
@@ -176,7 +196,10 @@ function Product(props){
               (productPage - 1) * pegeNum + pegeNum,
               ).map((item, index) => {
               return(
-                <div key={index} className={style.product_content_children} onClick={showProductDetail.bind(null,item)}>
+                <div key={index} className="product_content_children" onClick={ ()=>{
+                  showProductDetail(item);
+                  Upmove()
+                  }}>
                   <img src={item.litpic} alt="" />
                   <p> { item.title } </p>
                 </div>
@@ -185,7 +208,7 @@ function Product(props){
           }
         </div>
         <Pagination
-          className={style.product_bottom_page}
+          className="product_bottom_page"
           current={productPage}
           itemRender={itemRender}
           pageSize={pegeNum}
@@ -195,30 +218,36 @@ function Product(props){
           }}
         />
       </div>
-      <div className={style.product_content_detail}>
-        {/* <div className={style.product_content_detail_html}
-          dangerouslySetInnerHTML={ productDetail===null?{__html:"<div></div>"}
-          :{ __html: productDetail.body }}>
-        </div> */}
-        <div className={style.detail_left}>
+      <div className="product_content_detail" style={ContentShow? { display:"none" }: { display:"block" }}>
+        <div className="detail_left">
           {productDetailClick === null? "" : 
-            <dl className={style.detail_left_top}>
+            <dl className="detail_left_top">
               <dt> {productDetailClick.title} </dt>
               <dd> <img src={productDetailClick.litpic} alt=""/>  </dd>
             </dl>
           }
+          <p> 产品简介 </p>
+          <div className="product_content_detail_html"
+            dangerouslySetInnerHTML={ productDetail===null?{__html:"<div></div>"}
+            :{ __html: productDetail.body }}>
+          </div>
         </div>
-        <ul className={style.detail_right}>
+        <ul className="detail_right">
           {productData === null? "" :
-            productData[[productNum[0]]].slice(0,4).map((item,index)=>{
+            productData[[productNum[0]]].slice(0,productChildrenNum).map((item,index)=>{
               return(
-                <li className={style.detail_right_list}>
+                <li key={index} className="detail_right_list" onClick={()=>{
+                  showProductDetail(item);
+                  Upmove();
+                }}>
                   <img src={item.litpic} alt=""/>
                   <p> {item.title} </p>
                 </li>
               )
             })
           }
+          {/* <p style={productData === null?{display:"none"}:productData[[productNum[0]]].length <= 4?{ display:"none" }:{ display:"block" }}> 更多产品 </p> */}
+          <p onClick={()=>{setContentShow(true)}} > 更多产品 </p>
         </ul>
       </div>
     </div>
