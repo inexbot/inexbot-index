@@ -44,6 +44,7 @@ function Header(props) {
     // 点击一级导航跳转链接
     const firstNavClick = (Item) =>{
       window.scrollTo(0, 0);
+      console.log(Item)
       if( Item.id === 19 ){
         location.href = getLink(Item.typedir);
       }else if( Item.id === 34 ){
@@ -67,12 +68,14 @@ function Header(props) {
           pathname:getLink(Item.typedir),
           query: { type: "" },
         });
+        
       }
     }
   
     // 点击二级导航跳转链接
     const secondNavClick = (Item) =>{
       window.scrollTo(0, 0);
+      console.log(Item)
       if( Item.id === 65 ){
         location.href = getLink(Item.typedir);
       }else if( Item.id === 8 ){
