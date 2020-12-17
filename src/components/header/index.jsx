@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "umi";
 import style from './index.module.less';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
-import {history} from "umi";
+import { useHistory } from "umi";
 
 const mapStateToProps = state =>{
   return{
@@ -14,7 +14,7 @@ function Header(props) {
   const [TypeList, setTypeList] = useState(props.TypeList);
   const [listShow, setListShow] = useState('none');
   const [headerBgc, setHeaderBgc] = useState('');
-
+  const history = useHistory();
   function getLink(link) {
     let _cms = '{cmspath}';
     if (link.match(_cms)) {
@@ -44,7 +44,6 @@ function Header(props) {
   // 点击一级导航跳转链接
   const firstNavClick = (Item) =>{
     window.scrollTo(0, 0);
-    console.log(Item)
     if( Item.id === 19 ){
       location.href = getLink(Item.typedir);
     }else if( Item.id === 34 ){
@@ -63,7 +62,6 @@ function Header(props) {
   // 点击二级导航跳转链接
   const secondNavClick = (Item) =>{
     window.scrollTo(0, 0);
-    console.log(Item)
     if( Item.id === 65 ){
       location.href = getLink(Item.typedir);
     }else if( Item.id === 8 ){
@@ -92,7 +90,7 @@ function Header(props) {
       }else if( Item.reid === 14 ){
         history.push({
           pathname:getLink(Item.sitepath),
-          query: { type: Item.typenameen, num: Item.sortrank},
+          query: { type: Item.typenameen, num: Item.sortrank-1},
         });
       }else{
         history.push({
@@ -182,12 +180,12 @@ function Header(props) {
           : TypeList.map((Item, Index) => {
               return (
                 <li key={Index}>
-                  <a href={getLink(Item.sitepath)} >{Item.typename}</a>
+                  <a onClick={firstNavClick.bind(null,Item)} >{Item.typename}</a>
                   <ul>
                     {Item.sublist.map((item, index) => {
                       return (
                         <li key={index}>
-                          <a href={getLink(item.typedir)}>
+                          <a onClick={secondNavClick.bind(null,item)}>
                             <span>-{item.typename}</span>
                           </a>
                         </li>

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import style from './index.module.less';
 import bg_2 from 'images/bg-2.jpg';
-import {history} from "umi";
+import { useHistory } from "umi";
 
 function partner(props) {
   const [contentList, setContentList] = useState(null);
   const [TypeList, setTypeList] = useState(null);
+
+  const history = useHistory();
   useEffect(() => {
     let dataList = [];
     if (props.productList !== null) {

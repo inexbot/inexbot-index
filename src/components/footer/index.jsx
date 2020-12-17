@@ -1,9 +1,74 @@
 import React, { useEffect, useState } from 'react';
 import style from './index.module.less';
+import { useHistory } from "umi";
 
 export function Footer(props) {
   const [footerList, setFooterList] = useState([]);
+
+  const history  = useHistory();
+
   useEffect(() => {
+  // 点击一级导航跳转链接
+  const firstNavClick = (Item) =>{
+    window.scrollTo(0, 0);
+    if( Item.id === 19 ){
+      location.href = getLink(Item.typedir);
+    }else if( Item.id === 34 ){
+      history.push("download")
+    }else if( Item.id === 1 ){
+      history.push("about/inexbot")
+    }else{
+      history.push({
+        pathname:getLink(Item.typedir),
+        query: { type: "" },
+      });
+    }
+  }
+
+  // 点击二级导航跳转链接
+  const secondNavClick = (Item) =>{
+    window.scrollTo(0, 0);
+    if( Item.id === 65 ){
+      location.href = getLink(Item.typedir);
+    }else if( Item.id === 8 ){
+      history.push({
+        pathname:getLink(Item.sitepath),
+        query: { type: Item.typenameen.slice(0,7) },
+      });
+    }else if( Item.id === 9 ){
+      history.push({
+        pathname:getLink(Item.sitepath),
+        query: { type: Item.typenameen.slice(0,8) },
+      });
+    }else{
+      if( Item.reid === 25 ){
+        if( Item.sortrank <3 ){
+          history.push({
+            pathname:getLink(Item.sitepath),
+            query: { type: Item.typenameen, num: Item.sortrank-1},
+          });
+        }else{
+          history.push({
+            pathname:getLink(Item.sitepath),
+            query: { type: Item.typenameen, num: Item.sortrank-2},
+          });
+        }
+      }else if( Item.reid === 14 ){
+        history.push({
+          pathname:getLink(Item.sitepath),
+          query: { type: Item.typenameen, num: Item.sortrank-1},
+        });
+      }else{
+        history.push({
+          pathname:getLink(Item.typedir),
+          query: { type: Item.typenameen },
+        });
+      }
+    }
+  }
+
+
+
     if (props.typeList === null) {
       return;
     }
@@ -14,13 +79,13 @@ export function Footer(props) {
         value.sublist.forEach(_value => {
           _ll.push(
             <dd key={_value.typename}>
-              <a href={getLink(_value.typedir)}>{_value.typename}</a>
+              <a  onClick={secondNavClick.bind(null,_value)}>{_value.typename}</a>
             </dd>,
           );
         });
         _l.push(
           <dl key={value.typename}>
-            <dt>{value.typename}</dt>
+            <dt className={style.footer_list_top} onClick={firstNavClick.bind(null,value)} >{value.typename}</dt>
             {_ll}
           </dl>,
         );

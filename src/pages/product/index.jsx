@@ -62,7 +62,7 @@ function Product(props){
     if (props.productList !== null) {
       let dataList = {
         controlSys: [],
-        NRB: [],
+        cabinet: [],
         servo: [],
         vision: [],
         weldTracking: [],
@@ -71,7 +71,7 @@ function Product(props){
         if (props.productList.list[i].typeid === 15) {
           dataList['controlSys'].push(props.productList.list[i]);
         } else if (props.productList.list[i].typeid === 16) {
-          dataList['NRB'].push(props.productList.list[i]);
+          dataList['cabinet'].push(props.productList.list[i]);
         } else if (props.productList.list[i].typeid === 17) {
           dataList['servo'].push(props.productList.list[i]);
         } else if (props.productList.list[i].typeid === 18) {
@@ -170,7 +170,7 @@ function Product(props){
                       if (index === 0) {
                         setProductNum(['controlSys', 0]);
                       } else if (index === 1) {
-                        setProductNum(['NRB', 1]);
+                        setProductNum(['cabinet', 1]);
                       } else if (index === 2) {
                         setProductNum(['servo', 2]);
                       } else if (index === 3) {

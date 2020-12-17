@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'umi';
-import API from 'components/API/api';
 import Banner from './index/banner/index.jsx';
 import Solution from './index/solution/index.jsx';
 import Product from './index/product/index.jsx';
