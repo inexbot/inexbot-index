@@ -28,8 +28,11 @@ function partner(props) {
     for (let i = 0; i < props.TypeList.length; i++) {
       if (props.TypeList[i].id === 1) {
         setTypeList(props.TypeList[i]);
+        console.log(props.TypeList[i])
+        console.log(props.TypeList)
       }
     }
+
   }, [props.TypeList]);
 
   return (
@@ -43,8 +46,8 @@ function partner(props) {
         className={style.partner}
       >
         <div className={style.partner_top}>
-          <p> {TypeList === null ? '' : TypeList.sublist[1].typename} </p>
-          <p> {TypeList === null ? '' : TypeList.sublist[1].typenameen} </p>
+          <p> 合作伙伴 </p>
+          <p> Partner </p>
         </div>
         <p> 众多优秀的合作伙伴是我们前进的动力。 </p>
         {contentList === null ? (
