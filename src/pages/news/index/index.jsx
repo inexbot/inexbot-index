@@ -14,39 +14,6 @@ function Index(props) {
     }
     return originalElement;
   }
-<<<<<<< HEAD
-  
-  return(
-    <div className="newlist" >
-    {props.productList === null
-      ? ''
-      : props.productList[props.newSelect]
-          .slice(
-            (props.newListPage - 1) * props.pegeNum,
-            (props.newListPage - 1) * props.pegeNum + props.pegeNum,
-          )
-          .map((item, index) => {
-            return (
-              <div key={index} className="newlist_center" onClick={ ()=>{
-                props.ChangeNewsContent(item)
-                history.push({
-                    pathname:"/news/content",
-                    query: { id: Number(item.id)},
-                  });
-              }}>
-                <div className="newlist_center_img">
-                  <img src={item.litpic} alt="" />
-                </div>
-                <p className="newlist_center_title">
-                  {' '}
-                  {item.title}{' '}
-                </p>
-                <p className="newlist_center_dis">
-                  {' '}
-                  {item.description}{' '}
-                </p>
-                <span className="newlist_center_date">{`
-=======
 
   return (
     <div className="newlist">
@@ -76,7 +43,6 @@ function Index(props) {
                   <p className="newlist_center_title"> {item.title} </p>
                   <p className="newlist_center_dis"> {item.description} </p>
                   <span className="newlist_center_date">{`
->>>>>>> 1c5034d459f9dcd47e54d618d06e2518f77ce9c0
               ${new Date(item.pubdate * 1000).getFullYear()} -
               ${
                 new Date(item.pubdate * 1000).getMonth() + 1 < 10
