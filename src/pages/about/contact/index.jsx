@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useHistory } from 'umi';
 import Banner from 'components/banner/index';
-import image from 'images/faq-bg.jpg';
+import image from 'images/about-bg.jpg';
 import './index.module.less';
 
 const mapStateToProps = state => {
