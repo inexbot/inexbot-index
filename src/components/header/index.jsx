@@ -41,65 +41,79 @@ function Header(props) {
     });
   }, [props.headerScroll]);
 
-  // 点击一级导航跳转链接
-  const firstNavClick = (Item) =>{
-    window.scrollTo(0, 0);
-    if( Item.id === 19 ){
-      location.href = getLink(Item.typedir);
-    }else if( Item.id === 34 ){
-      history.push("download")
-    }else if( Item.id === 1 ){
-      history.push("about/inexbot")
-    }else{
-      history.push({
-        pathname:getLink(Item.typedir),
-        query: { type: "" },
-      });
-      
+    // 点击一级导航跳转链接
+    const firstNavClick = (Item) =>{
+      // window.scrollTo(0, 0);
+      console.log(Item)
+      if( Item.id === 19 ){
+        location.href = getLink(Item.typedir);
+      }else if( Item.id === 34 ){
+        history.push("/download")
+      }else if( Item.id === 1 ){
+        history.push("/about/inexbot")
+      }else if( Item.id === 14 ){
+        history.push({
+          pathname:"/product/index",
+          query: { type: "" },
+        }
+        )
+      }else if( Item.id === 7 ){
+        history.push({
+          pathname:"/news/index",
+          query: { type: "" },
+        }
+        )
+      }else{
+        history.push({
+          pathname:getLink(Item.typedir),
+          query: { type: "" },
+        });
+        
+      }
     }
-  }
-
-  // 点击二级导航跳转链接
-  const secondNavClick = (Item) =>{
-    window.scrollTo(0, 0);
-    if( Item.id === 65 ){
-      location.href = getLink(Item.typedir);
-    }else if( Item.id === 8 ){
-      history.push({
-        pathname:getLink(Item.sitepath),
-        query: { type: Item.typenameen.slice(0,7) },
-      });
-    }else if( Item.id === 9 ){
-      history.push({
-        pathname:getLink(Item.sitepath),
-        query: { type: Item.typenameen.slice(0,8) },
-      });
-    }else{
-      if( Item.reid === 25 ){
-        if( Item.sortrank <3 ){
+  
+    // 点击二级导航跳转链接
+    const secondNavClick = (Item) =>{
+      // window.scrollTo(0, 0);
+      console.log(Item)
+      if( Item.id === 65 ){
+        location.href = getLink(Item.typedir);
+      }else if( Item.id === 8 ){
+        history.push({
+          pathname:getLink(Item.sitepath+"/index"),
+          query: { type: Item.typenameen.slice(0,7) },
+        });
+      }else if( Item.id === 9 ){
+        history.push({
+          pathname:getLink(Item.sitepath+"/index"),
+          query: { type: Item.typenameen.slice(0,8) },
+        });
+      }else{
+        if( Item.reid === 25 ){
+          if( Item.sortrank <3 ){
+            history.push({
+              pathname:getLink(Item.sitepath),
+              query: { type: Item.typenameen, num: Item.sortrank-1},
+            });
+          }else{
+            history.push({
+              pathname:getLink(Item.sitepath),
+              query: { type: Item.typenameen, num: Item.sortrank-2},
+            });
+          }
+        }else if( Item.reid === 14 ){
           history.push({
-            pathname:getLink(Item.sitepath),
+            pathname:getLink(Item.sitepath+'/index'),
             query: { type: Item.typenameen, num: Item.sortrank-1},
           });
         }else{
           history.push({
-            pathname:getLink(Item.sitepath),
-            query: { type: Item.typenameen, num: Item.sortrank-2},
+            pathname:getLink(Item.typedir),
+            query: { type: Item.typenameen },
           });
         }
-      }else if( Item.reid === 14 ){
-        history.push({
-          pathname:getLink(Item.sitepath),
-          query: { type: Item.typenameen, num: Item.sortrank-1},
-        });
-      }else{
-        history.push({
-          pathname:getLink(Item.typedir),
-          query: { type: Item.typenameen },
-        });
       }
     }
-  }
 
   return (
     <div 

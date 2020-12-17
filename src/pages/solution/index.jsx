@@ -32,11 +32,17 @@ function Solution(props) {
   }, [props.TypeList]);
 
   useEffect(()=>{
-    if( props.location.query.type === "" ){
-      return;
+    if( props.location.query.type === null || props.location.query.type === undefined ){
+      setSolutionNum(['Pallet', 0]);
+    }else{
+      if( props.location.query.type === "" ){
+        setSolutionNum(['Pallet', 0]);
+        return;
+      }
+      setSolutionNum([props.location.query.type,props.location.query.num])
     }
-    setSolutionNum([props.location.query.type,props.location.query.num])
   },[props.location.query])
+
 
   // 更新滚动高度header颜色改变
   useEffect(() => {

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {connect} from "umi";
-import {Pagination, Button} from "antd";
+import {connect, useHistory} from "umi";
 import Banner from "components/banner";
 import bannerImg from "images/product-bg.jpg";
 import "./index.module.less"
@@ -18,11 +17,11 @@ function Product(props){
   const [productData, setProductData] = useState(null);
   const [pegeNum, setPageNum] = useState(9);
   const [productPage, setProductPage] = useState(1);
-  const [ContentShow, setContentShow] = useState(true);
   const [productDetailList, setProductDetailList] = useState(null);
   const [productDetail, setProductDetail] = useState(null);
   const [productDetailClick, setProductDetailClick] = useState(null);
   const [productChildrenNum, setProductChildrenNum] = useState(4);
+  const history = useHistory();
 
   // 更新产品中心的标签页
   useEffect(() => {
@@ -91,20 +90,9 @@ function Product(props){
     })
   },[])
 
-  // 修改分页的显示样式
-  function itemRender(current, type, originalElement) {
-    if (type === 'prev') {
-      return <Button> 上一页 </Button>;
-    }
-    if (type === 'next') {
-      return <Button> 下一页 </Button>;
-    }
-    return originalElement;
-  }
 
   // 点击产品展示相对应产品的详细内容
   const showProductDetail = ( Item )=>{
-    setContentShow(false)
     setProductDetailClick(Item);
     if( productDetailList === null ){
       showProductDetailList(Item);
@@ -118,10 +106,15 @@ function Product(props){
   }
 
   useEffect(()=>{
-    if( props.location.query.type === "" ){
-      return;
+    if( props.location.query.type === null || props.location.query.type === undefined ){
+      setProductNum(['controlSys', 0]);
+    }else{
+      if( props.location.query.type === "" ){
+        setProductNum(['controlSys', 0]);
+        return;
+      }
+      setProductNum([props.location.query.type,props.location.query.num])
     }
-    setProductNum([props.location.query.type,props.location.query.num])
   },[props.location.query])
 
   // 手机端点击产品向上移动
@@ -166,17 +159,36 @@ function Product(props){
                     }
                     onClick={() => {
                       setProductPage(1);
-                      setContentShow(true);
                       if (index === 0) {
-                        setProductNum(['controlSys', 0]);
+                        setProductNum(["controlSys",0])
+                        history.push({
+                          pathname:"/product/index",
+                          query: { type: "controlSys", num: 0},
+                        });
                       } else if (index === 1) {
-                        setProductNum(['cabinet', 1]);
+                        setProductNum(["cabinet",1])
+                        history.push({
+                          pathname:"/product/index",
+                          query: { type: "cabinet", num: 1},
+                        });
                       } else if (index === 2) {
-                        setProductNum(['servo', 2]);
+                        setProductNum(["servo",2])
+                        history.push({
+                          pathname:"/product/index",
+                          query: { type: "servo", num: 2},
+                        });
                       } else if (index === 3) {
-                        setProductNum(['vision', 3]);
+                        setProductNum(["vision",3])
+                        history.push({
+                          pathname:"/product/index",
+                          query: { type: "vision", num: 3},
+                        });
                       } else if (index === 4) {
-                        setProductNum(['weldTracking', 4]);
+                        setProductNum(["weldTracking",4])
+                        history.push({
+                          pathname:"/product/index",
+                          query: { type: "weldTracking", num: 4},
+                        });
                       }
                     }}
                   >
@@ -188,68 +200,25 @@ function Product(props){
             })}
         </div>
       </div>
-      <div className="product_content_probably" style={ContentShow? { display:"block" }: { display:"none" }} > 
-        <div>
-          { productData === null?"" :
-            productData[[productNum[0]]].slice(
-              (productPage - 1) * pegeNum,
-              (productPage - 1) * pegeNum + pegeNum,
-              ).map((item, index) => {
-              return(
-                <div key={index} className="product_content_children" onClick={ ()=>{
-                  showProductDetail(item);
-                  Upmove()
-                  }}>
-                  <img src={item.litpic} alt="" />
-                  <p> { item.title } </p>
-                </div>
-              )
-            })
-          }
-        </div>
-        <Pagination
-          className="product_bottom_page"
-          current={productPage}
-          itemRender={itemRender}
-          pageSize={pegeNum}
-          total={productData === null ? 1 : productData[productNum[0]].length}
-          onChange={(page, pageSize) => {
-            setProductPage(page);
-          }}
-        />
-      </div>
-      <div className="product_content_detail" style={ContentShow? { display:"none" }: { display:"block" }}>
-        <div className="detail_left">
-          {productDetailClick === null? "" : 
-            <dl className="detail_left_top">
-              <dt> {productDetailClick.title} </dt>
-              <dd> <img src={productDetailClick.litpic} alt=""/>  </dd>
-            </dl>
-          }
-          <p> 产品简介 </p>
-          <div className="product_content_detail_html"
-            dangerouslySetInnerHTML={ productDetail===null?{__html:"<div></div>"}
-            :{ __html: productDetail.body }}>
-          </div>
-        </div>
-        <ul className="detail_right">
-          {productData === null? "" :
-            productData[[productNum[0]]].slice(0,productChildrenNum).map((item,index)=>{
-              return(
-                <li key={index} className="detail_right_list" onClick={()=>{
-                  showProductDetail(item);
-                  Upmove();
-                }}>
-                  <img src={item.litpic} alt=""/>
-                  <p> {item.title} </p>
-                </li>
-              )
-            })
-          }
-          {/* <p style={productData === null?{display:"none"}:productData[[productNum[0]]].length <= 4?{ display:"none" }:{ display:"block" }}> 更多产品 </p> */}
-          <p onClick={()=>{setContentShow(true)}} > 更多产品 </p>
-        </ul>
-      </div>
+      <div>
+        {React.Children.map(props.children, child => {
+          return React.cloneElement(child, {
+            productDetailClick:productDetailClick,
+            productData,
+            productNum,
+            productChildrenNum,
+            productDetail,
+            showProductDetail:showProductDetail,
+            Upmove:Upmove,
+            productPage,
+            pegeNum,
+            setProductPage:setProductPage,
+            productDetailList,
+            setProductDetail:setProductDetail,
+            setProductDetailClick:setProductDetailClick,
+            productList:props.productList,
+          });
+        })}</div>
     </div>
   )
 }
