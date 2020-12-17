@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './index.module.less';
 import { RightCircleOutlined } from '@ant-design/icons';
+import { useHistory } from "umi";
 
 function serviceSupport(props) {
   const [contentList, setContentList] = useState(null);
+
+  const history = useHistory();
 
   function getLink(link) {
     let _cms = '{cmspath}';
@@ -45,7 +48,14 @@ function serviceSupport(props) {
                 <div
                   key={index}
                   onClick={() => {
-                    location.href = getLink(item.typedir);
+                    window.scrollTo(0, 0);
+                    if( item.id === 65 ){
+                      location.href = item.typedir
+                    }else if(item.id === 64 ){
+                      history.push("/service/faq")
+                    }else{
+                      history.push(getLink(item.typedir))
+                    }
                   }}
                 >
                   <p>{item.typename}</p>

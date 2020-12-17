@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import API from "components/API/api";
 import style from "./index.module.less";
+import { useHistory } from "umi";
 
 
 function NewsInformation(props){
   const [DataList, setDataList] = useState(null);
   const [newsSelect, setNewsSelect] = useState("company");
   const [TypeList, setTypeList] = useState(null);
+
+  const history = useHistory();
   useEffect(()=>{
     let dataList = {company:[],industry:[]};
     if( props.inpormation !== null ){
@@ -52,7 +54,11 @@ function NewsInformation(props){
           <div className={style.NewsInformation_bottom_l}>
             {DataList === null? "": 
               <div className={style.NewsInformation_content_l} key={0} onClick={()=>{
-               location.href = `/news/${newsSelect}/${DataList[newsSelect][0].id}.html`;
+              window.scrollTo(0, 0);
+              history.push({
+                pathname:"/news/content",
+                query: { id: Number(DataList[newsSelect][0].id)},
+              });
               }}>
                 <img src={`${DataList[newsSelect][0].litpic}`} alt=""/>
                 <p> {DataList[newsSelect][0].title} </p>
@@ -73,7 +79,11 @@ function NewsInformation(props){
               {DataList === null? "": DataList[newsSelect].slice(0,6).map((item,index)=>{
                 return (
                   <div key={index} className={style.NewsInformation_content_r} style={index ===0?{display:"none"}:index === 1?{}:{marginTop:"10px"}} onClick={()=>{
-                    location.href = `/news/${newsSelect}/${item.id}.html`;
+                    window.scrollTo(0, 0);
+                    history.push({
+                      pathname:"/news/content",
+                      query: { id: Number(item.id)},
+                    });
                   }}>
                     <img src={`${item.litpic}`} alt=""/>
                     <div>

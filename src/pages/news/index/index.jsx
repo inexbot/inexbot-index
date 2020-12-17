@@ -36,7 +36,6 @@ function Index(props){
             return (
               <div key={index} className="newlist_center" onClick={ ()=>{
                 props.ChangeNewsContent(item)
-                console.log(item,"点击了我")
                 history.push({
                     pathname:"/news/content",
                     query: { id: Number(item.id)},

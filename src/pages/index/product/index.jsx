@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import style from './index.module.less';
+import {useHistory} from "umi";
 
 function Product(props) {
   const [productHedList, setProductHedList] = useState(null);
   const [productNum, setProductNum] = useState(['controlSys', 0]);
   const [productData, setProductData] = useState(null);
 
+  const history = useHistory();
   useEffect(() => {
     // 更新产品中心的标签页
     if (props.TypeList !== null) {
@@ -107,9 +109,12 @@ function Product(props) {
             <div
               className={style.product_center_list_l}
               onClick={() => {
-                location.href = `/product/${productNum[0]}/${
-                  productData[productNum[0]][0].id
-                }.html`;
+
+                history.push({
+                  pathname:"/product/content",
+                  query: { id: productData[productNum[0]][0].id,type: productNum[0],num:productNum[1]},
+                });
+                window.scrollTo(0, 0);
               }}
             >
               <div className={style.product__center_l}>
@@ -142,7 +147,11 @@ function Product(props) {
                             : { margin: 0 }
                         }
                         onClick={() => {
-                          location.href = `/product/${productNum[0]}/${item.id}.html`;
+                          history.push({
+                            pathname:"/product/content",
+                            query: { id: Number(item.id),type: productNum[0],num:productNum[1]},
+                          });
+                          window.scrollTo(0, 0);
                         }}
                       >
                         <img src={`${item.litpic}`} alt="" />

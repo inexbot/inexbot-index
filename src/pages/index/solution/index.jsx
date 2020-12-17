@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import API from 'components/API/api';
 import style from './index.module.less';
-// import banner3 from 'images/banner3.jpg';
+import { useHistory } from "umi";
 
 function Solution(props) {
   const [dataList, setDataList] = useState([]);
   const [TypeList, sendTypeList] = useState(null);
+
+  const history = useHistory();
   useEffect(() => {
     API.getSolutionType().then(res => {
       res.list.splice(2, 1);
@@ -61,7 +63,18 @@ function Solution(props) {
                       }
                 }
                 onClick={() => {
-                  location.href = getLink(item.typedir);
+                  window.scrollTo(0, 0);
+                  if( item.sortrank <3 ){
+                    history.push({
+                      pathname:getLink(item.sitepath),
+                      query: { type: item.typenameen, num: item.sortrank-1},
+                    });
+                  }else{
+                    history.push({
+                      pathname:getLink(item.sitepath),
+                      query: { type: item.typenameen, num: item.sortrank-2},
+                    });
+                  }
                 }}
               >
                 <span className={style.solution_btm_txt}> {item.typename} </span>
