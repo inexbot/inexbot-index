@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from "umi";
+import { connect } from 'umi';
 import style from './index.module.less';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
-import { useHistory } from "umi";
+import { useHistory } from 'umi';
 
-const mapStateToProps = state =>{
-  return{
-    headerScroll: state.index.headerScroll
-  }
-}
+const mapStateToProps = state => {
+  return {
+    headerScroll: state.index.headerScroll,
+  };
+};
 
 function Header(props) {
   const [TypeList, setTypeList] = useState(props.TypeList);
@@ -41,88 +41,76 @@ function Header(props) {
     });
   }, [props.headerScroll]);
 
-    // 点击一级导航跳转链接
-    const firstNavClick = (Item) =>{
-      // window.scrollTo(0, 0);
-      console.log(Item)
-      if( Item.id === 19 ){
-        location.href = getLink(Item.typedir);
-      }else if( Item.id === 34 ){
-        history.push("/download")
-      }else if( Item.id === 1 ){
-        history.push("/about/inexbot")
-      }else if( Item.id === 14 ){
-        history.push({
-          pathname:"/product/index",
-          query: { type: "" },
-        }
-        )
-      }else if( Item.id === 7 ){
-        history.push({
-          pathname:"/news/index",
-          query: { type: "" },
-        }
-        )
-      }else{
-        history.push({
-          pathname:getLink(Item.typedir),
-          query: { type: "" },
-        });
-        
-      }
+  // 点击一级导航跳转链接
+  const firstNavClick = Item => {
+    if (Item.id === 19) {
+      location.href = getLink(Item.typedir);
+    } else if (Item.id === 34) {
+      history.push('/download');
+    } else if (Item.id === 1) {
+      history.push('/about/inexbot');
+    } else if (Item.id === 14) {
+      history.push({
+        pathname: '/product/index',
+        query: { type: '' },
+      });
+    } else if (Item.id === 7) {
+      history.push({
+        pathname: '/news/index',
+        query: { type: '' },
+      });
+    } else {
+      history.push({
+        pathname: getLink(Item.typedir),
+        query: { type: '' },
+      });
     }
-  
-    // 点击二级导航跳转链接
-    const secondNavClick = (Item) =>{
-      // window.scrollTo(0, 0);
-      console.log(Item)
-      if( Item.id === 65 ){
-        location.href = getLink(Item.typedir);
-      }else if( Item.id === 8 ){
-        history.push({
-          pathname:getLink(Item.sitepath+"/index"),
-          query: { type: Item.typenameen.slice(0,7) },
-        });
-      }else if( Item.id === 9 ){
-        history.push({
-          pathname:getLink(Item.sitepath+"/index"),
-          query: { type: Item.typenameen.slice(0,8) },
-        });
-      }else{
-        if( Item.reid === 25 ){
-          if( Item.sortrank <3 ){
-            history.push({
-              pathname:getLink(Item.sitepath),
-              query: { type: Item.typenameen, num: Item.sortrank-1},
-            });
-          }else{
-            history.push({
-              pathname:getLink(Item.sitepath),
-              query: { type: Item.typenameen, num: Item.sortrank-2},
-            });
-          }
-        }else if( Item.reid === 14 ){
+  };
+
+  // 点击二级导航跳转链接
+  const secondNavClick = Item => {
+    if (Item.id === 65) {
+      location.href = getLink(Item.typedir);
+    } else if (Item.id === 8) {
+      history.push({
+        pathname: getLink(Item.sitepath + '/index'),
+        query: { type: Item.typenameen.slice(0, 7) },
+      });
+    } else if (Item.id === 9) {
+      history.push({
+        pathname: getLink(Item.sitepath + '/index'),
+        query: { type: Item.typenameen.slice(0, 8) },
+      });
+    } else {
+      if (Item.reid === 25) {
+        if (Item.sortrank < 3) {
           history.push({
-            pathname:getLink(Item.sitepath+'/index'),
-            query: { type: Item.typenameen, num: Item.sortrank-1},
+            pathname: getLink(Item.sitepath),
+            query: { type: Item.typenameen, num: Item.sortrank - 1 },
           });
-        }else{
+        } else {
           history.push({
-            pathname:getLink(Item.typedir),
-            query: { type: Item.typenameen },
+            pathname: getLink(Item.sitepath),
+            query: { type: Item.typenameen, num: Item.sortrank - 2 },
           });
         }
+      } else if (Item.reid === 14) {
+        history.push({
+          pathname: getLink(Item.sitepath + '/index'),
+          query: { type: Item.typenameen, num: Item.sortrank - 1 },
+        });
+      } else {
+        history.push({
+          pathname: getLink(Item.typedir),
+          query: { type: Item.typenameen },
+        });
       }
     }
+  };
 
   return (
-    <div 
-      className={style.Header}
-      style={
-      { background: headerBgc, }  }>
-      <div
-        className={style.header}
-      >
+    <div className={style.Header} style={{ background: headerBgc }}>
+      <div className={style.header}>
         <h1>
           <a href="https://www.inexbot.com">
             <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/skin/images/logo.png"></img>
@@ -135,14 +123,14 @@ function Header(props) {
             : TypeList.map((Item, Index) => {
                 return (
                   <li key={Index}>
-                    <a  onClick={firstNavClick.bind(null,Item)}>
+                    <a onClick={firstNavClick.bind(null, Item)}>
                       {Item.typename} <span></span>
                     </a>
                     <ul>
                       {Item.sublist.map((item, index) => {
                         return (
                           <li key={index}>
-                            <a  onClick={secondNavClick.bind(null,item)}>
+                            <a onClick={secondNavClick.bind(null, item)}>
                               {' '}
                               {item.typename}
                               <span></span>{' '}
@@ -194,12 +182,14 @@ function Header(props) {
           : TypeList.map((Item, Index) => {
               return (
                 <li key={Index}>
-                  <a onClick={firstNavClick.bind(null,Item)} >{Item.typename}</a>
+                  <a onClick={firstNavClick.bind(null, Item)}>
+                    {Item.typename}
+                  </a>
                   <ul>
                     {Item.sublist.map((item, index) => {
                       return (
                         <li key={index}>
-                          <a onClick={secondNavClick.bind(null,item)}>
+                          <a onClick={secondNavClick.bind(null, item)}>
                             <span>-{item.typename}</span>
                           </a>
                         </li>
