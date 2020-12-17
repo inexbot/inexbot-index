@@ -14,52 +14,50 @@ function Index(props) {
     }
     return originalElement;
   }
-  
-  return(
-    <div className="newlist" >
-    {props.productList === null
-      ? ''
-      : props.productList[props.newSelect]
-          .slice(
-            (props.newListPage - 1) * props.pegeNum,
-            (props.newListPage - 1) * props.pegeNum + props.pegeNum,
-          )
-          .map((item, index) => {
-            return (
-              <div key={index} className="newlist_center" onClick={ ()=>{
-                props.ChangeNewsContent(item)
-                history.push({
-                    pathname:"/news/content",
-                    query: { id: Number(item.id)},
-                  });
-              }}>
-                <div className="newlist_center_img">
-                  <img src={item.litpic} alt="" />
-                </div>
-                <p className="newlist_center_title">
-                  {' '}
-                  {item.title}{' '}
-                </p>
-                <p className="newlist_center_dis">
-                  {' '}
-                  {item.description}{' '}
-                </p>
-                <span className="newlist_center_date">{`
 
-              ${new Date(item.pubdate * 1000).getFullYear()} -
-              ${
-                new Date(item.pubdate * 1000).getMonth() + 1 < 10
-                  ? '0' + (new Date(item.pubdate * 1000).getMonth() + 1)
-                  : new Date(item.pubdate * 1000).getMonth() + 1
-              } -
-              ${
-                new Date(item.pubdate * 1000).getDate() < 10
-                  ? '0' + new Date(item.pubdate * 1000).getDate()
-                  : new Date(item.pubdate * 1000).getDate()
-              }
-              `}</span>
-                </div>
-              );
+
+  return (
+    <div className="newlist">
+      {props.productList === null
+        ? ''
+        : props.productList[props.newSelect]
+            .slice(
+              (props.newListPage - 1) * props.pegeNum,
+              (props.newListPage - 1) * props.pegeNum + props.pegeNum,
+            )
+            .map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="newlist_center"
+                  onClick={() => {
+                    props.ChangeNewsContent(item);
+                    history.push({
+                      pathname: '/news/content',
+                      query: { id: Number(item.id), type: props.newSelect },
+                    });
+                  }}
+                >
+                  <div className="newlist_center_img">
+                    <img src={item.litpic} alt="" />
+                  </div>
+                  <p className="newlist_center_title"> {item.title} </p>
+                  <p className="newlist_center_dis"> {item.description} </p>
+                  <span className="newlist_center_date">{`
+                    ${new Date(item.pubdate * 1000).getFullYear()} -
+                    ${
+                      new Date(item.pubdate * 1000).getMonth() + 1 < 10
+                        ? '0' + (new Date(item.pubdate * 1000).getMonth() + 1)
+                        : new Date(item.pubdate * 1000).getMonth() + 1
+                    } -
+                    ${
+                      new Date(item.pubdate * 1000).getDate() < 10
+                        ? '0' + new Date(item.pubdate * 1000).getDate()
+                        : new Date(item.pubdate * 1000).getDate()
+                    }
+                    `}</span>
+                  </div>
+                );
             })}
       <Pagination
         className="newlist_bottom_page"
