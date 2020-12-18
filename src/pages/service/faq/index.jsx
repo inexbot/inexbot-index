@@ -19,6 +19,10 @@ function Faq(props) {
   const [dataSoure, setDataSoure] = useState(null);
   const [contentShow, setContentShow] = useState(true);
   const [contentValue, setContentValue] = useState(null);
+  const [questionList, setQuestionList] = useState(null);
+  const [selectIptValue, setSelectIptValue] = useState("");
+  const [faqContentList, setFaqContentList] = useState(null);
+  const [titleSelectShow, setTitleSelectShow] = useState(true);
 
   useEffect(() => {
     let num = 0;
@@ -36,7 +40,35 @@ function Faq(props) {
   }, [props.BannerWidth]);
 
   const { Search } = Input;
-  const onSearch = value => console.log(value);
+  const onSearch = value => {
+    if( value === "" ){
+      setFaqSelectNum(0)
+    }else{
+      if( questionList !== null ){
+        let dataSoure = [];
+        questionList.map((item,idnex)=>{
+          let quesitionAll = item.title+item.question1+item.question2+item.question3+item.question4+item.solution1+item.solution2+item.solution3+item.solution4;
+          if( quesitionAll.indexOf(value) !== -1 ){
+            dataSoure.push({
+              title: item.title,
+              key: item.Id,
+              value: item,
+            });
+          }
+        })
+        setDataSoure(dataSoure);
+      }
+    }
+    setSelectIptValue(value);
+  }
+
+  // 获取全部的问题
+  useEffect(()=>{
+    API.getFaqtitle().then(res => {
+      setFaqContentList(res.list)
+    })  
+  },[])
+  
 
   // 获取列表
   useEffect(() => {
@@ -54,19 +86,23 @@ function Faq(props) {
         key: 'title',
       },
     ];
-    API.getFaqtitle(faqSelectNum + 1).then(res => {
+    if( faqContentList !== null ){
       let dataSoure = [];
-      res.list.map((item, index) => {
-        dataSoure.push({
-          title: item.title,
-          key: item.Id,
-          value: item,
-        });
+      faqContentList.map((item, index) => {
+        if( item.type === faqSelectNum+1 ){
+          dataSoure.push({
+            title: item.title,
+            key: item.Id,
+            value: item,
+          });
+        }
       });
+      setQuestionList(faqContentList);
       setDataSoure(dataSoure);
-      setDataColumns(columns);
-    });
-  }, [faqSelectNum]);
+    }
+    setDataColumns(columns);
+  }, [faqSelectNum,faqContentList]);
+
 
   return (
     <div className="children_faq">
@@ -84,7 +120,7 @@ function Faq(props) {
         <Search onSearch={onSearch} enterButton  />
       </div>
       <div className="faq_selectAll">
-        <div className="fa1_selectFs">
+        <div className="fa1_selectFs" style={selectIptValue === ""? {display:"block"}:{display:"none"}}>
           <ul className="fa1_select">
             {faqSelectlist === null
               ? ''

@@ -66,7 +66,7 @@ function Header(props) {
          break;
       default:
         setHeaderTopName(props.headerTopSelect);
-} 
+    } 
 
   },[props.headerTopSelect])
 

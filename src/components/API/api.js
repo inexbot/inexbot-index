@@ -16,7 +16,7 @@ function post(model, params, order, logic = 'and', database = 'super') {
       logic,
       order,
       page: 1,
-      perpage: 150,
+      perpage: 9999,
     },
   })
     .then(res => res.data.data)
@@ -101,10 +101,10 @@ export default {
   },
 
   // 获取常见问题页面的标题
-  getFaqtitle(typeid) {
+  getFaqtitle() {
     return post(
       'inexbot_faq',
-      `[["type", "=", ${typeid} ]]`,
+      `[["id", ">", "0" ]]`,
       ['id ASC'],
       'and',
       'iu',
