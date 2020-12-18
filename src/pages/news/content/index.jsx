@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'umi';
+import './index.module.less';
 
 function Content(props) {
   const history = useHistory();
@@ -27,7 +28,11 @@ function Content(props) {
 
   return (
     <div className="newlist_children">
+      <div className="title">
+        {props.location.query.title ? props.location.query.title : ''}
+      </div>
       <div
+        className="newsContent"
         dangerouslySetInnerHTML={
           props.newsListChildren === null
             ? { __html: '<div></div>' }

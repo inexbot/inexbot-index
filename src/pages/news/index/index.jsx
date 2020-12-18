@@ -15,7 +15,6 @@ function Index(props) {
     return originalElement;
   }
 
-
   return (
     <div className="newlist">
       {props.productList === null
@@ -34,7 +33,11 @@ function Index(props) {
                     props.ChangeNewsContent(item);
                     history.push({
                       pathname: '/news/content',
-                      query: { id: Number(item.id), type: props.newSelect },
+                      query: {
+                        id: Number(item.id),
+                        type: props.newSelect,
+                        title: item.title,
+                      },
                     });
                   }}
                 >
@@ -56,8 +59,8 @@ function Index(props) {
                         : new Date(item.pubdate * 1000).getDate()
                     }
                     `}</span>
-                  </div>
-                );
+                </div>
+              );
             })}
       <Pagination
         className="newlist_bottom_page"
