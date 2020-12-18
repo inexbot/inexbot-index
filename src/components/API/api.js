@@ -28,6 +28,7 @@ function post(model, params, order, logic = 'and', database = 'super') {
 export default {
   // 获取列表
   getTypeList() {
+    console.log('执行到我啦');
     return post('dede_arctype', `[["id", ">", "0"]]`, '["sortrank ASC"]').then(
       res => {
         let _l = [];
@@ -116,7 +117,7 @@ export default {
   },
 
   // 获取解决方案页面的视频
-  getSolutionVideo(){
+  getSolutionVideo() {
     return post('dede_addonarticle', '[[ "typeid" , "=" , "50"]]', ['aid ASC']);
-  }
+  },
 };
