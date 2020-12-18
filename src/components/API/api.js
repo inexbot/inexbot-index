@@ -28,7 +28,6 @@ function post(model, params, order, logic = 'and', database = 'super') {
 export default {
   // 获取列表
   getTypeList() {
-    console.log('执行到我啦');
     return post('dede_arctype', `[["id", ">", "0"]]`, '["sortrank ASC"]').then(
       res => {
         let _l = [];

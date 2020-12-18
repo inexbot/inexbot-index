@@ -95,7 +95,6 @@ function Product(props){
   const showProductDetail = ( Item )=>{
     setProductDetailClick(Item);
     if( productDetailList === null ){
-      showProductDetailList(Item);
     }else{
       productDetailList.map((item,index)=>{
         if( Item.id === item.aid ){

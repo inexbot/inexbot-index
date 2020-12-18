@@ -93,7 +93,6 @@ function News(props) {
   // 点击新闻切换content内容
   const ChangeNewsContent = (Item) =>{
     if( newsContent === null ){
-      ChangeNewsContent( Item )
     }else{
       newsContent.map((item,index)=>{
         if( Item.id === item.aid ){
