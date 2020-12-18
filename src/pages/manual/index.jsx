@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'umi';
+import { useHistory, connect } from 'umi';
 import Banner from 'components/banner';
 import style from './index.module.less';
 import API from 'components/API/api';
@@ -24,6 +24,9 @@ const columns = [
     render: text => <a href={text}>点击下载</a>,
   },
 ];
+const mapStateToProps = state => {
+  return {};
+};
 function Manual(props) {
   const [selectedType, setSelectedType] = useState('');
   const [manualList, setManualList] = useState([]);
@@ -37,6 +40,23 @@ function Manual(props) {
       history.location.query.type === 'other' ? 'other' : 'manual',
     );
   }, []);
+  // 更新滚动高度header颜色改变
+  useEffect(() => {
+    let num = 0;
+    if (props.BannerWidth < 760) {
+      num = 160;
+    } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
+      num = 225;
+    } else if (props.BannerWidth > 900 && props.BannerWidth < 1200) {
+      num = 225;
+    } else {
+      num = 420;
+    }
+    props.dispatch({
+      type: 'index/setHeaderScroll',
+      data: num,
+    });
+  }, [props.BannerWidth]);
   useEffect(() => {
     if (selectedType === '') {
       return;
@@ -126,4 +146,4 @@ function Manual(props) {
   );
 }
 
-export default Manual;
+export default connect(mapStateToProps)(Manual);

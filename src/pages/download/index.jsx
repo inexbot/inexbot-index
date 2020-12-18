@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import DownloadBanner from 'components/downloadbanner';
 import './index.module.less';
-import {connect} from "umi";
+import { connect } from 'umi';
 import API from 'components/API/api';
 import { Select } from 'antd';
 const { Option } = Select;
 
-const mapStateToProps= state =>{
-  return{
-    
-  }
-}
+const mapStateToProps = state => {
+  return {};
+};
 
 function Download(props) {
   const [version, setVersion] = useState('');
@@ -25,20 +23,22 @@ function Download(props) {
   }
 
   // 更新滚动高度header颜色改变
-  useEffect(()=>{
+  useEffect(() => {
     let num = 0;
-    if( props.BannerWidth <760 ){
-      num = 900
-    }else if( props.BannerWidth > 760 &&  props.BannerWidth < 1200  ){
-      num = 1000
-    }else{
-      num = 500
+    if (props.BannerWidth < 760) {
+      num = 160;
+    } else if (props.BannerWidth > 760 && props.BannerWidth < 900) {
+      num = 225;
+    } else if (props.BannerWidth > 900 && props.BannerWidth < 1200) {
+      num = 225;
+    } else {
+      num = 500;
     }
     props.dispatch({
-      type:"index/setHeaderScreoll",
-      data:num
-    })
-  },[props.BannerWidth])
+      type: 'index/setHeaderScroll',
+      data: num,
+    });
+  }, [props.BannerWidth]);
 
   useEffect(() => {
     API.getDownloadLink().then(res => {
@@ -102,4 +102,4 @@ function Download(props) {
     </div>
   );
 }
-export default connect(mapStateToProps)(Download) ;
+export default connect(mapStateToProps)(Download);
