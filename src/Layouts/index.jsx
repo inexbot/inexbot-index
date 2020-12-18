@@ -9,6 +9,7 @@ function App(props) {
   const [BannerWidth, setBannerWidth] = useState(document.body.clientWidth);
   const [BannerHeight, setBannerHeight] = useState(document.body.clientHeight);
   const [productList, setProductList] = useState(null);
+  const [headerTopSelect, setHeaderTopSelect] = useState("/");
 
   useEffect(() => {
     // 获取总数据
@@ -25,6 +26,10 @@ function App(props) {
     };
   }, []);
 
+  useEffect(()=>{
+    setHeaderTopSelect(props.location.pathname)
+  },[props.location.pathname])
+
   return (
     <div className={style.App}>
       {/* 主页头部,Header组件*/}
@@ -33,6 +38,7 @@ function App(props) {
           TypeList={TypeList}
           BannerHeight={BannerHeight}
           BannerWidth={BannerWidth}
+          headerTopSelect={headerTopSelect}
         />
       </div>
       {/* 中间内容 */}

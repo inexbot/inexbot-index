@@ -28,8 +28,6 @@ function partner(props) {
     for (let i = 0; i < props.TypeList.length; i++) {
       if (props.TypeList[i].id === 1) {
         setTypeList(props.TypeList[i]);
-        console.log(props.TypeList[i])
-        console.log(props.TypeList)
       }
     }
 

@@ -14,6 +14,7 @@ function Header(props) {
   const [TypeList, setTypeList] = useState(props.TypeList);
   const [listShow, setListShow] = useState('none');
   const [headerBgc, setHeaderBgc] = useState('');
+  const [headerTopName, setHeaderTopName] = useState("/");
   const history = useHistory();
   function getLink(link) {
     let _cms = '{cmspath}';
@@ -41,10 +42,38 @@ function Header(props) {
     });
   }, [props.headerScroll]);
 
+  useEffect(()=>{
+    switch(props.headerTopSelect) {
+      case '/product/index':
+      case '/product/content':
+        setHeaderTopName('/product');
+         break;
+      case '/download':
+      case '/video':
+      case '/service/faq':
+      case '/manual':
+        setHeaderTopName('/service');
+         break;
+      case '/news/index':
+      case '/news/content':
+        setHeaderTopName('/news');
+         break;
+      case '/about/inexbot':
+      case '/about/join':
+      case '/about/contact':
+      case '/about/partner':
+        setHeaderTopName('/about');
+         break;
+      default:
+        setHeaderTopName(props.headerTopSelect);
+} 
+
+  },[props.headerTopSelect])
+
     // 点击一级导航跳转链接
     const firstNavClick = (Item) =>{
       window.scrollTo(0, 0);
-      console.log(Item)
+      setListShow("none")
       if( Item.id === 19 ){
         location.href = getLink(Item.typedir);
       }else if( Item.id === 34 ){
@@ -75,7 +104,7 @@ function Header(props) {
     // 点击二级导航跳转链接
     const secondNavClick = (Item) =>{
       window.scrollTo(0, 0);
-      console.log(Item)
+      setListShow("none")
       if( Item.id === 65 ){
         location.href = getLink(Item.typedir);
       }else if( Item.id === 8 ){
@@ -135,7 +164,7 @@ function Header(props) {
             : TypeList.map((Item, Index) => {
                 return (
                   <li key={Index}>
-                    <a  onClick={firstNavClick.bind(null,Item)}>
+                    <a className={headerTopName === getLink(Item.typedir)? style.header_list_top_a: "" }  onClick={firstNavClick.bind(null,Item)}>
                       {Item.typename} <span></span>
                     </a>
                     <ul>
