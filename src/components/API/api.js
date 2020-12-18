@@ -66,7 +66,7 @@ export default {
   },
   // 获取软件下载页面的内容
   getDownloadLink() {
-    return post('dede_download', `[["aid",">","0"]]`, ['aid ASC']);
+    return post('dede_download', `[["aid",">","0"]]`, ['sort DESC']);
   },
   getManualList() {
     return post('dede_allmanual', `[["typeid","=","58"]]`, ['sort ASC']);
