@@ -1,29 +1,29 @@
-[1118/092301.507:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1118/181034.060:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1118/181034.073:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1118/181034.035:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1118/181034.035:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1118/181034.048:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1118/181034.105:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
+[1118/092301.507:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1118/181034.060:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1118/181034.073:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1118/181034.035:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1118/181034.035:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1118/181034.048:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1118/181034.105:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
 [1118/181034.159:ERROR:exception_snapshot_win.cc(99)] thread ID 15792 not found in process
-[1118/181034.051:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
+[1118/181034.051:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
 [1118/181034.158:ERROR:exception_snapshot_win.cc(99)] thread ID 15864 not found in process
 [1118/181034.159:ERROR:exception_snapshot_win.cc(99)] thread ID 12572 not found in process
 [1118/181034.158:ERROR:exception_snapshot_win.cc(99)] thread ID 11184 not found in process
 [1118/181034.159:ERROR:exception_snapshot_win.cc(99)] thread ID 6188 not found in process
 [1118/181034.158:ERROR:exception_snapshot_win.cc(99)] thread ID 5276 not found in process
 [1118/181034.158:ERROR:exception_snapshot_win.cc(99)] thread ID 8156 not found in process
-[1207/093929.881:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1207/100015.561:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1209/170628.556:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1211/092031.316:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1217/092549.794:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
-[1217/181409.280:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1217/181409.264:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1217/181409.108:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
-[1217/181409.248:ERROR:process_reader_win.cc(123)] NtOpenThread: {ÎÞ·¨·ÃÎÊ} ¹ý³ÌÒÑÇëÇó·ÃÎÊÒ»¶ÔÏó£¬µ«Î´¸ø·ÃÎÊÈ¨ÏÞ¡£ (0xc0000022)
+[1207/093929.881:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1207/100015.561:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1209/170628.556:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1211/092031.316:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1217/092549.794:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
+[1217/181409.280:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1217/181409.264:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1217/181409.108:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
+[1217/181409.248:ERROR:process_reader_win.cc(123)] NtOpenThread: {ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ó£¬µï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Þ¡ï¿½ (0xc0000022)
 [1217/181409.561:ERROR:exception_snapshot_win.cc(99)] thread ID 15804 not found in process
 [1217/181409.561:ERROR:exception_snapshot_win.cc(99)] thread ID 12912 not found in process
 [1217/181409.561:ERROR:exception_snapshot_win.cc(99)] thread ID 14212 not found in process
 [1217/181409.561:ERROR:exception_snapshot_win.cc(99)] thread ID 8328 not found in process
-[1221/093640.223:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÂ·¾¶¡£ (0x3)
+[1221/093640.223:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÏµÍ³ï¿½Ò²ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ (0x3)
