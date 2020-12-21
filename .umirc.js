@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   // publicPath: 'https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/index/',
   history: {
-    type: 'browser',
+    type: 'hash',
   },
   dynamicImport: {},
   alias: {
