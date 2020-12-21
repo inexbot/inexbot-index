@@ -61,6 +61,7 @@ function Faq(props) {
     setSelectIptValue(value);
   }
 
+
   // 获取全部的问题
   useEffect(()=>{
     API.getFaqtitle().then(res => {
