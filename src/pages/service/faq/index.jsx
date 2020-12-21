@@ -22,7 +22,6 @@ function Faq(props) {
   const [questionList, setQuestionList] = useState(null);
   const [selectIptValue, setSelectIptValue] = useState("");
   const [faqContentList, setFaqContentList] = useState(null);
-  const [titleSelectShow, setTitleSelectShow] = useState(true);
 
   useEffect(() => {
     let num = 0;
@@ -62,6 +61,7 @@ function Faq(props) {
     setSelectIptValue(value);
   }
 
+
   // 获取全部的问题
   useEffect(()=>{
     API.getFaqtitle().then(res => {
@@ -86,22 +86,24 @@ function Faq(props) {
         key: 'title',
       },
     ];
-    if( faqContentList !== null ){
-      let dataSoure = [];
-      faqContentList.map((item, index) => {
-        if( item.type === faqSelectNum+1 ){
-          dataSoure.push({
-            title: item.title,
-            key: item.Id,
-            value: item,
-          });
-        }
-      });
-      setQuestionList(faqContentList);
-      setDataSoure(dataSoure);
+    if( selectIptValue === "" ){
+      if( faqContentList !== null ){
+        let dataSoure = [];
+        faqContentList.map((item, index) => {
+          if( item.type === faqSelectNum+1 ){
+            dataSoure.push({
+              title: item.title,
+              key: item.Id,
+              value: item,
+            });
+          }
+        });
+        setQuestionList(faqContentList);
+        setDataSoure(dataSoure);
+      }
     }
     setDataColumns(columns);
-  }, [faqSelectNum,faqContentList]);
+  }, [faqSelectNum,faqContentList,selectIptValue]);
 
 
   return (
@@ -117,7 +119,11 @@ function Faq(props) {
         }}
       ></Banner>
       <div className="faq_search">
-        <Search onSearch={onSearch} enterButton  />
+        <Search onSearch={onSearch}  enterButton  onChange={(e)=>{
+          if(e.target.value === ""){
+            setSelectIptValue("");
+          }
+        }} />
       </div>
       <div className="faq_selectAll">
         <div className="fa1_selectFs" style={selectIptValue === ""? {display:"block"}:{display:"none"}}>
