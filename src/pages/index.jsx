@@ -7,6 +7,7 @@ import InexbotIntroduce from './index/inexbotIntroduce/index.jsx';
 import ServiceSupport from './index/serviceSupport/index.jsx';
 import Patner from './index/partner/index.jsx';
 import NewsInformation from './index/newsInformation/index.jsx';
+import LazyLoad from 'react-lazyload';
 import './index.css';
 
 const mapStateToProps = state => {
@@ -35,43 +36,57 @@ function Connect(props) {
     <div>
       {/* banner图 */}
       <div className="banner">
-        <Banner BannerWidth={BannerWidth} />
+        <LazyLoad height={600}>
+          <Banner BannerWidth={BannerWidth} />
+        </LazyLoad>
       </div>
       {/* 解决方案 */}
       <div className="solution">
-        <Solution BannerWidth={BannerWidth} TypeList={props.TypeList} />
+        <LazyLoad height={600}>
+          <Solution BannerWidth={BannerWidth} TypeList={props.TypeList} />
+        </LazyLoad>
       </div>
       {/* 产品中心 */}
       <div className="product">
-        <Product
-          BannerWidth={BannerWidth}
-          TypeList={props.TypeList}
-          productList={props.productList}
-        />
+        <LazyLoad height={600}>
+          <Product
+            BannerWidth={BannerWidth}
+            TypeList={props.TypeList}
+            productList={props.productList}
+          />
+        </LazyLoad>
       </div>
       {/* 产品介绍 */}
       <div className="InexbotIntroduce">
-        <InexbotIntroduce TypeList={props.TypeList} />
+        <LazyLoad height={600}>
+          <InexbotIntroduce TypeList={props.TypeList} />
+        </LazyLoad>
       </div>
       {/* 服务支持 */}
       <div className="ServiceSupport">
-        <ServiceSupport TypeList={props.TypeList} />
+        <LazyLoad height={600}>
+          <ServiceSupport TypeList={props.TypeList} />
+        </LazyLoad>
       </div>
       {/* 合作伙伴 */}
       <div className="partner">
-        <Patner
-          BannerWidth={BannerWidth}
-          productList={props.productList}
-          TypeList={props.TypeList}
-        />
+        <LazyLoad height={600}>
+          <Patner
+            BannerWidth={BannerWidth}
+            productList={props.productList}
+            TypeList={props.TypeList}
+          />
+        </LazyLoad>
       </div>
       {/* 新闻资讯 */}
       <div className="newsInformation">
-        <NewsInformation
-          BannerWidth={BannerWidth}
-          inpormation={props.productList}
-          TypeList={props.TypeList}
-        />
+        <LazyLoad height={600}>
+          <NewsInformation
+            BannerWidth={BannerWidth}
+            inpormation={props.productList}
+            TypeList={props.TypeList}
+          />
+        </LazyLoad>
       </div>
     </div>
   );
