@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './index.module.less';
-import {useHistory} from "umi";
+import { useHistory } from 'umi';
 
 function Product(props) {
   const [productHedList, setProductHedList] = useState(null);
@@ -8,6 +8,20 @@ function Product(props) {
   const [productData, setProductData] = useState(null);
 
   const history = useHistory();
+
+  // 将产品中心顺序自weight从高到低排序
+  function productListSort(List) {
+    for (let j = 0; j < List.length - 1; j++) {
+      for (let i = 0; i < List.length - j - 1; i++) {
+        if (List[i].weight < List[i + 1].weight) {
+          let temp = List[i];
+          List[i] = List[i + 1];
+          List[i + 1] = temp;
+        }
+      }
+    }
+    return List;
+  }
   useEffect(() => {
     // 更新产品中心的标签页
     if (props.TypeList !== null) {
@@ -41,15 +55,18 @@ function Product(props) {
           dataList['weldTracking'].push(props.productList.list[i]);
         }
       }
+      dataList.controlSys = productListSort(dataList.controlSys);
+      dataList.cabinet = productListSort(dataList.cabinet);
+      dataList.servo = productListSort(dataList.servo);
+      dataList.vision = productListSort(dataList.vision);
+      dataList.weldTracking = productListSort(dataList.weldTracking);
       setProductData(dataList);
     }
   }, [props.productList]);
 
   return (
     <div className={style.Product}>
-      <div
-        className={style.productAll}
-      >
+      <div className={style.productAll}>
         <div className={style.product_top}>
           <p> {productHedList === null ? '' : productHedList.typename} </p>
           <p> {productHedList === null ? '' : productHedList.typenameen} </p>
@@ -107,12 +124,19 @@ function Product(props) {
         ) : (
           <div className={style.product_center}>
             <div
-              className={style.product_center_list_l}
+              className={
+                productData[productNum[0]].length === 1
+                  ? style.product_center_list_l_one
+                  : style.product_center_list_l
+              }
               onClick={() => {
-
                 history.push({
-                  pathname:"/product/content",
-                  query: { id: productData[productNum[0]][0].id,type: productNum[0],num:productNum[1]},
+                  pathname: '/product/content',
+                  query: {
+                    id: productData[productNum[0]][0].id,
+                    type: productNum[0],
+                    num: productNum[1],
+                  },
                 });
                 window.scrollTo(0, 0);
               }}
@@ -122,7 +146,13 @@ function Product(props) {
                 <img src={`${productData[productNum[0]][0].litpic}`} alt="" />
               </div>
             </div>
-            <div className={style.product_center_list_r}>
+            <div
+              className={
+                productData[productNum[0]].length === 1
+                  ? style.product_center_list_r_one
+                  : style.product_center_list_r
+              }
+            >
               <div
                 style={
                   props.BannerWidth > 1200
@@ -148,8 +178,12 @@ function Product(props) {
                         }
                         onClick={() => {
                           history.push({
-                            pathname:"/product/content",
-                            query: { id: Number(item.id),type: productNum[0],num:productNum[1]},
+                            pathname: '/product/content',
+                            query: {
+                              id: Number(item.id),
+                              type: productNum[0],
+                              num: productNum[1],
+                            },
                           });
                           window.scrollTo(0, 0);
                         }}
