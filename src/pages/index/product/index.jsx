@@ -10,18 +10,18 @@ function Product(props) {
   const history = useHistory();
 
   // 将产品中心顺序自weight从高到低排序
-  function productListSort(List) {
-    for (let j = 0; j < List.length - 1; j++) {
-      for (let i = 0; i < List.length - j - 1; i++) {
-        if (List[i].weight < List[i + 1].weight) {
-          let temp = List[i];
-          List[i] = List[i + 1];
-          List[i + 1] = temp;
-        }
-      }
-    }
-    return List;
-  }
+  // function productListSort(List) {
+  //   for (let j = 0; j < List.length - 1; j++) {
+  //     for (let i = 0; i < List.length - j - 1; i++) {
+  //       if (List[i].weight < List[i + 1].weight) {
+  //         let temp = List[i];
+  //         List[i] = List[i + 1];
+  //         List[i + 1] = temp;
+  //       }
+  //     }
+  //   }
+  //   return List;
+  // }
   useEffect(() => {
     // 更新产品中心的标签页
     if (props.TypeList !== null) {
@@ -55,11 +55,12 @@ function Product(props) {
           dataList['weldTracking'].push(props.productList.list[i]);
         }
       }
-      dataList.controlSys = productListSort(dataList.controlSys);
-      dataList.cabinet = productListSort(dataList.cabinet);
-      dataList.servo = productListSort(dataList.servo);
-      dataList.vision = productListSort(dataList.vision);
-      dataList.weldTracking = productListSort(dataList.weldTracking);
+      // 如果将产品中心顺序使用weight从高到低排序的话把这条和上边的注释打开就行
+      // dataList.controlSys = productListSort(dataList.controlSys);
+      // dataList.cabinet = productListSort(dataList.cabinet);
+      // dataList.servo = productListSort(dataList.servo);
+      // dataList.vision = productListSort(dataList.vision);
+      // dataList.weldTracking = productListSort(dataList.weldTracking);
       setProductData(dataList);
     }
   }, [props.productList]);
