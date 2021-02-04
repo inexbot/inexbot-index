@@ -128,6 +128,11 @@ function Banner(props) {
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"
                 src={banner1Video}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'fill',
+                }}
               ></video>
               <span
                 className={
@@ -220,6 +225,11 @@ function Banner(props) {
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"
                 src={banner2Video}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'fill',
+                }}
               ></video>
               <span
                 className={
@@ -312,6 +322,11 @@ function Banner(props) {
                 x5-video-player-type="h5"
                 x5-video-orientation="portraint"
                 src={banner3Video}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'fill',
+                }}
               ></video>
               <span
                 className={
